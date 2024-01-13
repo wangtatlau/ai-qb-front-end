@@ -7,15 +7,18 @@ const QuestionCard = ({
   optionsPercentage,
   explanation,
   handleAnswerClick,
+  handleNextQuestion,
   answered,
   correctAnswer,
   selectedAnswer,
   userAnswers,
 }) => {
+  const userAnswerForCurrentQuestion = userAnswers.find(answer => answer.questionId === question.id);
+
   return (
     <div className={`${styles.cardContainer} ${answered ? styles.answered : ""}`}>
-      <h2>{question.id}. {question.question}</h2>
-      <p className={styles.question}>{question.question}</p>
+      <h2 className={styles.questionStem}>{question.id}. {question.question}</h2>
+      <p className={styles.questionLeadIn}>{question.question}</p>
       <ul className={`${styles.optionsList} ${styles.vertical}`}>
         {options.map((option, index) => (
           <li key={index} onClick={() => handleAnswerClick(option)} className={styles.optionItem}>
@@ -29,11 +32,11 @@ const QuestionCard = ({
               <div>
                 {answered && (
                   <span>
-                    {option === correctAnswer ? (
-                      <span style={{ color: "green", marginLeft: "10px" }}>✔</span>
-                    ) : (
-                      <span style={{ color: "red", marginLeft: "10px" }}>✘</span>
-                    )}
+                    {(option === selectedAnswer || (userAnswerForCurrentQuestion && option === userAnswerForCurrentQuestion.selectedAnswer)) ? (
+                      <span style={{ color: (option === correctAnswer) ? "green" : "red", marginLeft: "10px" }}>
+                        {option === correctAnswer ? "✔" : "✘"}
+                      </span>
+                    ) : null}
                   </span>
                 )}
                 {answered && (
@@ -61,21 +64,29 @@ const QuestionCard = ({
       {answered && (
         <div className={styles.explanationContainer}>
           <p className={styles.explanation}>
-            {userAnswers.map((answer) => (
-              answer.questionId === question.id ? (
-                <span key={answer.questionId}>
-                  {answer.isCorrect ? (
-                    <span style={{ color: "green" }}>Correct!</span>
-                  ) : (
-                    <span style={{ color: "red" }}>Incorrect.</span>
-                  )}
-                </span>
-              ) : null
-            ))}
+            {userAnswerForCurrentQuestion && (
+              <span>
+                {userAnswerForCurrentQuestion.isCorrect ? (
+                  <span style={{ color: "green" }}>Correct!</span>
+                ) : (
+                  <span style={{ color: "red" }}>Incorrect.</span>
+                )}
+              </span>
+            )}
             {correctAnswer === selectedAnswer ? "" : ` Correct answer: ${correctAnswer}`}
             <br></br>
             {explanation}
           </p>
+        </div>
+      )}
+      {answered && (
+        <div className={styles.nextButtonContainer}>
+          <button
+            onClick={handleNextQuestion}
+            className={styles.nextButton}
+          >
+            Next Question
+          </button>
         </div>
       )}
     </div>

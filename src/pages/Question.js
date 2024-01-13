@@ -45,6 +45,14 @@ const questionStack = [
     correctAnswer: "1945",
     explanation: "World War II ended in the year 1945.",
   },
+  {
+    id: 6,
+    question: "In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end?In which year did World War II end? In which year did World War II end?  ",
+    options: ["1943", "1945", "1947", "1950", "1952"],
+    optionsPercentage: ["10", "60", "10", "10", "10"],
+    correctAnswer: "1945",
+    explanation: "World War II ended in the year 1945.",
+  },
 ];
 
   
@@ -142,6 +150,7 @@ const QuestionPage = () => {
           optionsPercentage={currentQuestion.optionsPercentage}
           explanation={currentQuestion.explanation}
           handleAnswerClick={handleAnswerClick}
+          handleNextQuestion={handleNextQuestion} 
           answered={answered}
           correctAnswer={currentQuestion.correctAnswer}
           selectedAnswer={userAnswers.length > 0 ? userAnswers[userAnswers.length - 1].selectedAnswer : null}
@@ -149,16 +158,6 @@ const QuestionPage = () => {
         />
         <div className={styles.scoreBoardContainer}>
           <ScoreBoard userAnswers={userAnswers} onScoreItemClick={handleScoreItemClick} />
-        </div>
-        <div>
-          {answered && (
-            <button
-              onClick={handleNextQuestion}
-              disabled={currentQuestionIndex + 1 >= questionStack.length}
-            >
-              Next Question
-            </button>
-          )}
         </div>
       </div>
     </div>
