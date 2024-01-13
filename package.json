@@ -22,7 +22,11 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "plugins": ["css-modules"],
+    "rules": {
+      "css-modules/no-unused-class": ["error", { "camelCase": true }]
+    }
   },
   "browserslist": {
     "production": [
@@ -35,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-css-modules": "^2.12.0"
   }
 }

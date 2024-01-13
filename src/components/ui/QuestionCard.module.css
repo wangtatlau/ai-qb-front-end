@@ -1,0 +1,72 @@
+/* Update your QuestionCard.module.css file with the following styles */
+
+.cardContainer {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.optionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.optionItem {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  margin-bottom: 20px;
+}
+
+.overlayBarContainer {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.overlayBar {
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.correctOverlay {
+  background-color: #4caf50;
+}
+
+.wrongOverlay {
+  background-color: #f44336;
+}
+
+.optionContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Add space between button and tick/cross */
+}
+
+.optionText {
+  padding: 8px;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent line breaks for long options */
+}
+
+.optionPercentage {
+  font-size: 14px;
+}
+
+.explanationContainer {
+  margin-top: 20px;
+}
+
+.explanation {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Keep the rest of your existing styles */

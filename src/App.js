@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
+import QuestionPage from "./pages/Question";
 import Layout from "./components/layout/Layout";
 // import SignUpPage from "./pages/SignUp";
 // import LogInPage from "./pages/LogIn";
@@ -18,8 +19,8 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/browse" element={<BrowsePage />} />
-        <Route path="/question/:id" element={<QuestionPage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} /> */}
+        <Route path="/question/:id" element={<QuestionPage />} />
       </Routes>
 
   );
