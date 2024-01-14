@@ -1,0 +1,33 @@
+/* DashCard.module.css */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 200px;
+    padding: 1.5rem;
+    background-color: #243c5a; /* Dark cobalt for the card background */
+    color: #88bdbc; /* Soft teal for text */
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.icon {
+    font-size: 3rem; /* Adjust icon size for balance */
+    color: #F0F8FF; /* Very light grey for icons */
+    margin-bottom: 1rem;
+}
+
+.text {
+    font-size: 1.2rem;
+    font-weight: 600; /* Bolder text for better readability */
+    text-align: center;
+    color: #ffffff; /* Pure white for legibility */
+}

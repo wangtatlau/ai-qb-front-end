@@ -1,0 +1,21 @@
+/* Dashboard.module.css */
+.dashboardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F0F8FF; /* Very light grey background */
+    color: #88bdbc; /* Soft teal for text */
+  }
+  
+  .cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    grid-gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+

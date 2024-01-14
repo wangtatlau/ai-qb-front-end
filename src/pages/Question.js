@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import QuestionCard from "../components/ui/QuestionCard";
-import styles from "./QuestionPage.module.css";
+import styles from "./Question.module.css";
 import ScoreBoard from "../components/ui/ScoreBoard";
 
 const questionStack = [
@@ -64,6 +64,7 @@ const QuestionPage = () => {
   const [wrongCount, setWrongCount] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [isReferenceVisible, setReferenceVisibility] = useState(false);
+  const [ratings, setRatings] = useState({}); // State to store ratings and reasons
 
   const handleAnswerClick = (selectedAnswer) => {
     if (answered) return;
@@ -112,6 +113,35 @@ const QuestionPage = () => {
     setAnswered(true);
   };
 
+    // Function to handle rating
+  const handleRating = (questionId, rating) => {
+    // Check if question is already rated
+    if (!ratings[questionId]) {
+      setRatings(prevRatings => ({
+        ...prevRatings,
+        [questionId]: { rating }
+      }));
+      handleNextQuestion();
+    }
+  };
+
+// Function to handle wrong reason submission
+  const handleWrongReasonSubmit = (questionId, reason) => {
+    const currentRating = ratings[questionId];
+
+    // Check if the question has a 'wrong' rating and no reason has been submitted yet
+    if (currentRating && currentRating.rating === 'wrong' && !currentRating.reason) {
+      setRatings(prevRatings => ({
+        ...prevRatings,
+        [questionId]: { ...currentRating, reason }
+      }));
+      handleNextQuestion();
+    }
+  };
+
+
+
+
   const currentQuestion = questionStack[currentQuestionIndex];
 
   return (
@@ -155,6 +185,9 @@ const QuestionPage = () => {
           correctAnswer={currentQuestion.correctAnswer}
           selectedAnswer={userAnswers.length > 0 ? userAnswers[userAnswers.length - 1].selectedAnswer : null}
           userAnswers={userAnswers}
+          handleRating={(rating) => handleRating(currentQuestion.id, rating)}
+          handleWrongReasonSubmit={(reason) => handleWrongReasonSubmit(currentQuestion.id, reason)}
+          hasBeenRated={!!ratings[currentQuestion.id]}
         />
         <div className={styles.scoreBoardContainer}>
           <ScoreBoard userAnswers={userAnswers} onScoreItemClick={handleScoreItemClick} />
