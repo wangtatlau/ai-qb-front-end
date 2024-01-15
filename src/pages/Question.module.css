@@ -1,104 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 
 body {
   background-color: #f5f5f5; /* Set the background color for the entire page */
 }
 
 .pageContainer {
-    display: flex;
-    flex-direction: row; /* Change to row to place elements side by side */
-    margin: 20px; /* Add margin to all sides */
-    font-family: 'Lato';
-  }
-  
-  .leftContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Improved Styling for Navigation Bar */
-  .navBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #00308f; /* Consistent blue color */
-    padding: 10px 20px; /* Uniform padding */
-    display: flex;
-    justify-content: space-between; /* Space out elements */
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle box shadow */
-    font-size: 18px;
-    font-family: 'Lato';
-  }
+  display: flex;
+  flex-direction: row; /* Change to row to place elements side by side */
+  margin: 20px; /* Add margin to all sides */
+  font-family: "Lato";
+}
 
-  .navLink {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    margin-left: 15%; /* Adjust the margin between regular links */
-  }
+.leftContainer {
+  display: flex;
+  align-items: center;
+}
 
-  .referenceContainer {
-    position: relative;
-  }
-  
-  /* Styles for the reference button */
-  .referenceButton {
-    font-weight: bold;
-    color: #fff; /* Changed text color to white for better contrast */
-    font-weight: bold; /* Added bold font weight for emphasis */
-    margin: 0 15px; /* Added margin for space between navigation items */
-    background-color: transparent;
-    font-size: 18px;
-    font-family: 'Lato';
-  }
-  
-  /* Styles for the reference menu */
-  .referenceMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    z-index: 2;
-    width: 200%; /* Increase the width */
-  }
-  
-  /* Hide the menu by default */
-  .referenceMenu {
-    display: none;
-  }
-  
-  /* Display the menu when the button is clicked */
-  .referenceContainer .referenceButton:focus + .referenceMenu,
-  .referenceContainer .referenceButton:hover + .referenceMenu {
-    display: block;
-  }
+/* Improved Styling for Navigation Bar */
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #00308f; /* Consistent blue color */
+  padding: 10px 20px; /* Uniform padding */
+  display: flex;
+  justify-content: space-between; /* Space out elements */
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle box shadow */
+  font-size: 18px;
+  font-family: "Lato";
+}
 
-  .submitLink {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    margin-left: 20px; /* Adjust the margin between submit link and regular links */
-    transition: color 0.3s ease;
-  }
-  
-  .questionContent {
-    margin-top: 60px; /* Adjust the top margin to prevent overlap with the navigation bar */
-    margin-left: 10%; /* Adjust the top margin to prevent overlap with the navigation bar */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row; /* Change to row to align children horizontally */
-    align-items: flex-start; /* Align items to the start of the flex container */
-    justify-content: center; /* Center the content horizontally */
-  }
-  
-  /* Added styles for the ScoreBoard */
-  .scoreBoardContainer {
-    width: 16%; /* Set the fixed width of the ScoreBoard */
-    margin-left: 20px; /* Add some space between the Question Card and the ScoreBoard */
-  }
-  
+.navLink {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 15%; /* Adjust the margin between regular links */
+}
+
+.referenceContainer {
+  position: relative;
+}
+
+/* Styles for the reference button */
+.referenceButton {
+  font-weight: bold;
+  color: #fff; /* Changed text color to white for better contrast */
+  font-weight: bold; /* Added bold font weight for emphasis */
+  margin: 0 15px; /* Added margin for space between navigation items */
+  background-color: transparent;
+  font-size: 18px;
+  font-family: "Lato";
+}
+
+/* Styles for the reference menu */
+.referenceMenu {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 2;
+  width: 230%; /* Increase the width */
+  font-size: 90%;
+}
+
+/* Hide the menu by default */
+.referenceMenu {
+  display: none;
+}
+
+.referenceMenuVisible {
+  display: block;
+  width: 230%;
+}
+
+.submitLink {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 20px; /* Adjust the margin between submit link and regular links */
+  transition: color 0.3s ease;
+}
+
+.questionContent {
+  margin-top: 60px; /* Adjust the top margin to prevent overlap with the navigation bar */
+  margin-left: 10%; /* Adjust the top margin to prevent overlap with the navigation bar */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row; /* Change to row to align children horizontally */
+  align-items: flex-start; /* Align items to the start of the flex container */
+  justify-content: center; /* Center the content horizontally */
+}
+
+/* Added styles for the ScoreBoard */
+.scoreBoardContainer {
+  width: 16%; /* Set the fixed width of the ScoreBoard */
+  margin-left: 20px; /* Add some space between the Question Card and the ScoreBoard */
+}

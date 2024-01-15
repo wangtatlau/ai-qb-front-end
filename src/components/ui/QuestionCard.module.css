@@ -10,6 +10,44 @@
   background-color: #f1f9f9;
 }
 
+.questionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+}
+
+.fullQuestionContainer {
+  padding-top: 0.5%;
+  width: 80%;
+  flex: 1;
+}
+
+.bookmarkButtonContainer {
+  margin-left: 0.5%;
+}
+
+.bookmarkButtonBookmarked {
+  /* Styles for bookmarked state */
+  background-color: #ffefef; /* Example style */
+  color: #ff4646;
+  font-size: 100%;
+  border: 1px solid #000000;
+  text-align: center;
+  width: 3.5em;
+  height: 2.6em;
+}
+
+.bookmarkButtonUnbookmarked {
+  /* Styles for unbookmarked state */
+  background-color: #ffefef; /* Example style */
+  color: black;
+  font-size: 100%;
+  border: 1px solid #000000;
+  text-align: center;
+  width: 3.5em;
+  height: 2.6em;
+}
+
 .questionStem {
   line-height: 1.66em;
   margin: 0;

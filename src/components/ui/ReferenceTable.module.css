@@ -1,0 +1,16 @@
+.scrollableTableContainer {
+  max-height: 750px; /* Adjust this value as needed */
+  overflow-y: auto; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Hides horizontal scrollbar, remove if horizontal scrolling is also desired */
+}
+
+.dataframe {
+  width: 100%;
+  border-collapse: collapse; /* This ensures borders collapse into a single border */
+}
+
+.dataframe,
+.dataframe th,
+.dataframe td {
+  border: 1px solid black; /* Sets a 1px solid black border */
+}

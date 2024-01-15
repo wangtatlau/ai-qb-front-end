@@ -15,8 +15,11 @@ const QuestionCard = ({
   handleRating,
   handleWrongReasonSubmit,
   hasBeenRated,
+  isBookmarked,
+  toggleBookmark,
 }) => {
   const userAnswerForCurrentQuestion = userAnswers.find(answer => answer.questionId === question.id);
+  const bookmarkButtonClass = isBookmarked ? styles.bookmarkButtonBookmarked : styles.bookmarkButtonUnbookmarked;
 
   const [isWrongReasonVisible, setWrongReasonVisible] = useState(false);
   const [wrongReason, setWrongReason] = useState("");
@@ -40,8 +43,17 @@ const QuestionCard = ({
 
   return (
     <div className={`${styles.cardContainer} ${answered ? styles.answered : ""}`}>
-      <h2 className={styles.questionStem}>{question.id}. {question.questionStem}</h2>
-      <h2 className={styles.questionLeadIn}>{question.questionLeadIn}</h2>
+      <div className={styles.questionHeader}>
+        <div className={styles.fullQuestionContainer}>
+          <h2 className={styles.questionStem}>{question.id}. {question.questionStem}</h2>
+          <h2 className={styles.questionLeadIn}>{question.questionLeadIn}</h2>
+        </div>
+        <div className={styles.bookmarkButtonContainer}>
+          <button onClick={toggleBookmark} className={`${styles.bookmarkButton} ${bookmarkButtonClass}`}>
+          {isBookmarked ? '♥️' : '♡'}
+          </button>
+        </div>
+      </div>
       <ul className={`${styles.optionsList} ${styles.vertical}`}>
         {options.map((option, index) => (
           <li key={index} onClick={() => handleAnswerClick(option)} className={styles.optionItem}>

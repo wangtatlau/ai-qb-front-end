@@ -23,7 +23,7 @@ function App() {
         <Route path="/browse" element={<BrowsePage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} /> */}
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/question/:id" element={<QuestionPage />} />
+        <Route path="/question" element={<QuestionPage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} />
       </Routes>
 
