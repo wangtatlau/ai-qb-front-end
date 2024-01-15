@@ -7,15 +7,17 @@ import ScoreBoard from "../components/ui/ScoreBoard";
 const questionStack = [
   {
     id: 1,
-    question: "What is the capital of Germany?",
-    options: ["Berlin", "Madrid", "Paris", "Rome", "Vienna"],
+    questionStem: "Sandy Hughes, 67, presents to A&E with chest pain. She describes 12 hours of sharp chest discomfort on inspiration, which started suddenly just after she arrived back from her flight to Florida. Her oxygen saturation is 94% on 2 litres of oxygen and her respiratory rate is 28.",
+    questionLeadIn: "What is the most likely ECG finding for this patient?",
+    options: ["Right axis deviation", "SI QIII TIII pattern", "Sinus tachycardia", "ST elevation in three contiguous leads", "Widespread saddle-shaped ST elevation"],
     optionsPercentage: ["10", "20", "30", "30", "10"],
-    correctAnswer: "Berlin",
-    explanation: "Berlin is the capital of Germany.",
+    correctAnswer: "Sinus tachycardia",
+    explanation: "The most likely ECG finding in this patient is sinus tachycardia. This patient has presented with the classic signs of a pulmonary embolism (PE)- recent travel, sudden onset chest pain which is worse on inspiration, and increased respiratory rate with low oxygen saturations. ECG findings in PE can include right axis deviation, sinus tachycardia, and the oft-mentioned but rarely seen SI QIII TIII pattern. Of these, the most likely is sinus tachycardia. ST elevation in three contiguous leads would be seen in an ST-elevation myocardial infarction rather than a PE, and widespread saddle-shaped ST elevation is indicative of pericarditis.",
   },
   {
     id: 2,
-    question: "Which planet is known as the Red Planet?",
+    questionStem: "Which planet is known as the Red Planet?",
+    questionLeadIn: "Which planet is known as the Red Planet?",
     options: ["Mars", "Venus", "Jupiter", "Saturn", "Mercury"],
     optionsPercentage: ["30", "10", "20", "30", "10"],
     correctAnswer: "Mars",
@@ -23,7 +25,8 @@ const questionStack = [
   },
   {
     id: 3,
-    question: "Who wrote 'Romeo and Juliet'?",
+    questionStem: "Who wrote 'Romeo and Juliet'?",
+    questionLeadIn: "Who wrote 'Romeo and Juliet'?",
     options: ["Charles Dickens", "Jane Austen", "William Shakespeare", "Mark Twain", "Emily Bronte"],
     optionsPercentage: ["10", "10", "60", "10", "10"],
     correctAnswer: "William Shakespeare",
@@ -31,7 +34,8 @@ const questionStack = [
   },
   {
     id: 4,
-    question: "What is the largest mammal?",
+    questionStem: "What is the largest mammal?",
+    questionLeadIn: "What is the largest mammal?",
     options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus", "Rhinoceros"],
     optionsPercentage: ["10", "60", "10", "10", "10"],
     correctAnswer: "Blue Whale",
@@ -39,7 +43,8 @@ const questionStack = [
   },
   {
     id: 5,
-    question: "In which year did World War II end?",
+    questionStem: "In which year did World War II end?",
+    questionLeadIn: "In which year did World War II end?",
     options: ["1943", "1945", "1947", "1950", "1952"],
     optionsPercentage: ["10", "60", "10", "10", "10"],
     correctAnswer: "1945",
@@ -47,7 +52,8 @@ const questionStack = [
   },
   {
     id: 6,
-    question: "In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end?In which year did World War II end? In which year did World War II end?  ",
+    questionStem: "In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end?In which year did World War II end? In which year did World War II end?  ",
+    questionLeadIn: "In which year did World War II end?",
     options: ["1943", "1945", "1947", "1950", "1952"],
     optionsPercentage: ["10", "60", "10", "10", "10"],
     correctAnswer: "1945",

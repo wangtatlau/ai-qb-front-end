@@ -45,7 +45,6 @@
   cursor: pointer;
   display: flex;
   flex-direction: column; /* Display list items vertically */
-  text-decoration: underline;
 }
 
 .optionItem {
@@ -55,6 +54,10 @@
   margin-bottom: 20px;
   margin-bottom: 8px; /* Adjust the bottom margin between items */
   color: #333;
+}
+
+.optionItem:hover {
+  text-decoration: underline;
 }
 
 .overlayBarContainer {
@@ -93,11 +96,10 @@
   line-height: 1;
   border-radius: 500px;
   transition-property: background-color,border-color,color,box-shadow,filter;
-  transition-duration: .3s;
+  transition-duration: .1s;
   border: 1px solid transparent;
   letter-spacing: 2px;
   min-width: 160px;
-  text-transform: uppercase;
   white-space: normal;
   font-weight: 700;
   text-align: center;
@@ -106,6 +108,7 @@
   box-shadow: inset 0 0 0 2px #616467;
   background-color: transparent;
   height: 35px;
+  letter-spacing: 0.7px;
 }
 
 .optionText:hover {
@@ -116,11 +119,10 @@
   line-height: 1;
   border-radius: 500px;
   transition-property: background-color,border-color,color,box-shadow,filter;
-  transition-duration: .3s;
+  transition-duration: .1s;
   border: 1px solid transparent;
   letter-spacing: 2px;
   min-width: 160px;
-  text-transform: uppercase;
   white-space: normal;
   font-weight: 700;
   text-align: center;
@@ -129,6 +131,7 @@
   background: #2c2c2c;
   box-shadow: inset 0 0 0 2px #616467;
   height: 35px;
+  letter-spacing: 0.7px;
 }
 
 .optionPercentage {
@@ -220,5 +223,53 @@
   transition-timing-function: cubic-bezier(.4,0,.2,1);
 }
 
+.wrongReasonContainer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Keep the rest of your existing styles */
+.reasonInput {
+  padding: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submitReasonButton {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 3px;
+  color: #000;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 5px 10px;
+  text-align:center;
+  transition-duration: .15s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.submitReasonButton:hover {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 3px;
+  color: #fff;
+  background: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 5px 10px;
+  text-align:center;
+  transition-duration: .15s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}

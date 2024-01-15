@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./QuestionCard.module.css";
 
 const QuestionCard = ({
@@ -18,19 +18,30 @@ const QuestionCard = ({
 }) => {
   const userAnswerForCurrentQuestion = userAnswers.find(answer => answer.questionId === question.id);
 
-  // Function to handle wrong rating
+  const [isWrongReasonVisible, setWrongReasonVisible] = useState(false);
+  const [wrongReason, setWrongReason] = useState("");
+
   const handleWrongRating = () => {
-    const reason = prompt('Please enter the reason why this is wrong:');
-    if (reason) {
-      handleWrongReasonSubmit(reason);
+    setWrongReasonVisible(true);
+  };
+
+  const handleReasonChange = (event) => {
+    setWrongReason(event.target.value);
+  };
+
+  const submitWrongReason = () => {
+    if (wrongReason) {
+      handleWrongReasonSubmit(wrongReason);
       handleRating('wrong');
+      setWrongReasonVisible(false);
+      setWrongReason("");
     }
   };
 
   return (
     <div className={`${styles.cardContainer} ${answered ? styles.answered : ""}`}>
-      <h2 className={styles.questionStem}>{question.id}. {question.question}</h2>
-      <h2 className={styles.questionLeadIn}>{question.question}</h2>
+      <h2 className={styles.questionStem}>{question.id}. {question.questionStem}</h2>
+      <h2 className={styles.questionLeadIn}>{question.questionLeadIn}</h2>
       <ul className={`${styles.optionsList} ${styles.vertical}`}>
         {options.map((option, index) => (
           <li key={index} onClick={() => handleAnswerClick(option)} className={styles.optionItem}>
@@ -103,9 +114,39 @@ const QuestionCard = ({
       {answered && !hasBeenRated && (
         <div className={styles.ratingButtonsContainer}>
           {/* Rating buttons */}
-          <button onClick={() => handleRating('good')} className={styles.rateButton}>👍</button>
-          <button onClick={() => handleRating('normal')} className={styles.rateButton}>=</button>
-          <button onClick={handleWrongRating} className={styles.rateButton}>❌</button>
+          <button 
+            onClick={() => {
+              handleRating('good');
+              setWrongReasonVisible(false);
+            }} 
+            className={styles.rateButton}
+          >
+            👍
+          </button>
+          <button 
+            onClick={() => {
+              handleRating('normal');
+              setWrongReasonVisible(false);
+            }} 
+            className={styles.rateButton}
+          >
+            👌
+          </button>
+          <button onClick={handleWrongRating} className={styles.rateButton}>⚠️</button>
+        </div>
+      )}
+      {isWrongReasonVisible && (
+        <div className={styles.wrongReasonContainer}>
+          <input
+            type="text"
+            value={wrongReason}
+            onChange={handleReasonChange}
+            className={styles.reasonInput}
+            placeholder="Enter reason for incorrect question"
+          />
+          <button onClick={submitWrongReason} className={styles.submitReasonButton}>
+            Submit
+          </button>
         </div>
       )}
     </div>

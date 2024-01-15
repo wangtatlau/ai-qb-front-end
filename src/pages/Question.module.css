@@ -115,7 +115,7 @@
   
   /* Added styles for the ScoreBoard */
   .scoreBoardContainer {
-    width: 300px; /* Set the fixed width of the ScoreBoard */
+    width: 18%; /* Set the fixed width of the ScoreBoard */
     margin-left: auto; /* Move the ScoreBoard to the right */
     margin-top: 20px; /* Adjust the top margin as needed */
   }
