@@ -2,18 +2,16 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
-  margin-top: 20px;
+  margin: 20px;
   flex-shrink: 0;
-  width: 18%; /* Percentage width for larger screens */
-  max-width: 300px; /* Maximum width */
-  position: fixed;
   right: 20px;
   top: 60px;
-  /* Other styles... */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f1f9f9;
 }
 
 /* Hide the scoreBoard on smaller screens */
-@media (max-width: 480px) { /* Adjust the max-width as needed */
+@media (max-width: 800px) { /* Adjust the max-width as needed */
   .scoreBoard {
     display: none;
   }
@@ -32,10 +30,11 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Using fractions of available space */
-  gap: 0.5em; /* Adjusted for relative sizing */
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto new lines as needed */
+  justify-content: left; /* Center items horizontally */
+  align-items: start; /* Align items to the start of the flex line */
+  gap: 0.5em; /* Space between items */
 }
 
 .correct, .wrong {
@@ -47,7 +46,6 @@
   align-items: center;
   margin: 0.2em; /* Adjusted for relative sizing */
   cursor: pointer;
-  font-family: 'Lato', sans-serif;
   font-weight: bold;
   text-shadow: 0px 0.1em 0.2em rgba(0, 0, 0, 0.25);
 }
@@ -55,16 +53,15 @@
 .correct {
   background-color: #c9ffcb;
   border: 2px solid #007304;
-  color: #277d2a;
+  color: #007304;
 }
 
 .wrong {
   background-color: #fed2cf;
   border: 2px solid #760901;
-  color: #882922;
+  color: #760901;
 }
 
 .scoreStats {
   margin-top: 2%; /* Relative to parent's width */
-  font-family: 'Lato';
 }

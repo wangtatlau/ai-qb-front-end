@@ -48,7 +48,10 @@ const QuestionCard = ({
             <div className={styles.optionContent}>
               <button
                 disabled={answered}
-                className={styles.optionText}
+                className={`${styles.optionText} ${
+                  answered && option === correctAnswer ? styles.optionCorrect : 
+                  answered && userAnswerForCurrentQuestion && userAnswerForCurrentQuestion.selectedAnswer === option ? styles.optionIncorrect : ""
+                }`}
               >
                 {option}
               </button>
@@ -86,7 +89,7 @@ const QuestionCard = ({
       </ul>
       {answered && (
         <div className={styles.explanationContainer}>
-          <p className={styles.explanation}>
+          <h2 className={styles.explanation}>
             {userAnswerForCurrentQuestion && (
               <span>
                 {userAnswerForCurrentQuestion.isCorrect ? (
@@ -98,7 +101,7 @@ const QuestionCard = ({
             )}
             <br></br>
             {explanation}
-          </p>
+          </h2>
         </div>
       )}
       {answered && hasBeenRated && (

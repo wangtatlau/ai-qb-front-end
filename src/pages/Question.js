@@ -154,6 +154,17 @@ const QuestionPage = () => {
     <div className={styles.pageContainer}>
       <div className={styles.navBar}>
         <div className={styles.leftContainer}>
+          <div className={styles.referenceContainer}>
+            <button className={styles.referenceButton} onClick={toggleReference}>
+              Reference▼
+            </button>
+            {isReferenceVisible && (
+              <div className={styles.referenceMenu}>
+                <p>Some random information here.</p>
+                <p>More details and content.</p>
+              </div>
+            )}
+          </div>
           <Link to="/" className={styles.navLink}>
             BNF
           </Link>
@@ -163,17 +174,6 @@ const QuestionPage = () => {
           <Link to="/" className={styles.navLink}>
             UpToDate
           </Link>
-          <div className={styles.referenceContainer}>
-            <button className={styles.referenceButton} onClick={toggleReference}>
-              Reference
-            </button>
-            {isReferenceVisible && (
-              <div className={styles.referenceMenu}>
-                <p>Some random information here.</p>
-                <p>More details and content.</p>
-              </div>
-            )}
-          </div>
         </div>
         <Link to="/" className={styles.submitLink}>
           Submit & Review
