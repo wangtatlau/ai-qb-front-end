@@ -1,33 +1,47 @@
 /* DashCard.module.css */
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 200px;
-    padding: 1.5rem;
-    background-color: #243c5a; /* Dark cobalt for the card background */
-    color: #88bdbc; /* Soft teal for text */
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-    cursor: pointer;
+  transition: all 1s; /* Smooth transition for properties */
+  background-color: #ffffff;
+  margin: 0.5rem; /* Margin around the card */
+  padding: 1rem; /* Padding inside the card */
+  position: relative; /* Needed for absolutely positioned child elements */
+  width: 310px; /* Set a fixed width */
+  height: 250px; /* Set height equal to width to make it square */
+  cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(-5px); /* Move up the card slightly */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); /* Shadow for lifted effect */
+}
+
+.card:hover .decoration {
+  background-color: rgba(59, 130, 246, 0.5); /* Change color on hover */
+  width: 50%; /* Change width on hover */
+}
+
+.decoration {
+  position: absolute; /* Positioned absolutely within the card */
+  background-color: rgba(59, 130, 246, 0.5); /* Semi-transparent blue */
+  top: 0; /* Align to the top of the card */
+  left: 0; /* Align to the left of the card */
+  width: 6rem; /* Initial width */
+  height: 0.25rem; /* Height of the decoration bar */
+  transition: all 0.2s; /* Smooth transition for properties */
+}
+
+.innerCard {
+  padding: 2% 5% 5% 5%;
 }
 
 .icon {
-    font-size: 3rem; /* Adjust icon size for balance */
-    color: #F0F8FF; /* Very light grey for icons */
-    margin-bottom: 1rem;
+  height: 35px; /* Adjust the height as needed */
+  width: auto; /* Keeps the aspect ratio intact */
 }
 
 .text {
-    font-size: 1.2rem;
-    font-weight: 600; /* Bolder text for better readability */
-    text-align: center;
-    color: #ffffff; /* Pure white for legibility */
+  margin-top: 1rem; /* Equivalent to mt-8 (8 * 0.25rem) */
+  font-size: 1.4rem; /* Equivalent to text-lg */
+  font-weight: 600; /* Equivalent to font-semibold */
+  color: black; /* Equivalent to text-black */
 }
