@@ -1,7 +1,7 @@
 /* Dashboard.module.css */
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 
-body {
+.dashboardBody {
   background-color: #f1f9f9; /* Very light grey background */
 }
 

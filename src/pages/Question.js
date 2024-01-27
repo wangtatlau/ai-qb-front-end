@@ -4,6 +4,7 @@ import QuestionCard from "../components/ui/QuestionCard";
 import styles from "./Question.module.css";
 import ScoreBoard from "../components/ui/ScoreBoard";
 import ReferenceTable from "../components/ui/ReferenceTable";
+import useBodyClass from './useBodyClass';
 
 const questionStack = [
   {
@@ -86,6 +87,8 @@ const questionStack = [
 ];
 
 const QuestionPage = () => {
+  useBodyClass(styles.questionBody);
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [correctCount, setCorrectCount] = useState(0);

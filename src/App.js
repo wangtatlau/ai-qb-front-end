@@ -4,6 +4,7 @@ import QuestionPage from "./pages/Question";
 import DashboardPage from "./pages/Dashboard";
 import CreateQuestionPage from "./pages/CreateQuestion";
 import Layout from "./components/layout/Layout";
+import styles from "./index.css"
 // import SignUpPage from "./pages/SignUp";
 // import LogInPage from "./pages/LogIn";
 // import DashboardPage from "./pages/Dashboard";

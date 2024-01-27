@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styles from './MenuCard.module.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./MenuCard.module.css";
 
 function MenuCard() {
   const navigate = useNavigate();
   const [selectedTopics, setSelectedTopics] = useState([]);
-  const [difficulty, setDifficulty] = useState('');
-  const [numberOfQuestions, setNumberOfQuestions] = useState('');
+  const [difficulty, setDifficulty] = useState("");
+  const [numberOfQuestions, setNumberOfQuestions] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
 
   const toggleSelection = (item, setFunction, array, multiple = true) => {
@@ -22,71 +22,86 @@ function MenuCard() {
     setFunction(newSelection);
   };
 
-  const canSubmit = difficulty !== '' && numberOfQuestions !== '' && selectedTopics.length > 0 && selectedTypes.length > 0;
+  const canSubmit =
+    difficulty !== "" &&
+    numberOfQuestions !== "" &&
+    selectedTopics.length > 0 &&
+    selectedTypes.length > 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Process form data here
-
     // Redirect to /dashboard
-    navigate('/dashboard');
+    navigate("/question");
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.menuCard}>
-      <div>
-        <p>Topic:</p>
-        {['A', 'B', 'C'].map(topic => (
-          <button 
-            key={topic} 
-            type="button" 
-            className={selectedTopics.includes(topic) ? styles.selected : ''} 
-            onClick={() => toggleSelection(topic, setSelectedTopics, selectedTopics)}
+      <div className={styles.menuSection}>
+        <h3 className={styles.menuLabel}>Topic:</h3>
+        {["A", "B", "C"].map((topic) => (
+          <span
+            key={topic}
+            className={`${styles.menuButton} ${
+              selectedTopics.includes(topic) ? styles.selected : ""
+            }`}
+            onClick={() =>
+              toggleSelection(topic, setSelectedTopics, selectedTopics)
+            }
           >
             {topic}
-          </button>
+          </span>
         ))}
       </div>
-      <div>
-        <p>Difficulty:</p>
-        {['Easy', 'Medium', 'Hard'].map(level => (
-          <button 
-            key={level} 
-            type="button" 
-            className={difficulty === level ? styles.selected : ''} 
+      <div className={styles.menuSection}>
+        <h3 className={styles.menuLabel}>Difficulty:</h3>
+        {["Easy", "Medium", "Hard"].map((level) => (
+          <span
+            key={level}
+            className={`${styles.menuButton} ${
+              difficulty === level ? styles.selected : ""
+            }`}
             onClick={() => setDifficulty(level)}
           >
             {level}
-          </button>
+          </span>
         ))}
       </div>
-      <div>
-        <p>Number of Questions:</p>
-        {['10', '20', '30'].map(number => (
-          <button 
-            key={number} 
-            type="button" 
-            className={numberOfQuestions === number ? styles.selected : ''} 
+      <div className={styles.menuSection}>
+        <h3 className={styles.menuLabel}>Number of Questions:</h3>
+        {["10", "20", "30"].map((number) => (
+          <span
+            key={number}
+            className={`${styles.menuButton} ${
+              numberOfQuestions === number ? styles.selected : ""
+            }`}
             onClick={() => setNumberOfQuestions(number)}
           >
             {number}
-          </button>
+          </span>
         ))}
       </div>
-      <div>
-        <p>Question Type:</p>
-        {['A', 'B', 'C'].map(type => (
-          <button 
-            key={type} 
-            type="button" 
-            className={selectedTypes.includes(type) ? styles.selected : ''} 
-            onClick={() => toggleSelection(type, setSelectedTypes, selectedTypes)}
+      <div className={styles.menuSection}>
+        <h3 className={styles.menuLabel}>Question Type:</h3>
+        {["Type 1", "Type 2", "Type 3"].map((type) => (
+          <span
+            key={type}
+            className={`${styles.menuButton} ${
+              selectedTypes.includes(type) ? styles.selected : ""
+            }`}
+            onClick={() =>
+              toggleSelection(type, setSelectedTypes, selectedTypes)
+            }
           >
             {type}
-          </button>
+          </span>
         ))}
       </div>
-      <button type="submit" disabled={!canSubmit}>Submit</button>
+      {canSubmit && (
+        <button type="submit" className={styles.submitButton}>
+          Generate
+        </button>
+      )}
     </form>
   );
 }

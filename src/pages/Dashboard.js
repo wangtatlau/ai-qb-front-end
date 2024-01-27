@@ -9,8 +9,11 @@ import feedback from "../static/logos/feedback.png";
 import performance from "../static/logos/performance.png";
 import leaderboard from "../static/logos/leaderboard.png";
 import review from "../static/logos/review.png";
+import useBodyClass from './useBodyClass';
 
 const DashboardPage = () => {
+  useBodyClass(styles.dashboardBody);
+
   const navigate = useNavigate(); // Use useNavigate here
   const cards = [
     { name: "Browse Questions", icon: browse, path: "/browse-question" },
