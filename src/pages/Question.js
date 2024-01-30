@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import QuestionCard from "../components/ui/QuestionCard";
 import styles from "./Question.module.css";
 import ScoreBoard from "../components/ui/ScoreBoard";
 import ReferenceTable from "../components/ui/ReferenceTable";
-import useBodyClass from './useBodyClass';
+import useBodyClass from "./useBodyClass";
 
 const questionStack = [
   {
@@ -97,12 +97,39 @@ const QuestionPage = () => {
   const [isReferenceVisible, setReferenceVisibility] = useState(false);
   const [ratings, setRatings] = useState({}); // State to store ratings and reasons
   const [bookmarks, setBookmarks] = useState({}); // State to store bookmarks
+  // Add a state for the question stack fetched from the API
+  const [apiQuestionStack, setApiQuestionStack] = useState([]);
+
+  // Add a state for handling loading and error states
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // Fetch question stack from the API when the component mounts
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("YOUR_API_URL") // Replace with your actual API URL
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch questions!");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setApiQuestionStack(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setIsLoading(false);
+      });
+  }, []);
 
   const handleAnswerClick = (selectedAnswer) => {
     if (answered) return;
 
     const isCorrect =
       selectedAnswer === questionStack[currentQuestionIndex].correctAnswer;
+      //selectedAnswer === apiQuestionStack[currentQuestionIndex].correctAnswer;
 
     setUserAnswers([
       ...userAnswers,
@@ -127,6 +154,7 @@ const QuestionPage = () => {
     let answeredCount = correctCount + wrongCount;
 
     if (currentQuestionIndex + 1 < questionStack.length) {
+    //if (currentQuestionIndex + 1 < apiQuestionStack.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       if (answeredCount === currentQuestionIndex + 1) {
         setAnswered(false);
@@ -181,6 +209,7 @@ const QuestionPage = () => {
   };
 
   const currentQuestion = questionStack[currentQuestionIndex];
+  //const currentQuestion = apiQuestionStack[currentQuestionIndex];
 
   return (
     <div className={styles.pageContainer}>
