@@ -97,6 +97,7 @@ const QuestionPage = () => {
   const [isReferenceVisible, setReferenceVisibility] = useState(false);
   const [ratings, setRatings] = useState({}); // State to store ratings and reasons
   const [bookmarks, setBookmarks] = useState({}); // State to store bookmarks
+  const isLastQuestion = currentQuestionIndex === questionStack.length - 1;
   // Add a state for the question stack fetched from the API
   const [apiQuestionStack, setApiQuestionStack] = useState([]);
 
@@ -129,7 +130,7 @@ const QuestionPage = () => {
 
     const isCorrect =
       selectedAnswer === questionStack[currentQuestionIndex].correctAnswer;
-      //selectedAnswer === apiQuestionStack[currentQuestionIndex].correctAnswer;
+    //selectedAnswer === apiQuestionStack[currentQuestionIndex].correctAnswer;
 
     setUserAnswers([
       ...userAnswers,
@@ -154,7 +155,7 @@ const QuestionPage = () => {
     let answeredCount = correctCount + wrongCount;
 
     if (currentQuestionIndex + 1 < questionStack.length) {
-    //if (currentQuestionIndex + 1 < apiQuestionStack.length) {
+      //if (currentQuestionIndex + 1 < apiQuestionStack.length) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       if (answeredCount === currentQuestionIndex + 1) {
         setAnswered(false);
@@ -165,6 +166,8 @@ const QuestionPage = () => {
       console.log("End of questions");
     }
   };
+
+  const handleSubmitTest = () => {};
 
   const handleScoreItemClick = (index) => {
     setCurrentQuestionIndex(index);
@@ -179,7 +182,9 @@ const QuestionPage = () => {
         ...prevRatings,
         [questionId]: { rating },
       }));
-      handleNextQuestion();
+      if (!isLastQuestion) {
+        handleNextQuestion();
+      }
     }
   };
 
@@ -232,34 +237,44 @@ const QuestionPage = () => {
               </div>
             )}
           </div>
-          <a
-            href="https://bnf.nice.org.uk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.navLink}
-          >
-            BNF
+          <a className={styles.itemContainer} href="https://bnf.nice.org.uk">
+            <p
+              
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navLink}
+            >
+              BNF
+            </p>
           </a>
-          <a
-            href="https://www.nice.org.uk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.navLink}
-          >
-            NICE
+          <a className={styles.itemContainer} href="https://www.nice.org.uk">
+            <p
+              
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navLink}
+            >
+              NICE
+            </p>
           </a>
-          <a
-            href="https://www.uptodate.com/contents/table-of-contents/primary-care-adult/general-medicine"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.navLink}
-          >
-            UpToDate
+          <a className={styles.itemContainer} href="https://www.uptodate.com/contents/table-of-contents/primary-care-adult/general-medicine">
+            
+            <p
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navLink}
+            >
+              UpToDate
+            </p>
           </a>
         </div>
-        <Link to="/" className={styles.submitLink}>
-          Submit & Review
-        </Link>
+        <div className={styles.rightContainer}>
+          <div className={styles.submitContainer} onClick={handleSubmitTest}>
+            <Link className={styles.submitLink}>
+              Submit & Review
+            </Link>
+          </div>
+        </div>
       </div>
       <div className={styles.questionContent}>
         <QuestionCard
@@ -284,6 +299,8 @@ const QuestionPage = () => {
           hasBeenRated={!!ratings[currentQuestion.id]}
           isBookmarked={bookmarks[currentQuestion.id]}
           toggleBookmark={() => toggleBookmark(currentQuestion.id)}
+          isLastQuestion={isLastQuestion}
+          handleSubmitTest={handleSubmitTest}
         />
         <div className={styles.scoreBoardContainer}>
           <ScoreBoard

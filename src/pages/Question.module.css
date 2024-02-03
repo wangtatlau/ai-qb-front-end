@@ -12,6 +12,11 @@
 }
 
 .leftContainer {
+    display: flex;
+    align-items: center;
+}
+
+.rightContainer {
   display: flex;
   align-items: center;
 }
@@ -37,8 +42,35 @@
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  margin-left: 15%; /* Adjust the margin between regular links */
   cursor: pointer;
+}
+
+.itemContainer {
+  border-radius: 8px; /* Adjust as needed for rounded corners */
+  transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
+  margin-right: 8%;
+  padding-left: 7%;
+  padding-right: 7%;
+  cursor: pointer;
+}
+
+.submitContainer {
+  border-radius: 8px; /* Adjust as needed for rounded corners */
+  transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
+  margin-right: 10px;
+  padding-top: 12%;
+  padding-bottom: 12%;
+  padding-left: 7%;
+  padding-right: 7%;
+  cursor: pointer;
+}
+
+.submitContainer:hover {
+  background-color: #ffffff1c;
+}
+
+.itemContainer:hover {
+  background-color: #ffffff1c;
 }
 
 .referenceContainer {
@@ -82,8 +114,8 @@
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  margin-left: 20px; /* Adjust the margin between submit link and regular links */
-  transition: color 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .questionContent {

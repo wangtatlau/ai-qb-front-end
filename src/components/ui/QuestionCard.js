@@ -17,6 +17,8 @@ const QuestionCard = ({
   hasBeenRated,
   isBookmarked,
   toggleBookmark,
+  isLastQuestion,
+  handleSubmitTest
 }) => {
   const userAnswerForCurrentQuestion = userAnswers.find(answer => answer.questionId === question.id);
   const bookmarkButtonClass = isBookmarked ? styles.bookmarkButtonBookmarked : styles.bookmarkButtonUnbookmarked;
@@ -116,13 +118,23 @@ const QuestionCard = ({
           </h2>
         </div>
       )}
-      {answered && hasBeenRated && (
+      {answered && hasBeenRated && !isLastQuestion && (
         <div className={styles.nextButtonContainer}>
           <button
             onClick={handleNextQuestion}
             className={styles.nextButton}
           >
             Next Question
+          </button>
+        </div>
+      )}
+      {answered && hasBeenRated && isLastQuestion && (
+        <div className={styles.nextButtonContainer}>
+          <button
+            onClick={handleSubmitTest}
+            className={styles.nextButton}
+          >
+            Submit & Review
           </button>
         </div>
       )}

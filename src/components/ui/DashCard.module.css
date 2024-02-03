@@ -1,12 +1,14 @@
 /* DashCard.module.css */
 .card {
-  transition: all 1s; /* Smooth transition for properties */
+  transition: all 1s;
   background-color: #ffffff;
-  margin: 0.5rem; /* Margin around the card */
-  padding: 1rem; /* Padding inside the card */
-  position: relative; /* Needed for absolutely positioned child elements */
-  width: 310px; /* Set a fixed width */
-  height: 250px; /* Set height equal to width to make it square */
+  margin: 0.5rem;
+  padding: 1rem; 
+  position: relative;
+  max-width: 340px;
+  max-height: 275;
+  width: 17vw; 
+  height: 13.4vw; 
   cursor: pointer;
 }
 

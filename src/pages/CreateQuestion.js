@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import MenuCard from "../components/ui/MenuCard";
+import Sidebar from "../components/ui/Sidebar";
 import styles from "./CreateQuestion.module.css";
 import useBodyClass from "./useBodyClass";
 
@@ -87,32 +88,35 @@ function CreateQuestion() {
     noDrag: submitted,
   });
   return (
-    <div className={styles.container}>
-      <div className={styles.leftContainer}>
-        <div className={styles.uploadArea} {...getRootProps()}>
-          <input {...getInputProps()} />
-          {fileError && <div className={styles.error}>{fileError}</div>}
-          {file ? (
-            <h2 className={styles.instruction}>{`File: ${file.name}`}</h2>
-          ) : (
-            <h2 className={styles.instruction}>
-              Drag 'n' drop a PDF here, or click to select files
-            </h2>
+    <div>
+      <Sidebar />
+      <div className={styles.container}>
+        <div className={styles.leftContainer}>
+          <div className={styles.uploadArea} {...getRootProps()}>
+            <input {...getInputProps()} />
+            {fileError && <div className={styles.error}>{fileError}</div>}
+            {file ? (
+              <h2 className={styles.instruction}>{`File: ${file.name}`}</h2>
+            ) : (
+              <h2 className={styles.instruction}>
+                Drag 'n' drop a PDF here, or click to select files
+              </h2>
+            )}
+          </div>
+          {file && !submitted && (
+            <button onClick={handleSubmit} className={styles.submitButton}>
+              Submit
+            </button>
           )}
         </div>
-        {file && !submitted && (
-          <button onClick={handleSubmit} className={styles.submitButton}>
-            Submit
-          </button>
+        {showMenu && (
+          <MenuCard
+            topics={dummyTopics}
+            questionNumbers={dummyQuestionNumbers}
+            questionTypes={dummyQuestionTypes}
+          />
         )}
       </div>
-      {showMenu && (
-        <MenuCard
-          topics={dummyTopics}
-          questionNumbers={dummyQuestionNumbers}
-          questionTypes={dummyQuestionTypes}
-        />
-      )}
     </div>
   );
 }

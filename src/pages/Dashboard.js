@@ -9,12 +9,12 @@ import feedback from "../static/logos/feedback.png";
 import performance from "../static/logos/performance.png";
 import leaderboard from "../static/logos/leaderboard.png";
 import review from "../static/logos/review.png";
-import useBodyClass from './useBodyClass';
+import useBodyClass from "./useBodyClass";
 
 const DashboardPage = () => {
   useBodyClass(styles.dashboardBody);
 
-  const navigate = useNavigate(); // Use useNavigate here
+  const navigate = useNavigate();
   const cards = [
     { name: "Browse Questions", icon: browse, path: "/browse-question" },
     { name: "Create Questions", icon: create, path: "/create-question" },
@@ -42,14 +42,18 @@ const DashboardPage = () => {
           />
         </div>
         <div className={styles.rightContainer}>
-          <p className={styles.navLink} onClick={() => navigate("/setting")}>
-            {" "}
-            Setting{" "}
-          </p>
-          <p className={styles.navLink} onClick={logout}>
-            {" "}
-            Log out{" "}
-          </p>
+          <div className={styles.itemContainer} onClick={() => navigate("/setting")}>
+            <p className={styles.navLink}>
+              {" "}
+              Setting{" "}
+            </p>
+          </div>
+          <div className={styles.itemContainer} onClick={logout}>
+            <p className={styles.navLink}>
+              {" "}
+              Log out{" "}
+            </p>
+          </div>
         </div>
       </div>
       <div className={styles.cardsGrid}>
@@ -58,7 +62,7 @@ const DashboardPage = () => {
             key={index}
             name={card.name}
             icon={card.icon}
-            onClick={() => handleCardClick(card.path)} // Correctly passing the onClick handler
+            onClick={() => handleCardClick(card.path)}
           />
         ))}
       </div>

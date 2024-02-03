@@ -1,0 +1,72 @@
+/* Sidebar.module.css */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 6%;
+  max-width: 6%;
+  min-width: 100px;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  background-color: #00308f; /* Consistent blue color */
+  font-size: 1.4vh;
+}
+
+@media (max-height: 1000px) {
+  .sidebar {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .sidebar {
+    font-size: 13px;
+  }
+}
+
+.listItem {
+  display: block;
+  color: #fff;
+  padding: 8%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.divider,
+.subDivider {
+  border: 0;
+  height: 1px;
+  background-color: #ffffff79;
+  width: 75%;
+}
+
+.subDivider {
+  width: 60%;
+}
+
+.logo {
+  height: 1vw; /* Adjust the height as needed */
+  min-height: 12px;
+  width: auto; /* Keeps the aspect ratio intact */
+  cursor: pointer;
+  padding-top: 1.2em;
+  padding-bottom: 0.1em;
+}
+
+.lowerContainer {
+  position: absolute; /* Positions .lowerContainer at the bottom of .sidebar */
+  bottom: 0;
+  width: 100%; /* Ensures it spans the width of .sidebar */
+}
+
+.itemContainer {
+  border-radius: 8px; /* Adjust as needed for rounded corners */
+  transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.itemContainer:hover {
+  background-color: #ffffff1c;
+}
