@@ -4,8 +4,10 @@ import OverviewCard from "../components/ui/OverviewCard";
 import AboutCard from "../components/ui/AboutCard";
 import ContactCard from "../components/ui/ContactCard";
 import styles from "./Home.module.css";
+import useBodyClass from "./useBodyClass";
 
 const HomePage = () => {
+  useBodyClass(styles.HomeBody);
   return (
     <div className={styles.homeBody}>
       <HomeNavBar className={styles.navbar} />

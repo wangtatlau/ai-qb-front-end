@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+.LogInBody {
+  background-color: #ffffff;
+}
+
+.pageContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100%;
+  font-family: "Lato";
+}
+
+.header {
+  font-size: 50px;
+}
+
+.logo {
+  height: 35px; /* Adjust the height as needed */
+  width: auto; /* Keeps the aspect ratio intact */
+  cursor: pointer;
+  padding-left: 5%;
+}
+
+.leftContainer,
+.rightContainer {
+  flex-basis: 50%; /* Adjust based on your layout/design */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Position the right container absolutely */
+  top: 0; /* Align it to the top of the pageContainer */
+  width: 50%; /* Maintain the width as before */
+  height: 100vh; /* Full viewport height */
+}
+
+.leftContainer {
+  left: 0; /* Align it to the right edge of the pageContainer */
+}
+
+.rightContainer {
+  right: 0; /* Align it to the right edge of the pageContainer */
+  
+}
+
+.innerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25%;
+}
+
+.rightPillar {
+  width: 65%;
+  background-color: #f1f9f9; /* Example background color, change as needed */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Position the right container absolutely */
+  top: 0; /* Align it to the top of the pageContainer */
+  margin-right: 25%;
+}
+
+.logoContainer {
+  margin-top: 5%;
+  margin-left: 6%;
+  position: absolute;
+  align-self: flex-start;
+  top: 0;
+  left: 0;
+}
+
+.formContainer {
+  padding-top: 2%;
+  width: 100%; /* Adjust based on your design */
+}
+
+.inputContainer {
+  padding-bottom: 20px; /* Space between form groups */
+}
+
+.inputField {
+  font-weight: 300; /* Assuming a lighter font-weight */
+  padding-bottom: 8px; /* Space between label and input */
+  padding-top: 8px;
+  width: 100%;
+  padding: 12px 20px; /* Adjust padding as needed */
+  display: inline-block;
+  border: 1px solid #ccc; /* Border color */
+  box-sizing: border-box; /* Box-sizing */
+  border-radius: 20px;
+  height: 40px;
+}
+
+.inputlabel {
+  font-size: 17px;
+}
+
+.submitContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+}
+
+.loginButton {
+  font-size: 18px;
+  width: 80%;
+  color: white;
+  padding-bottom: 0.7em;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 0.1s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid #000;
+  border-radius: 30px;
+  color: #000;
+  background: #fff;
+  font-family: "Lato";
+  font-weight: bold;
+}
+
+.signupButton {
+  margin-top: 35px;
+  font-size: 18px;
+  width: 40%;
+  padding-bottom: 2em;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 0.1s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid #000;
+  border-radius: 40px;
+  color: #000;
+  background: #fff9f9;
+  height: 40px;
+  font-family: "Lato";
+  font-weight: bold;
+}
+
+.signupButton:hover {
+  width:46%;
+  height: 50px;
+  font-size: 22px;
+  background: #d0ffda;
+  font-weight: bolder;
+}
+
+.loginButton:hover {
+  color: #fff;
+  background: #000;
+}
+
+.signUpDescription {
+  font-size: 20px;
+}
+
+.signUpHeader {
+  font-size: 40px;
+}

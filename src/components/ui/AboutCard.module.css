@@ -12,10 +12,11 @@
   
   .content {
     flex-basis: 50%; /* Adjust based on your layout/design */
+    font-weight: bold;
   }
   
   .title {
-    font-size: 40px; /* Example font size */
+    font-size: 50px; /* Example font size */
     margin-bottom: 10px;
   }
   

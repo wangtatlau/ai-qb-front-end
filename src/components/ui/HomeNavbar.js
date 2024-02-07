@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import styles from './HomeNavbar.module.css';
 import logo from "../../static/logos/qVault_transparent.png";
+import { useNavigate } from "react-router-dom";
 
 const HomeNavBar = () => {
+
+  const navigate = useNavigate();
   return (
     <div className={styles.navBar}>
       <div className={styles.leftContainer}>
@@ -22,12 +25,12 @@ const HomeNavBar = () => {
         </HashLink>
       </div>
       <div className={styles.rightContainer}>
-        <Link to="/signup" className={styles.itemContainer}>
+        <div onClick={() => navigate('/signup')} className={styles.itemContainer}>
           <p className={styles.navLink}>Sign Up</p>
-        </Link>
-        <Link to="/login" className={styles.itemContainer}>
+        </div>
+        <div onClick={() => navigate('/login')} className={styles.itemContainer}>
           <p className={styles.navLink}>Log In</p>
-        </Link>
+        </div>
       </div>
     </div>
   );
