@@ -1,33 +1,30 @@
 import React from "react";
-import Card from "../components/ui/Card";
-import Layout from "../components/layout/Layout";
+import HomeNavBar from "../components/ui/HomeNavbar";
+import OverviewCard from "../components/ui/OverviewCard";
+import AboutCard from "../components/ui/AboutCard";
+import ContactCard from "../components/ui/ContactCard";
+import styles from "./Home.module.css"
 
-function HomePage() {
+const HomePage = () => {
   return (
-    <Layout>
-        <div>
+    <div className={styles.homeBody}>
+      <HomeNavBar className={styles.navbar} />
+      <div className={styles.mainContainer}>
         <section id="home">
-            <Card>
-            <h2>Home Section</h2>
-            {/* Your content for the home section */}
-            </Card>
+          <OverviewCard />
+
         </section>
         <section id="about">
-            <Card>
-            <h2>About Us Section</h2>
-            {/* Your content for the about us section */}
-            </Card>
+          <AboutCard />
+
         </section>
         <section id="contact">
-            <Card>
-            <h2>Contact Section</h2>
-            {/* Your content for the contact section */}
-            </Card>
+          <ContactCard />
+
         </section>
-        {/* Add more sections as needed */}
-        </div>
-    </Layout>
+      </div>
+    </div>
   );
-}
+};
 
 export default HomePage;

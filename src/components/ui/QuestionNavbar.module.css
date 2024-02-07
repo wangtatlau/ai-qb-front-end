@@ -1,0 +1,106 @@
+.leftContainer {
+    display: flex;
+    align-items: center;
+}
+
+.rightContainer {
+  display: flex;
+  align-items: center;
+}
+
+/* Improved Styling for Navigation Bar */
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #00308f; /* Consistent blue color */
+  padding: 10px 20px; /* Uniform padding */
+  display: flex;
+  justify-content: space-between; /* Space out elements */
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle box shadow */
+  font-size: 18px;
+  font-family: "Lato";
+}
+
+.navLink {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.itemContainer {
+  border-radius: 8px; /* Adjust as needed for rounded corners */
+  transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
+  margin-right: 8%;
+  padding-left: 7%;
+  padding-right: 7%;
+  cursor: pointer;
+}
+
+.submitContainer {
+  border-radius: 8px; /* Adjust as needed for rounded corners */
+  transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
+  margin-right: 10px;
+  padding-top: 12%;
+  padding-bottom: 12%;
+  padding-left: 7%;
+  padding-right: 7%;
+  cursor: pointer;
+}
+
+.submitContainer:hover {
+  background-color: #ffffff1c;
+}
+
+.itemContainer:hover {
+  background-color: #ffffff1c;
+}
+
+.referenceContainer {
+  position: relative;
+}
+
+/* Styles for the reference button */
+.referenceButton {
+  font-weight: bold;
+  color: #fff; /* Changed text color to white for better contrast */
+  font-weight: bold; /* Added bold font weight for emphasis */
+  margin: 0 15px; /* Added margin for space between navigation items */
+  background-color: transparent;
+  font-size: 18px;
+  font-family: "Lato";
+  cursor: pointer;
+}
+
+/* Styles for the reference menu */
+.referenceMenu {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 2;
+  width: 230%; /* Increase the width */
+  font-size: 90%;
+}
+
+/* Hide the menu by default */
+.referenceMenu {
+  display: none;
+}
+
+.referenceMenuVisible {
+  display: block;
+  width: 230%;
+}
+
+.submitLink {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text from wrapping */
+}

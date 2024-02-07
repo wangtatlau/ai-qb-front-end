@@ -5,6 +5,7 @@ import styles from "./Question.module.css";
 import ScoreBoard from "../components/ui/ScoreBoard";
 import ReferenceTable from "../components/ui/ReferenceTable";
 import useBodyClass from "./useBodyClass";
+import QuestionNavbar from "../components/ui/QuestionNavbar";
 
 const questionStack = [
   {
@@ -218,64 +219,12 @@ const QuestionPage = () => {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.navBar}>
-        <div className={styles.leftContainer}>
-          <div className={styles.referenceContainer}>
-            <button
-              className={styles.referenceButton}
-              onClick={toggleReference}
-            >
-              Reference▼
-            </button>
-            {isReferenceVisible && (
-              <div
-                className={`${styles.referenceMenu} ${
-                  isReferenceVisible ? styles.referenceMenuVisible : ""
-                }`}
-              >
-                <ReferenceTable />
-              </div>
-            )}
-          </div>
-          <a className={styles.itemContainer} href="https://bnf.nice.org.uk">
-            <p
-              
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.navLink}
-            >
-              BNF
-            </p>
-          </a>
-          <a className={styles.itemContainer} href="https://www.nice.org.uk">
-            <p
-              
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.navLink}
-            >
-              NICE
-            </p>
-          </a>
-          <a className={styles.itemContainer} href="https://www.uptodate.com/contents/table-of-contents/primary-care-adult/general-medicine">
-            
-            <p
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.navLink}
-            >
-              UpToDate
-            </p>
-          </a>
-        </div>
-        <div className={styles.rightContainer}>
-          <div className={styles.submitContainer} onClick={handleSubmitTest}>
-            <Link className={styles.submitLink}>
-              Submit & Review
-            </Link>
-          </div>
-        </div>
-      </div>
+      <QuestionNavbar
+        toggleReference={toggleReference}
+        isReferenceVisible={isReferenceVisible}
+        handleSubmitTest={handleSubmitTest}
+        className={styles.navBar}
+      />
       <div className={styles.questionContent}>
         <QuestionCard
           question={currentQuestion}
