@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './OverviewCard.module.css'; // make sure to create this CSS module file
+import overview from '../../static/photos/Overview.png'
 
 const OverviewCard = () => {
   return (
@@ -12,7 +13,7 @@ const OverviewCard = () => {
       </div>
       <div className={styles.imageContainer}>
         {/* Replace with your image path */}
-        <img src="/path-to-your-image.jpg" alt="Laptop Sleeve" className={styles.image} />
+        <img src={overview} className={styles.image} />
       </div>
     </div>
   );

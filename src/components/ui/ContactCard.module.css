@@ -4,8 +4,10 @@
     align-items: center;
     margin: 20px;
     padding: 20px;
-    background-color: #f5f5f5; /* Example background color */
+    background-color: #fff4f4; /* Example background color */
     height: 1000px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .content {
@@ -26,10 +28,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 5%;
   }
   
   .image {
     max-width: 100%; /* Makes sure the image is responsive */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 25px;
   }
   

@@ -1,18 +1,50 @@
 import React from 'react';
 import styles from './AboutCard.module.css'; // Assuming you have CSS module files
+import groupPhoto from '../../static/photos/About_us.jpg'
 
 const AboutCard = () => {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        {/* Replace with your image path */}
-        <img src="/path-to-your-image.jpg" alt="Laptop Sleeve" className={styles.image} />
+        <img src={groupPhoto} alt="Laptop Sleeve" className={styles.image} />
       </div>
       <div className={styles.content}>
-        <h2 className={styles.title}>Minimal and thoughtful</h2>
+        <h2 className={styles.title}>About us</h2>
         <p className={styles.description}>
-          Our laptop sleeve is compact and precisely fits 13" devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.
+          We are a diverse team of thinkers, creators, and leaders united by a shared ambition to excel. 
         </p>
+        <p className={styles.description}>
+          Meet our team (From right to left):
+        </p>
+        <table className={styles.teamList}>
+          <tr>
+            <td>Project Lead:</td> <td>Issac Ng</td>
+          </tr>
+          <tr>
+            <td>Internal Relations:</td> <td>Oscar Ho</td>
+          </tr>
+          <tr>
+            <td>Lead Sofware Designer:</td> <td>Abirami</td>
+          </tr>
+          <tr>
+            <td>Staff Project Lead:</td> <td>Dr Mandeep Sagoo</td>
+          </tr>
+          <tr>
+            <td>External Relations:</td> <td>Chantelle Gasa</td>
+          </tr>
+          <tr>
+            <td>Research Lead:</td> <td>Claire Han</td>
+          </tr>
+          <tr>
+            <td>Backend Lead:</td> <td>Kourosh Zarei</td>
+          </tr>
+          <tr>
+            <td>Frontend Lead:</td> <td>Victor Lau</td>
+          </tr>
+          <tr>
+            <td>Staff Contributor:</td> <td>Anatoliy Markiv (not in photo)</td>
+          </tr>
+        </table>
       </div>
       
     </div>
