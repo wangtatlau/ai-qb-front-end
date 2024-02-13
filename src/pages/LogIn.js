@@ -3,6 +3,7 @@ import styles from "./LogIn.module.css";
 import logo from "../static/logos/qVault_var1.png";
 import { useNavigate } from "react-router-dom";
 import useBodyClass from "./useBodyClass";
+import tick from "../static/logos/abstract_tick.png";
 
 const LogInPage = () => {
   //Need to change when have server
@@ -63,11 +64,15 @@ const LogInPage = () => {
         </div>
         <div className={styles.rightContainer}>
           <div className={styles.rightPillar}>
-            <h2 className={styles.signUpHeader}>New here?</h2>
-            <h4 className={styles.signUpDescription}>
+            <img src={tick} className={styles.tick} />
+            <p className={styles.signUpHeader}>New here?</p>
+            <p className={styles.signUpDescription}>
               Sign up and start learning with us!
-            </h4>
-            <button className={styles.signupButton} onClick={() => navigate("/signup")}>
+            </p>
+            <button
+              className={styles.signupButton}
+              onClick={() => navigate("/signup")}
+            >
               Sign up
             </button>
           </div>

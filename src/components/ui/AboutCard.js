@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AboutCard.module.css'; // Assuming you have CSS module files
+import styles from './AboutCard.module.css';
 import groupPhoto from '../../static/photos/About_us.jpg'
 
 const AboutCard = () => {

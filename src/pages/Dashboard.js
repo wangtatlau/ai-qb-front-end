@@ -28,7 +28,7 @@ const DashboardPage = () => {
     navigate(path);
   };
 
-  const logout = () => {};
+  const logout = () => {navigate('/');};
 
   return (
     <div className={styles.dashboardContainer}>

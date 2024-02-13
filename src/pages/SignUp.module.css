@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 
-.LogInBody {
+.SignUpBody {
   background-color: #ffffff;
 }
 
@@ -135,7 +135,7 @@
   padding-top: 10%;
 }
 
-.loginButton {
+.signupButton {
   font-size: 18px;
   width: 80%;
   color: white;
@@ -154,7 +154,7 @@
   font-weight: bold;
 }
 
-.signupButton {
+.loginButton {
   margin-top: 35px;
   font-size: 18px;
   width: 40%;
@@ -174,7 +174,7 @@
   font-weight: bold;
 }
 
-.signupButton:hover {
+.loginButton:hover {
   width:46%;
   height: 50px;
   font-size: 22px;
@@ -182,7 +182,7 @@
   font-weight: bolder;
 }
 
-.loginButton:hover {
+.signupButton:hover {
   color: #fff;
   background: #000;
 }

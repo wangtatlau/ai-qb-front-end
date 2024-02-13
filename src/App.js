@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import SignUpPage from "./pages/SignUp";
 import HomePage from "./pages/Home";
 import QuestionPage from "./pages/Question";
 import DashboardPage from "./pages/Dashboard";
@@ -18,11 +19,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/signup" element={<SignUpPage />} />
-        
+        {/* 
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/browse" element={<BrowsePage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} /> */}
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/question" element={<QuestionPage />} />
