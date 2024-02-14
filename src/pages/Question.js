@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import QuestionCard from "../components/ui/QuestionCard";
 import styles from "./Question.module.css";
 import ScoreBoard from "../components/ui/ScoreBoard";
-import ReferenceTable from "../components/ui/ReferenceTable";
 import useBodyClass from "./useBodyClass";
 import QuestionNavbar from "../components/ui/QuestionNavbar";
 
@@ -101,10 +100,14 @@ const QuestionPage = () => {
   const isLastQuestion = currentQuestionIndex === questionStack.length - 1;
   // Add a state for the question stack fetched from the API
   const [apiQuestionStack, setApiQuestionStack] = useState([]);
+  const allQuestionsRated =
+    Object.keys(ratings).length === questionStack.length;
 
   // Add a state for handling loading and error states
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   // Fetch question stack from the API when the component mounts
   useEffect(() => {
@@ -168,7 +171,9 @@ const QuestionPage = () => {
     }
   };
 
-  const handleSubmitTest = () => {};
+  const handleSubmitTest = () => {
+    navigate("/review", { state: { correctCount, wrongCount } }); // Use state to pass the correct and wrong counts
+  };
 
   const handleScoreItemClick = (index) => {
     setCurrentQuestionIndex(index);
@@ -224,6 +229,7 @@ const QuestionPage = () => {
         isReferenceVisible={isReferenceVisible}
         handleSubmitTest={handleSubmitTest}
         className={styles.navBar}
+        allQuestionsRated={allQuestionsRated}
       />
       <div className={styles.questionContent}>
         <QuestionCard

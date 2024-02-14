@@ -11,7 +11,7 @@ const HomeNavBar = () => {
   return (
     <div className={styles.navBar}>
       <div className={styles.leftContainer}>
-        <HashLink to="/#home" className={styles.logoContainer}>
+        <HashLink smooth to="/#home" className={styles.logoContainer}>
           <img src={logo} alt="Logo" className={styles.logo} />
         </HashLink>
         <HashLink smooth to="/#home" className={styles.itemContainer}>

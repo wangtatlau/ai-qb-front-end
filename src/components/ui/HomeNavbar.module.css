@@ -15,7 +15,7 @@
 .rightContainer {
   display: flex;
   width: 15%;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 /* Improved Styling for Navigation Bar */

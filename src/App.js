@@ -4,9 +4,9 @@ import HomePage from "./pages/Home";
 import QuestionPage from "./pages/Question";
 import DashboardPage from "./pages/Dashboard";
 import CreateQuestionPage from "./pages/CreateQuestion";
+import ReviewPage from "./pages/Review";
 import Layout from "./components/layout/Layout";
 import styles from "./index.css"
-// import SignUpPage from "./pages/SignUp";
 import LogInPage from "./pages/LogIn";
 // import DashboardPage from "./pages/Dashboard";
 // import BrowsePage from "./pages/Browse";
@@ -23,6 +23,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/browse" element={<BrowsePage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} /> */}
+        <Route path="/review" element={<ReviewPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />

@@ -1,49 +1,71 @@
 .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f1f9f9; /* Example background color */
-    height: 40vw;
-    min-height: 800px;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .content {
-    flex-basis: 50%; /* Adjust based on your layout/design */
-    font-weight: bold;
-  }
-  
-  .title {
-    font-size: 50px; /* Example font size */
-    margin-bottom: 10px;
-  }
-  
-  .description {
-    font-size: 23px; /* Example font size */
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  .teamList {
-    font-size: 20px;
-  }
+  padding: 20px;
+  background-color: #f3fff6; /* Example background color */
+  height: 40vw;
+  min-height: 800px;
+}
 
-  .teamList td {
-    padding-right: 30px;
-  }
-  
-  .imageContainer {
-    flex-basis: 50%; /* Adjust based on your layout/design */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 5%;
-  }
-  
-  .image {
-    max-width: 100%; /* Makes sure the image is responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 25px;
-  }
-  
+.content {
+  flex-basis: 50%; /* Adjust based on your layout/design */
+  font-weight: bold;
+}
+
+.title {
+  font-size: 50px; /* Example font size */
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 23px; /* Example font size */
+}
+
+.teamList {
+  font-size: 20px;
+}
+
+.teamList td {
+  padding-right: 30px;
+}
+
+.imageContainer {
+  flex-basis: 50%; /* Adjust based on your layout/design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5%;
+}
+
+.image {
+  max-width: 100%; /* Makes sure the image is responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 25px;
+}
+
+.fadeInLeft {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.fadeOutLeft {
+  opacity: 0;
+  transform: translateX(-100px); /* Adjust as needed */
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+
+.fadeInRight {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.fadeOutRight {
+  opacity: 0;
+  transform: translateX(100px); /* Adjust as needed */
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}

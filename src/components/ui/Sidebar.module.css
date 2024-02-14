@@ -5,23 +5,26 @@
   top: 0;
   width: 6%;
   max-width: 6%;
-  min-width: 100px;
+  min-width: 150px;
   height: 100%;
   overflow: auto;
   text-align: center;
-  background-color: #00308f; /* Consistent blue color */
+  background-color: #00308f;
   font-size: 1.4vh;
+  display: flex; /* Make sidebar a flex container */
+  flex-direction: column; /* Align children vertically */
+  justify-content: space-between; /* Pushes .lowerContainer to the bottom */
 }
 
 @media (max-height: 1000px) {
   .sidebar {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 1300px) {
   .sidebar {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -46,23 +49,21 @@
 }
 
 .logo {
-  height: 1vw; /* Adjust the height as needed */
-  min-height: 12px;
-  width: auto; /* Keeps the aspect ratio intact */
+  height: 1vw;
+  min-height: 18px;
+  object-fit: contain;
   cursor: pointer;
   padding-top: 1.2em;
   padding-bottom: 0.1em;
 }
 
 .lowerContainer {
-  position: absolute; /* Positions .lowerContainer at the bottom of .sidebar */
-  bottom: 0;
-  width: 100%; /* Ensures it spans the width of .sidebar */
+  width: 100%;
 }
 
 .itemContainer {
-  border-radius: 8px; /* Adjust as needed for rounded corners */
-  transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
   margin-left: 8%;
   margin-right: 8%;
 }

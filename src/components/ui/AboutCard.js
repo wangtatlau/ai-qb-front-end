@@ -1,17 +1,62 @@
-import React from 'react';
-import styles from './AboutCard.module.css';
-import groupPhoto from '../../static/photos/About_us.jpg'
+import React, { useRef, useEffect, useState } from "react";
+import styles from "./AboutCard.module.css";
+import groupPhoto from "../../static/photos/About_us.jpg";
 
 const AboutCard = () => {
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Adjust the threshold as per your need
+    );
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+    }
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current);
+      }
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img src={groupPhoto} alt="Laptop Sleeve" className={styles.image} />
+      <div
+        className={`${styles.imageContainer} ${
+          isVisible ? styles.fadeInLeft : styles.fadeOutLeft
+        }`}
+      >
+        <img
+          ref={imageRef}
+          src={groupPhoto}
+          alt="Laptop Sleeve"
+          className={`${styles.image}`}
+        />
       </div>
-      <div className={styles.content}>
+      <div
+        ref={contentRef}
+        className={`${styles.content} ${
+          isVisible ? styles.fadeInRight : styles.fadeOutRight
+        }`}
+      >
         <h2 className={styles.title}>About us</h2>
         <p className={styles.description}>
-          We are a diverse team of thinkers, creators, and leaders united by a shared ambition to excel. 
+          We are a diverse team of thinkers, creators, and leaders united by a
+          shared ambition to excel.
         </p>
         <p className={styles.description}>
           Meet our team (From right to left):
@@ -46,7 +91,6 @@ const AboutCard = () => {
           </tr>
         </table>
       </div>
-      
     </div>
   );
 };

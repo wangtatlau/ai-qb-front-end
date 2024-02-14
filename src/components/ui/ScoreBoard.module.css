@@ -33,7 +33,7 @@
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap onto new lines as needed */
   justify-content: left; /* Center items horizontally */
-  align-items: start; /* Align items to the start of the flex line */
+  align-items: flex-start; /* Align items to the start of the flex line */
   gap: 0.5em; /* Space between items */
 }
 

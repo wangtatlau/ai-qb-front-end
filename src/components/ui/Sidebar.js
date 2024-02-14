@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   const lowerLinks = [
     { name: "Setting", path: "/setting" },
-    { name: "Log out", path: "/log-out" },
+    { name: "Log out", path: "/" },
   ];
 
   const handleCardClick = (path) => {
@@ -26,14 +26,15 @@ const Sidebar = () => {
 
   return (
     <div className={styles.sidebar}>
-      <img
-        className={styles.logo}
-        src={logo}
-        alt="Logo"
-        onClick={() => navigate("/dashboard")}
-      />
-      <hr className={styles.divider} />
-      <div>
+      <div className={styles.upperContainer}>
+        <img
+          className={styles.logo}
+          src={logo}
+          alt="Logo"
+          onClick={() => navigate("/dashboard")}
+        />
+        <hr className={styles.divider} />
+
         {upperLinks.map((link, index) => (
           <div>
             <div key={index} className={styles.itemContainer}>

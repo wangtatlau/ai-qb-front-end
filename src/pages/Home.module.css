@@ -13,12 +13,11 @@
 }
 
 .mainContainer {
-  padding-left: 8%;
-  padding-right: 8%;
-  padding-top: 85px;
+
+  padding-top: 78px;
 }
 
 .cardContainer {
-  padding-top: 85px; /* Add top padding to the section equal to navbar height */
-  margin-top: -85px; /* Add negative margin to pull the section back up */
+  padding-top: 78px; /* Add top padding to the section equal to navbar height */
+  margin-top: -78px; /* Add negative margin to pull the section back up */
 }
