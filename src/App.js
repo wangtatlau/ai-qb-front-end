@@ -5,7 +5,6 @@ import QuestionPage from "./pages/Question";
 import DashboardPage from "./pages/Dashboard";
 import CreateQuestionPage from "./pages/CreateQuestion";
 import ReviewPage from "./pages/Review";
-import Layout from "./components/layout/Layout";
 import styles from "./index.css"
 import LogInPage from "./pages/LogIn";
 // import DashboardPage from "./pages/Dashboard";

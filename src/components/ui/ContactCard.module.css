@@ -11,7 +11,10 @@
 .content {
   flex-basis: 50%; /* Adjust based on your layout/design */
   font-weight: bold;
-  padding-left: 30px;
+  padding-right: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .title {

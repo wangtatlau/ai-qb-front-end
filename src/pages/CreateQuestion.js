@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import MenuCard from "../components/ui/MenuCard";
-import Sidebar from "../components/ui/Sidebar";
 import styles from "./CreateQuestion.module.css";
 import useBodyClass from "./useBodyClass";
+import MainSidebarLayout from "../components/layout/MainSidebarLayout"
 
 function CreateQuestion() {
   // Dummy data structure
@@ -88,8 +88,8 @@ function CreateQuestion() {
     noDrag: submitted,
   });
   return (
+    <MainSidebarLayout>
     <div>
-      <Sidebar />
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <div className={styles.uploadArea} {...getRootProps()}>
@@ -118,6 +118,7 @@ function CreateQuestion() {
         )}
       </div>
     </div>
+    </MainSidebarLayout>
   );
 }
 
