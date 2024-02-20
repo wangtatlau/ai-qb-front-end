@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useDropzone } from "react-dropzone";
 import MenuCard from "../components/ui/MenuCard";
 import styles from "./CreateQuestion.module.css";
@@ -6,6 +7,7 @@ import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout"
 
 function CreateQuestion() {
+  const navigate = useNavigate();
   // Dummy data structure
   const dummyTopics = ["A", "B", "C"];
   const dummyQuestionNumbers = ["10", "20", "30"];
@@ -60,7 +62,7 @@ function CreateQuestion() {
     formData.append("file", file); // Append the file to form data
 
     // Modify this URL to your API endpoint
-    const uploadURL = "YOUR_API_ENDPOINT_URL";
+    const uploadURL = "http://127.0.0.1:5000/upload";
 
     fetch(uploadURL, {
       method: "POST",
@@ -71,6 +73,8 @@ function CreateQuestion() {
       .then((data) => {
         console.log("Success:", data);
         // Handle successful response
+        //Temp
+        navigate('/question', { state: { questionStack: data.questionStack } });
       })
       .catch((error) => {
         console.error("Error:", error);

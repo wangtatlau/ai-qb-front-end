@@ -1,93 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import QuestionCard from "../components/ui/QuestionCard";
 import styles from "./Question.module.css";
 import ScoreBoard from "../components/ui/ScoreBoard";
 import useBodyClass from "./useBodyClass";
 import QuestionNavbar from "../components/ui/QuestionNavbar";
 
-const questionStack = [
-  {
-    id: 1,
-    questionStem:
-      "Sandy Hughes, 67, presents to A&E with chest pain. She describes 12 hours of sharp chest discomfort on inspiration, which started suddenly just after she arrived back from her flight to Florida. Her oxygen saturation is 94% on 2 litres of oxygen and her respiratory rate is 28.",
-    questionLeadIn: "What is the most likely ECG finding for this patient?",
-    options: [
-      "Right axis deviation",
-      "SI QIII TIII pattern",
-      "Sinus tachycardia",
-      "ST elevation in three contiguous leads",
-      "Widespread saddle-shaped ST elevation",
-    ],
-    optionsPercentage: ["10", "20", "30", "30", "10"],
-    correctAnswer: "Sinus tachycardia",
-    explanation:
-      "The most likely ECG finding in this patient is sinus tachycardia. This patient has presented with the classic signs of a pulmonary embolism (PE)- recent travel, sudden onset chest pain which is worse on inspiration, and increased respiratory rate with low oxygen saturations. ECG findings in PE can include right axis deviation, sinus tachycardia, and the oft-mentioned but rarely seen SI QIII TIII pattern. Of these, the most likely is sinus tachycardia. ST elevation in three contiguous leads would be seen in an ST-elevation myocardial infarction rather than a PE, and widespread saddle-shaped ST elevation is indicative of pericarditis.",
-  },
-  {
-    id: 2,
-    questionStem: "Which planet is known as the Red Planet?",
-    questionLeadIn: "Which planet is known as the Red Planet?",
-    options: ["Mars", "Venus", "Jupiter", "Saturn", "Mercury"],
-    optionsPercentage: ["30", "10", "20", "30", "10"],
-    correctAnswer: "Mars",
-    explanation:
-      "Mars is often referred to as the Red Planet due to its reddish appearance.",
-  },
-  {
-    id: 3,
-    questionStem: "Who wrote 'Romeo and Juliet'?",
-    questionLeadIn: "Who wrote 'Romeo and Juliet'?",
-    options: [
-      "Charles Dickens",
-      "Jane Austen",
-      "William Shakespeare",
-      "Mark Twain",
-      "Emily Bronte",
-    ],
-    optionsPercentage: ["10", "10", "60", "10", "10"],
-    correctAnswer: "William Shakespeare",
-    explanation:
-      "William Shakespeare wrote the famous play 'Romeo and Juliet.'",
-  },
-  {
-    id: 4,
-    questionStem: "What is the largest mammal?",
-    questionLeadIn: "What is the largest mammal?",
-    options: [
-      "Elephant",
-      "Blue Whale",
-      "Giraffe",
-      "Hippopotamus",
-      "Rhinoceros",
-    ],
-    optionsPercentage: ["10", "60", "10", "10", "10"],
-    correctAnswer: "Blue Whale",
-    explanation: "The Blue Whale is the largest mammal on Earth.",
-  },
-  {
-    id: 5,
-    questionStem: "In which year did World War II end?",
-    questionLeadIn: "In which year did World War II end?",
-    options: ["1943", "1945", "1947", "1950", "1952"],
-    optionsPercentage: ["10", "60", "10", "10", "10"],
-    correctAnswer: "1945",
-    explanation: "World War II ended in the year 1945.",
-  },
-  {
-    id: 6,
-    questionStem:
-      "In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end? In which year did World War II end?In which year did World War II end? In which year did World War II end?  ",
-    questionLeadIn: "In which year did World War II end?",
-    options: ["1943", "1945", "1947", "1950", "1952"],
-    optionsPercentage: ["10", "60", "10", "10", "10"],
-    correctAnswer: "1945",
-    explanation: "World War II ended in the year 1945.",
-  },
-];
-
 const QuestionPage = () => {
   useBodyClass(styles.questionBody);
+  const location = useLocation(); 
+  const [questionStack, setQuestionStack] = useState(() => {
+    const state = location.state ? location.state.questionStack : [];
+    return state;
+  });
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -98,36 +23,14 @@ const QuestionPage = () => {
   const [ratings, setRatings] = useState({}); // State to store ratings and reasons
   const [bookmarks, setBookmarks] = useState({}); // State to store bookmarks
   const isLastQuestion = currentQuestionIndex === questionStack.length - 1;
-  // Add a state for the question stack fetched from the API
-  const [apiQuestionStack, setApiQuestionStack] = useState([]);
   const allQuestionsRated =
     Object.keys(ratings).length === questionStack.length;
 
-  // Add a state for handling loading and error states
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
   // Fetch question stack from the API when the component mounts
-  useEffect(() => {
-    setIsLoading(true);
-    fetch("YOUR_API_URL") // Replace with your actual API URL
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch questions!");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setApiQuestionStack(data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setIsLoading(false);
-      });
-  }, []);
+
 
   const handleAnswerClick = (selectedAnswer) => {
     if (answered) return;
@@ -220,7 +123,6 @@ const QuestionPage = () => {
   };
 
   const currentQuestion = questionStack[currentQuestionIndex];
-  //const currentQuestion = apiQuestionStack[currentQuestionIndex];
 
   return (
     <div className={styles.pageContainer}>
