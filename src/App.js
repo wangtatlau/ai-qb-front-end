@@ -5,6 +5,7 @@ import QuestionPage from "./pages/Question";
 import DashboardPage from "./pages/Dashboard";
 import CreateQuestionPage from "./pages/CreateQuestion";
 import ReviewPage from "./pages/Review";
+import BrowseQuestion from "./pages/BrowseQuestion";
 import styles from "./index.css"
 import LogInPage from "./pages/LogIn";
 // import DashboardPage from "./pages/Dashboard";
@@ -20,8 +21,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         {/* 
         <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/browse" element={<BrowsePage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} /> */}
+        <Route path="//browse-question" element={<BrowseQuestion />} />
         <Route path="/review" element={<ReviewPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />

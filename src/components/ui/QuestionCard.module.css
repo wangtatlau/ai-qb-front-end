@@ -97,6 +97,10 @@
   text-decoration: underline;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+}
+
 .overlayBarContainer {
   height: 8px;
   background-color: #dededecb;

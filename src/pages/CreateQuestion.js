@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import MenuCard from "../components/ui/MenuCard";
 import styles from "./CreateQuestion.module.css";
 import useBodyClass from "./useBodyClass";
-import MainSidebarLayout from "../components/layout/MainSidebarLayout"
+import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 
 function CreateQuestion() {
   const navigate = useNavigate();
   // Dummy data structure
-  const dummyTopics = ["A", "B", "C"];
+  const dummyTopics = [
+    "Biochemistry ",
+    "Anatomy",
+    "Physiology",
+    "A-Level",
+    "GCSE",
+  ];
   const dummyQuestionNumbers = ["10", "20", "30"];
-  const dummyQuestionTypes = ["Type 1", "Type 2", "Type 3"];
+  const dummyQuestionTypes = ["Factual", "Differential diagnosis"];
 
   useBodyClass(styles.createQuestionBody);
 
@@ -74,7 +80,7 @@ function CreateQuestion() {
         console.log("Success:", data);
         // Handle successful response
         //Temp
-        navigate('/question', { state: { questionStack: data.questionStack } });
+        navigate("/question", { state: { questionStack: data.questionStack } });
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -93,35 +99,35 @@ function CreateQuestion() {
   });
   return (
     <MainSidebarLayout>
-    <div>
-      <div className={styles.container}>
-        <div className={styles.leftContainer}>
-          <div className={styles.uploadArea} {...getRootProps()}>
-            <input {...getInputProps()} />
-            {fileError && <div className={styles.error}>{fileError}</div>}
-            {file ? (
-              <h2 className={styles.instruction}>{`File: ${file.name}`}</h2>
-            ) : (
-              <h2 className={styles.instruction}>
-                Drag 'n' drop a PDF here, or click to select files
-              </h2>
+      <div>
+        <div className={styles.container}>
+          <div className={styles.leftContainer}>
+            <div className={styles.uploadArea} {...getRootProps()}>
+              <input {...getInputProps()} />
+              {fileError && <div className={styles.error}>{fileError}</div>}
+              {file ? (
+                <h2 className={styles.instruction}>{`File: ${file.name}`}</h2>
+              ) : (
+                <h2 className={styles.instruction}>
+                  Drag 'n' drop a PDF here, or click to select files
+                </h2>
+              )}
+            </div>
+            {file && !submitted && (
+              <button onClick={handleSubmit} className={styles.submitButton}>
+                Submit
+              </button>
             )}
           </div>
-          {file && !submitted && (
-            <button onClick={handleSubmit} className={styles.submitButton}>
-              Submit
-            </button>
+          {showMenu && (
+            <MenuCard
+              topics={dummyTopics}
+              questionNumbers={dummyQuestionNumbers}
+              questionTypes={dummyQuestionTypes}
+            />
           )}
         </div>
-        {showMenu && (
-          <MenuCard
-            topics={dummyTopics}
-            questionNumbers={dummyQuestionNumbers}
-            questionTypes={dummyQuestionTypes}
-          />
-        )}
       </div>
-    </div>
     </MainSidebarLayout>
   );
 }

@@ -8,7 +8,7 @@ import QuestionNavbar from "../components/ui/QuestionNavbar";
 
 const QuestionPage = () => {
   useBodyClass(styles.questionBody);
-  const location = useLocation(); 
+  const location = useLocation();
   const [questionStack, setQuestionStack] = useState(() => {
     const state = location.state ? location.state.questionStack : [];
     return state;
@@ -23,34 +23,45 @@ const QuestionPage = () => {
   const [ratings, setRatings] = useState({}); // State to store ratings and reasons
   const [bookmarks, setBookmarks] = useState({}); // State to store bookmarks
   const isLastQuestion = currentQuestionIndex === questionStack.length - 1;
+  const [strikedOptions, setStrikedOptions] = useState({});
   const allQuestionsRated =
     Object.keys(ratings).length === questionStack.length;
-
 
   const navigate = useNavigate();
 
   // Fetch question stack from the API when the component mounts
 
-
   const handleAnswerClick = (selectedAnswer) => {
     if (answered) return;
+    const currentStrikes = strikedOptions[currentQuestionIndex + 1] || [];
+    if (currentStrikes.includes(selectedAnswer)) {
+      return;
+    }
 
     const isCorrect =
       selectedAnswer === questionStack[currentQuestionIndex].correctAnswer;
-    //selectedAnswer === apiQuestionStack[currentQuestionIndex].correctAnswer;
-
     setUserAnswers([
       ...userAnswers,
       { questionId: currentQuestionIndex + 1, selectedAnswer, isCorrect },
     ]);
-
     if (isCorrect) {
       setCorrectCount(correctCount + 1);
     } else {
       setWrongCount(wrongCount + 1);
     }
-
     setAnswered(true);
+  };
+
+  const handleRightClick = (questionId, option) => {
+    setStrikedOptions(prev => {
+      const strikesForQuestion = new Set(prev[questionId] || []);
+      if (strikesForQuestion.has(option)) {
+        strikesForQuestion.delete(option);
+      } else {
+        strikesForQuestion.add(option);
+      }
+      return { ...prev, [questionId]: Array.from(strikesForQuestion) };
+    });
   };
 
   const toggleReference = () => {
@@ -158,6 +169,8 @@ const QuestionPage = () => {
           toggleBookmark={() => toggleBookmark(currentQuestion.id)}
           isLastQuestion={isLastQuestion}
           handleSubmitTest={handleSubmitTest}
+          strikedOptions={strikedOptions[currentQuestion.id] || []}
+          handleRightClick={(option) => handleRightClick(currentQuestion.id, option)}
         />
         <div className={styles.scoreBoardContainer}>
           <ScoreBoard

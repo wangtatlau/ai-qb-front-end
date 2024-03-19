@@ -18,7 +18,9 @@ const QuestionCard = ({
   isBookmarked,
   toggleBookmark,
   isLastQuestion,
-  handleSubmitTest
+  handleSubmitTest,
+  handleRightClick,
+  strikedOptions,
 }) => {
   const userAnswerForCurrentQuestion = userAnswers.find(answer => answer.questionId === question.id);
   const bookmarkButtonClass = isBookmarked ? styles.bookmarkButtonBookmarked : styles.bookmarkButtonUnbookmarked;
@@ -42,6 +44,11 @@ const QuestionCard = ({
       setWrongReason("");
     }
   };
+  
+  const onOptionRightClick = (event, option) => {
+    event.preventDefault(); // Prevents the default context menu from opening
+    handleRightClick(option);
+  };
 
   return (
     <div className={`${styles.cardContainer} ${answered ? styles.answered : ""}`}>
@@ -58,14 +65,16 @@ const QuestionCard = ({
       </div>
       <ul className={`${styles.optionsList} ${styles.vertical}`}>
         {options.map((option, index) => (
-          <li key={index} onClick={() => handleAnswerClick(option)} className={styles.optionItem}>
+          <li key={index} onClick={() => handleAnswerClick(option)}
+          onContextMenu={(event) => onOptionRightClick(event, option)}
+          className={styles.optionItem}>
             <div className={styles.optionContent}>
               <button
                 disabled={answered}
                 className={`${styles.optionText} ${
                   answered && option === correctAnswer ? styles.optionCorrect : 
                   answered && userAnswerForCurrentQuestion && userAnswerForCurrentQuestion.selectedAnswer === option ? styles.optionIncorrect : ""
-                }`}
+                } ${strikedOptions.includes(option) ? styles.strikethrough : ""}`}
               >
                 {option}
               </button>

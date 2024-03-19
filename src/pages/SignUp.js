@@ -54,6 +54,30 @@ const SignUpPage = () => {
                   />
                 </div>
                 <div className={styles.inputContainer}>
+                  <label htmlFor="name" className={styles.inputlabel}>
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className={styles.inputField}
+                    required
+                  />
+                </div>
+                <div className={styles.inputContainer}>
+                  <label htmlFor="university" className={styles.inputlabel}>
+                    University
+                  </label>
+                  <input
+                    type="text"
+                    id="university"
+                    name="university"
+                    className={styles.inputField}
+                    required
+                  />
+                </div>
+                <div className={styles.inputContainer}>
                   <label htmlFor="password" className={styles.inputlabel}>
                     Password
                   </label>

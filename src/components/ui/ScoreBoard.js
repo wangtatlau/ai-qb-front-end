@@ -25,6 +25,9 @@ const ScoreBoard = ({ userAnswers, onScoreItemClick }) => {
         <p>Total Questions Answered: {userAnswers.length}</p>
         {/* New line for correct percentage */}
         <p>Correct Percentage: {isNaN(correctPercentage) ? '0.00' : correctPercentage}%</p>
+        <p>Facility: ???</p>
+        <p>Discrimination: ???</p>
+        <p>Point biserial: ???</p>
       </div>
     </div>
   );
