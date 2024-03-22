@@ -68,7 +68,7 @@ function CreateQuestion() {
     formData.append("file", file); // Append the file to form data
 
     // Modify this URL to your API endpoint
-    const uploadURL = "http://127.0.0.1:5000/upload";
+    const uploadURL = "http://3.217.124.119/upload";
 
     fetch(uploadURL, {
       method: "POST",
