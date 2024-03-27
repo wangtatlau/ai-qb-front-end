@@ -1,4 +1,4 @@
-import React, { startTransition } from "react";
+import React, { useState } from "react";
 import styles from "./LogIn.module.css";
 import logo from "../static/logos/qVault_var1.png";
 import { useNavigate } from "react-router-dom";
@@ -6,11 +6,51 @@ import useBodyClass from "./useBodyClass";
 import tick from "../static/logos/abstract_tick.png";
 
 const LogInPage = () => {
-  //Need to change when have server
-  const handleLogIn = () => {
-    navigate("/dashboard");
-  };
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
   const navigate = useNavigate();
+  useBodyClass(styles.LogInBody);
+
+  const handleInputChange = (setter) => (event) => {
+    setter(event.target.value);
+  };
+
+  const handleLogIn = async (event) => {
+    event.preventDefault();
+    if (!username || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+    const loginData = {
+      username,
+      password,
+    };
+
+    const logInURL = "YOUR_LOGIN_API_ENDPOINT";
+
+    try {
+      const response = await fetch(logInURL, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('token', data.token);
+      console.log("Login Success:", data);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("Failed to log in: " + error.message);
+    }
+  };
   useBodyClass(styles.LogInBody);
 
   return (
@@ -38,6 +78,8 @@ const LogInPage = () => {
                     id="username"
                     name="username"
                     className={styles.inputField}
+                    value={username}
+                    onChange={handleInputChange(setUsername)}
                     required
                   />
                 </div>
@@ -50,6 +92,8 @@ const LogInPage = () => {
                     id="password"
                     name="password"
                     className={styles.inputField}
+                    value={password}
+                    onChange={handleInputChange(setPassword)}
                     required
                   />
                 </div>

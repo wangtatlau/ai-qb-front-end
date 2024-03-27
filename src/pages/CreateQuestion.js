@@ -69,9 +69,12 @@ function CreateQuestion() {
 
     // Modify this URL to your API endpoint
     const uploadURL = "http://127.0.0.1:5000/upload";
-
+    const token = localStorage.getItem('token');
     fetch(uploadURL, {
       method: "POST",
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
       body: formData,
       // You may need to set additional headers depending on your API requirements
     })

@@ -28,7 +28,10 @@ const DashboardPage = () => {
     navigate(path);
   };
 
-  const logout = () => {navigate('/');};
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate("/");
+  };
 
   return (
     <div className={styles.dashboardContainer}>
@@ -48,7 +51,7 @@ const DashboardPage = () => {
               Setting{" "}
             </p>
           </div>
-          <div className={styles.itemContainer} onClick={logout}>
+          <div className={styles.itemContainer} onClick={handleLogout}>
             <p className={styles.navLink}>
               {" "}
               Log out{" "}

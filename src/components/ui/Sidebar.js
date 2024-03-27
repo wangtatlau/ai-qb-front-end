@@ -24,6 +24,11 @@ const Sidebar = () => {
     navigate(path);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate("/");
+  };
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.upperContainer}>
@@ -34,17 +39,14 @@ const Sidebar = () => {
           onClick={() => navigate("/dashboard")}
         />
         <hr className={styles.divider} />
-
         {upperLinks.map((link, index) => (
-          <div>
-            <div key={index} className={styles.itemContainer}>
-              <p
-                className={styles.listItem}
-                onClick={() => handleCardClick(link.path)}
-              >
-                {link.name}
-              </p>
-            </div>
+          <div key={index} className={styles.itemContainer}>
+            <p
+              className={styles.listItem}
+              onClick={() => handleCardClick(link.path)}
+            >
+              {link.name}
+            </p>
             <hr className={styles.subDivider} />
           </div>
         ))}
@@ -54,7 +56,7 @@ const Sidebar = () => {
           <React.Fragment key={index}>
             <div
               className={styles.itemContainer}
-              onClick={() => handleCardClick(link.path)}
+              onClick={() => link.name === "Log out" ? handleLogout() : handleCardClick(link.path)}
             >
               <p className={styles.listItem}>{link.name}</p>
             </div>
