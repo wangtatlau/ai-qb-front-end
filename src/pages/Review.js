@@ -5,16 +5,13 @@ import styles from "./Review.module.css";
 import useBodyClass from "./useBodyClass";
 
 const ReviewPage = () => {
+  useBodyClass(styles.questionBody);
   const location = useLocation();
   const navigate = useNavigate();
   const { correctCount, wrongCount } = location.state || {
-    correctCount: 0, 
-    wrongCount: 0, 
+    correctCount: 0,
+    wrongCount: 0,
   };
-  const totalCount = correctCount + wrongCount;
-  const correctPercentage = totalCount
-    ? ((correctCount / totalCount) * 100).toFixed(2)
-    : 0;
 
   useBodyClass(styles.ReviewBody);
   const data = [
@@ -29,57 +26,59 @@ const ReviewPage = () => {
       <div className={styles.top}>
         <h2 className={styles.title}>Review</h2>
       </div>
-      <div className={styles.topContainer}>
-        <div className={styles.topOne}>
-        <ResponsiveContainer>
-          <PieChart>
-            <Pie
-              dataKey="value"
-              isAnimationActive={true}
-              data={data}
-              cx="50%"
-              cy="50%"
-            >
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-          </ResponsiveContainer>
+      <div className={styles.gridContainer}>
+        <div className={styles.topContainer}>
+          <div className={styles.topOne}>
+            <ResponsiveContainer>
+              <PieChart>
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={true}
+                  data={data}
+                  cx="50%"
+                  cy="50%"
+                >
+                  {data.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          <div className={styles.topTwo}>
+            <p className={styles.summaryText}>Correctness</p>
+            <p className={styles.correctness}>
+              {correctCount}/{wrongCount + correctCount}
+            </p>
+          </div>
         </div>
-        <div className={styles.topTwo}>
-          <p className={styles.summaryText}>
-            Correctness
-          </p>
-          <p className={styles.correctness}>{correctCount}/{wrongCount + correctCount}</p>
+        <div className={styles.bottomContainer}>
+          <div className={styles.bottomOne}>
+            <p className={styles.summaryText}>Facility</p>
+            <p className={styles.summaryText}>Not Available</p>
+          </div>
+          <div className={styles.bottomTwo}>
+            <p className={styles.summaryText}>Discrimination</p>
+            <p className={styles.summaryText}>Not Available</p>
+          </div>
+          <div className={styles.bottomThree}>
+            <p className={styles.summaryText}>Point biserial</p>
+            <p className={styles.summaryText}>Not Available</p>
+          </div>
         </div>
       </div>
-      <div className={styles.bottomContainer}>
-        <div className={styles.bottomOne}>
-          <p className={styles.summaryText}>Facility</p>
-          <p className={styles.summaryText}>Not Available</p>
-        </div>
-        <div className={styles.bottomTwo}>
-          <p className={styles.summaryText}>Discrimination</p>
-          <p className={styles.summaryText}>Not Available</p>
-        </div>
-        <div className={styles.bottomThree}>
-          <p className={styles.summaryText}>Point biserial</p>
-          <p className={styles.summaryText}>Not Available</p>
-        </div>
-      </div>
-      <div className={styles.bottom}>
+
         <button
           className={styles.returnButton}
           onClick={() => navigate("/dashboard")}
         >
           Back to Dashboard
         </button>
-      </div>
+
     </div>
   );
 };

@@ -1,19 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:200,300,400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:200,400,400i,700");
+
 .ReviewBody {
   background-color: #f1f9f9;
+  font-family: Lora, serif;
 }
 
 .pageContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-items: c;
   flex-direction: column;
+  width: 99vw;
+}
+
+.top {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title {
-  color: #000000;
+  color: #1c1c1c;
+  text-transform: uppercase;
+	letter-spacing: 10px;
   font-size: calc(1em + 1vw);
-  line-height: 1;
-  font-weight: 600;
+  font-weight: 200;
+}
+
+.title::before {
+	content: '─';
+	margin-right: 0.6em;
+	color: #1c1c1c;
+}
+
+.title::after {
+	content: '─';
+	margin-left: 0.6em;
+	color: #1c1c1c;
+}
+
+.gridContainer {
+  width: 100%;
 }
 
 .topContainer {
@@ -22,10 +53,8 @@
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
   place-items: center;
-  height: 40vh;
+  height: 30vh;
   min-height: 250px;
 }
 
@@ -37,6 +66,10 @@
   align-items: center;
   height: 100%;
   min-height: 250px;
+  border-right: 2px;
+	border-left: 0;
+	border-style: solid;
+	border-image: linear-gradient(to bottom, #eee, #181818, #eee) 1 100%;
 }
 
 .topTwo, .topTwo, .bottomOne, .bottomTwo, .bottomThree {
@@ -50,15 +83,12 @@
   flex-direction: column;
 }
 
-.bottomOne, .bottomTwo, .bottomThree {
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-}
-
-.topOne, .topTwo {
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+.bottomOne, .bottomTwo {
+	border-right: 2px;
+	border-left: 0;
+	border-style: solid;
+/* 	border-image: linear-gradient(to bottom, #ccc, #555 66%, #181818) 1 100%; */
+	border-image: linear-gradient(to bottom, #eee, #181818, #eee) 1 100%;
 }
 
 .bottomContainer {
@@ -66,34 +96,31 @@
   justify-content: center;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  margin-left: 2%;
-  margin-right: 2%;
   place-items: center;
   height: 35vh;
-}
-
-.bottom {
-  bottom: 0;
-  position: absolute;
-  height: 6vh;
 }
 
 .correctness {
   color: #666;
   font-size: calc(2em + 1.8vw);
   line-height: 1.6;
-  font-weight: 600;
+  font-weight: 200;
 }
 
 .summaryText {
   color: #666;
-  font-size: calc(0.4em + 1.5vw);
-  line-height: 1.6;
-  font-weight: 600;
+  font-size: calc(0.2em + 1.5vw);
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 200;
+	line-height: 1em;
 }
 
 .returnButton {
-  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
   outline: 0;
   cursor: pointer;
   border: 2px solid #000;
