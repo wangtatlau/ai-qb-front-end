@@ -6,76 +6,90 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100vh;
+  flex-direction: column;
+}
+
+.title {
+  color: #000000;
+  font-size: calc(1em + 1vw);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.topContainer {
+  display:grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+  place-items: center;
+  height: 40vh;
+  min-height: 250px;
 }
 
-.mainContainer {
+.topOne {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-}
-
-.reviewContainer {
-  width: 80%;
-  display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
-  font-family: "Lato";
+  height: 100%;
+  min-height: 250px;
 }
 
-.chartContainer {
-  flex: 1;
+.topTwo, .topTwo, .bottomOne, .bottomTwo, .bottomThree {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: 250px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 50%;
 }
 
-.summaryContainer {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.bottomOne, .bottomTwo, .bottomThree {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.topOne, .topTwo {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.bottomContainer {
+  display:grid;
   justify-content: center;
-  align-items: center;
-  width: 50%;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+  place-items: center;
+  height: 35vh;
 }
 
-.summaryHeading {
-  color: #333;
-  margin-bottom: 1.5em;
-  font-size: 2.5em;
-  font-weight: bold;
+.bottom {
+  bottom: 0;
+  position: absolute;
+  height: 6vh;
 }
 
-.summaryText {
+.correctness {
   color: #666;
-  font-size: 1.5em;
+  font-size: calc(2em + 1.8vw);
   line-height: 1.6;
   font-weight: 600;
 }
 
-.chartTitle {
-  text-align: center;
-  font-size: 2.5em;
-  color: #333;
-}
-
-.percentageDisplay {
-  text-align: center;
-  margin-top: 1em;
-  font-size: 1.5em;
-  color: #333;
-
-}
-
-.bottomContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-top: 5%;
+.summaryText {
+  color: #666;
+  font-size: calc(0.4em + 1.5vw);
+  line-height: 1.6;
+  font-weight: 600;
 }
 
 .returnButton {
