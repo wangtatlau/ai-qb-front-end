@@ -1,0 +1,59 @@
+.pageContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  font-family: "Lato";
+}
+
+.logoContainer {
+  margin-top: 5%;
+  margin-left: 6%;
+  position: absolute;
+  align-self: flex-start;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  align-self: center;
+  font-size: 35px;
+}
+
+.logo {
+  height: 40px; /* Adjust the height as needed */
+  width: auto; /* Keeps the aspect ratio intact */
+  cursor: pointer;
+  padding-left: 5%;
+}
+
+@media (max-width: 1650px) {
+  .logo {
+    height: 26px; /* Adjust the height as needed */
+    width: auto; /* Keeps the aspect ratio intact */
+    cursor: pointer;
+    padding-left: 5%;
+  }
+}
+
+.textContainer {
+  flex-basis: 50%; /* Adjust based on your layout/design */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  top: 0; /* Align it to the top of the pageContainer */
+  width: 50%; /* Maintain the width as before */
+  height: 100%; /* Full viewport height */
+  background-color: #f1f9f9;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.tocText {
+  font-size: 20px;
+  white-space: pre-wrap;
+}
