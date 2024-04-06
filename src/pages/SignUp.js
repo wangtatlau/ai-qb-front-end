@@ -63,7 +63,7 @@ const SignUpPage = () => {
       password,
     };
 
-    const signUpURL = "YOUR_SIGNUP_API_ENDPOINT"; // Replace with your actual sign-up API endpoint
+    const signUpURL = "http://127.0.0.1:5000/signup"; 
 
     try {
       const response = await fetch(signUpURL, {

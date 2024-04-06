@@ -27,7 +27,7 @@ const LogInPage = () => {
       password,
     };
 
-    const logInURL = "YOUR_LOGIN_API_ENDPOINT";
+    const logInURL = "http://127.0.0.1:5000/login";
 
     try {
       const response = await fetch(logInURL, {

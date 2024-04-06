@@ -25,17 +25,17 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/toc" element={<Toc />} />
         
-        <Route path="/browse-question" element={<BrowseQuestion />} />
+        {/* <Route path="/browse-question" element={<BrowseQuestion />} />
         <Route path="/review" element={<ReviewPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/question" element={<QuestionPage />} />
-        <Route path="/create-question" element={<CreateQuestionPage />} />
+        <Route path="/create-question" element={<CreateQuestionPage />} /> */}
 
-        {/* <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
+        <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
         <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
         <Route path="/question" element={<ProtectedRoute><QuestionPage /></ProtectedRoute>} />
-        <Route path="/create-question" element={<ProtectedRoute><CreateQuestionPage /></ProtectedRoute>} /> */}
+        <Route path="/create-question" element={<ProtectedRoute><CreateQuestionPage /></ProtectedRoute>} />
       </Routes>
 
   );
