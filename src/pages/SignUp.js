@@ -34,7 +34,8 @@ const SignUpPage = () => {
   };
 
   //Need to change when have server
-  const handleSignUp = async () => {
+  const handleSignUp = async (event) => {
+    event.preventDefault();
     // Basic validation (e.g., checking for empty fields) can go here
     if (
       !email ||
@@ -63,7 +64,8 @@ const SignUpPage = () => {
       password,
     };
 
-    const signUpURL = "http://127.0.0.1:5000/signup"; 
+    // const signUpURL = "http://127.0.0.1:5000/signup"; 
+    const signUpURL = "http://3.217.124.119/signup";
 
     try {
       const response = await fetch(signUpURL, {
