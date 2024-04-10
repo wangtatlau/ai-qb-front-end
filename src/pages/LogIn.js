@@ -39,7 +39,7 @@ const LogInPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Incorrect Credentials');
       }
 
       const data = await response.json();

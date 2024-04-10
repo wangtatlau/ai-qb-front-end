@@ -6,6 +6,7 @@ import DashboardPage from "./pages/Dashboard";
 import CreateQuestionPage from "./pages/CreateQuestion";
 import ReviewPage from "./pages/Review";
 import BrowseQuestion from "./pages/BrowseQuestion";
+import SavedQuestion from "./pages/SavedQuestion"
 import Toc from "./pages/Toc";
 import styles from "./index.css"
 import LogInPage from "./pages/LogIn";
@@ -30,7 +31,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/question" element={<QuestionPage />} />
         <Route path="/create-question" element={<CreateQuestionPage />} /> */}
-
+        <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} />
         <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
         <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />

@@ -21,7 +21,7 @@ const DashboardPage = () => {
     { name: "Performance", icon: performance, path: "/performance" },
     { name: "Leaderboard", icon: leaderboard, path: "/leaderboard" },
     { name: "Feedback", icon: feedback, path: "/feedback" },
-    { name: "Review Past Questions", icon: review, path: "/review" },
+    { name: "Review Past Questions", icon: review, path: "/saved" },
   ];
 
   const handleCardClick = (path) => {

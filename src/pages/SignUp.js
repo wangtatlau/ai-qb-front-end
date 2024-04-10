@@ -78,7 +78,7 @@ const SignUpPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("Please use a different email/username.");
       }
 
       const data = await response.json();

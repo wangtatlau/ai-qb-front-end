@@ -12,7 +12,7 @@ const Sidebar = () => {
     { name: "Performance", path: "/performance" },
     { name: "Leaderboard", path: "/leaderboard" },
     { name: "Feedback", path: "/feedback" },
-    { name: "Review Past Questions", path: "/review" },
+    { name: "Review Past Questions", path: "/saved" },
   ];
 
   const lowerLinks = [
