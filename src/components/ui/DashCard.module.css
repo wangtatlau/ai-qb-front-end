@@ -45,7 +45,7 @@
 
 .text {
   margin-top: 1rem; /* Equivalent to mt-8 (8 * 0.25rem) */
-  font-size: 1.4rem; /* Equivalent to text-lg */
+  font-size: calc(0.9vh + 12px); /* Equivalent to text-lg */
   font-weight: 600; /* Equivalent to font-semibold */
   color: black; /* Equivalent to text-black */
   font-family: "Lato";

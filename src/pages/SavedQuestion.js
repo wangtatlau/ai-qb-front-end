@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./SavedQuestion.module.css";
 import useBodyClass from "./useBodyClass";
 import SavedDeckTable from "../components/ui/SavedDeckTable";
+import BrowseTable from "../components/ui/BrowseTable";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 import searchLogo from "../static/logos/browse.png";
 
@@ -47,7 +48,11 @@ function SavedQuestion() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.TableContainer}>
+          <h2 className={styles.title}>Saved Deck</h2>
           <SavedDeckTable data={dummyData} />
+          <br />
+          <h2 className={styles.title}>My Deck</h2>
+          <BrowseTable data={dummyData} />
         </div>
       </div>
     </MainSidebarLayout>

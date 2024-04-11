@@ -23,3 +23,6 @@
     flex-direction: column;
 }
 
+.title {
+  font-size: 2em;
+}
