@@ -6,16 +6,14 @@ import DashboardPage from "./pages/Dashboard";
 import CreateQuestionPage from "./pages/CreateQuestion";
 import ReviewPage from "./pages/Review";
 import BrowseQuestion from "./pages/BrowseQuestion";
-import SavedQuestion from "./pages/SavedQuestion"
+import SavedQuestion from "./pages/SavedQuestion";
+import Setting from "./pages/Setting";
+import ChangePassword from "./pages/ChangePassword";
 import Toc from "./pages/Toc";
-import styles from "./index.css"
+import styles from "./index.css";
 import LogInPage from "./pages/LogIn";
+import PersonalDetails from "./pages/PersonalDetails";
 import ProtectedRoute from "./ProtectedRoute";
-// import DashboardPage from "./pages/Dashboard";
-// import BrowsePage from "./pages/Browse";
-// import QuestionPage from "./pages/Question";
-// import CreateQuestionPage from "./pages/CreateQuestion";
-// import Layout from "./components/layout/Layout";
 
 function App() {
   return (
@@ -25,18 +23,15 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/toc" element={<Toc />} />
-        
-        {/* <Route path="/browse-question" element={<BrowseQuestion />} />
-        <Route path="/review" element={<ReviewPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/question" element={<QuestionPage />} />
-        <Route path="/create-question" element={<CreateQuestionPage />} /> */}
+        <Route path="/setting" element={<ProtectedRoute><Setting /></ProtectedRoute>} />
         <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} />
         <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
         <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
         <Route path="/question" element={<ProtectedRoute><QuestionPage /></ProtectedRoute>} />
         <Route path="/create-question" element={<ProtectedRoute><CreateQuestionPage /></ProtectedRoute>} />
+        <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
+        <Route path="/personal-details" element={<ProtectedRoute><PersonalDetails /></ProtectedRoute>} />
       </Routes>
 
   );

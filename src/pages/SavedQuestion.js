@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./SavedQuestion.module.css";
 import useBodyClass from "./useBodyClass";
 import SavedDeckTable from "../components/ui/SavedDeckTable";
 import BrowseTable from "../components/ui/BrowseTable";
 import SavedQuestionTable from "../components/ui/SavedQuestionTable";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
-import searchLogo from "../static/logos/browse.png";
 
 function SavedQuestion() {
-  useBodyClass(styles.browseQuestionBody);
+  useBodyClass(styles.savedQuestionBody);
   const dummyData = [
     {
       name: "Deck A",
