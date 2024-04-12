@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./ChangePassword.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
@@ -11,6 +12,8 @@ function ChangePassword() {
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const validatePassword = (password) => {
     const isLongEnough = password.length >= 10;
@@ -52,6 +55,7 @@ function ChangePassword() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
+          <h3 className={styles.setting} onClick={() => navigate("/setting")}>&lt;Setting</h3>
           <h2 className={styles.title}>Change Password</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.fieldContainer}>

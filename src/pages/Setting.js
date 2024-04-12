@@ -20,16 +20,16 @@ function Setting() {
             className={styles.bar}
             onClick={() => navigate("/personal-details")}
           >
-            <h2>Personal Details</h2>
+            <h2>&gt; Personal Details</h2>
           </div>
           <div
             className={styles.bar}
             onClick={() => navigate("/change-password")}
           >
-            <h2>Change Password</h2>
+            <h2>&gt; Change Password</h2>
           </div>
           <div className={styles.bar} to="/toc" onClick={handleOpenInNewTab}>
-            <h2>Our Policy</h2>
+            <h2>&gt; Our Policy</h2>
           </div>
         </div>
       </div>

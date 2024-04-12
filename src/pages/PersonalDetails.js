@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./PersonalDetails.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
@@ -11,6 +12,8 @@ function PersonalDetails() {
   const [name, setName] = useState('');
   const [university, setUniversity] = useState('');
   const [isModified, setIsModified] = useState(false);
+
+  const navigate = useNavigate();
 
   const fetchDetails = async () => {
     // Example URL, change to your actual API endpoint
@@ -48,6 +51,7 @@ function PersonalDetails() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
+        <h3 className={styles.setting} onClick={() => navigate("/setting")}>&lt;Setting</h3>
           <h2 className={styles.title}>Personal Details</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.fieldContainer}>
