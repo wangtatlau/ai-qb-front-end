@@ -1,20 +1,17 @@
 import React from "react";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./Review.module.css"; // Import the CSS module
+import styles from "./Review.module.css";
 import useBodyClass from "./useBodyClass";
 
 const ReviewPage = () => {
+  useBodyClass(styles.questionBody);
   const location = useLocation();
   const navigate = useNavigate();
   const { correctCount, wrongCount } = location.state || {
     correctCount: 0,
     wrongCount: 0,
   };
-  const totalCount = correctCount + wrongCount;
-  const correctPercentage = totalCount
-    ? ((correctCount / totalCount) * 100).toFixed(2)
-    : 0;
 
   useBodyClass(styles.ReviewBody);
   const data = [
@@ -22,57 +19,66 @@ const ReviewPage = () => {
     { name: "Incorrect Answers", value: wrongCount },
   ];
 
-  const COLORS = ["#4caf50", "#f44336"];
+  const COLORS = ["#45d43d", "#d43d3d"];
 
   return (
     <div className={styles.pageContainer}>
-    <div className={styles.mainContainer}>
-      <div className={styles.reviewContainer}>
-        <div className={styles.chartContainer}>
-          <h2 className={styles.chartTitle}>Quiz Results</h2>{" "}
-          <PieChart width={500} height={450}>
-            <Pie
-              dataKey="value"
-              isAnimationActive={false}
-              data={data}
-              cx="50%"
-              cy="50%"
-              outerRadius={200}
-            >
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-          <div className={styles.percentageDisplay}>
-            Correct: {correctPercentage}%
+      <div className={styles.top}>
+        <h2 className={styles.title}>Review</h2>
+      </div>
+      <div className={styles.gridContainer}>
+        <div className={styles.topContainer}>
+          <div className={styles.topOne}>
+            <ResponsiveContainer>
+              <PieChart>
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={true}
+                  data={data}
+                  cx="50%"
+                  cy="50%"
+                >
+                  {data.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
-          <div className={styles.percentageDisplay}>
-            Incorrect: {(100 - correctPercentage).toFixed(2)}%
+          <div className={styles.topTwo}>
+            <p className={styles.summaryText}>Correctness</p>
+            <p className={styles.correctness}>
+              {correctCount}/{wrongCount + correctCount}
+            </p>
           </div>
         </div>
-        <div className={styles.summaryContainer}>
-          <h2 className={styles.summaryHeading}>Review Summary</h2>
-          <p className={styles.summaryText}>
-            You answered a total of {correctCount + wrongCount} questions.
-          </p>
-          <p className={styles.summaryText}>{correctCount} were correct.</p>
-          <p className={styles.summaryText}>{wrongCount} were incorrect.</p>
+        <div className={styles.bottomContainer}>
+          <div className={styles.bottomOne}>
+            <p className={styles.summaryText}>Facility</p>
+            <p className={styles.summaryText}>Not Available</p>
+          </div>
+          <div className={styles.bottomTwo}>
+            <p className={styles.summaryText}>Discrimination</p>
+            <p className={styles.summaryText}>Not Available</p>
+          </div>
+          <div className={styles.bottomThree}>
+            <p className={styles.summaryText}>Point biserial</p>
+            <p className={styles.summaryText}>Not Available</p>
+          </div>
         </div>
       </div>
-      <div className={styles.bottomContainer}>
+
         <button
           className={styles.returnButton}
           onClick={() => navigate("/dashboard")}
         >
           Back to Dashboard
         </button>
-      </div>
-    </div>
+
     </div>
   );
 };

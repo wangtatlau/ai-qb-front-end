@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import MenuCard from "../components/ui/MenuCard";
+import Loading from "../components/ui/Loading";
 import styles from "./CreateQuestion.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
@@ -25,6 +26,24 @@ function CreateQuestion() {
   const [showMenu, setShowMenu] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [fileError, setFileError] = useState(""); // State to store file upload error
+  const [isLoading, setIsLoading] = useState(false);
+
+  // const LoadingOverlay = () => (
+  //   <div style={{
+  //     position: 'fixed',
+  //     top: 0,
+  //     left: 0,
+  //     right: 0,
+  //     bottom: 0,
+  //     display: 'flex',
+  //     justifyContent: 'center',
+  //     alignItems: 'center',
+  //     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  //     zIndex: 1000, // Ensure it covers everything
+  //   }}>
+  //     <div>Loading...</div> {/* Customize with your loading animation */}
+  //   </div>
+  // );  
 
   useEffect(() => {
     fetch("YOUR_API_ENDPOINT")
@@ -63,15 +82,18 @@ function CreateQuestion() {
       alert("No file selected");
       return;
     }
-
+    setIsLoading(true);
     const formData = new FormData();
     formData.append("file", file); // Append the file to form data
 
     // Modify this URL to your API endpoint
     const uploadURL = "http://3.217.124.119/upload";
-
+    const token = localStorage.getItem('token');
     fetch(uploadURL, {
       method: "POST",
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
       body: formData,
       // You may need to set additional headers depending on your API requirements
     })
@@ -99,6 +121,7 @@ function CreateQuestion() {
   });
   return (
     <MainSidebarLayout>
+      {isLoading && <Loading />}
       <div>
         <div className={styles.container}>
           <div className={styles.leftContainer}>
@@ -119,13 +142,13 @@ function CreateQuestion() {
               </button>
             )}
           </div>
-          {showMenu && (
+          {/* {showMenu && (
             <MenuCard
               topics={dummyTopics}
               questionNumbers={dummyQuestionNumbers}
               questionTypes={dummyQuestionTypes}
             />
-          )}
+          )} */}
         </div>
       </div>
     </MainSidebarLayout>

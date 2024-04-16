@@ -14,13 +14,13 @@ const HomeNavBar = () => {
         <HashLink smooth to="/#home" className={styles.logoContainer}>
           <img src={logo} alt="Logo" className={styles.logo} />
         </HashLink>
-        <HashLink smooth to="/#home" className={styles.itemContainer}>
+        <HashLink smooth to="/#home" className={styles.leftItemContainer}>
           <p className={styles.navLink}>Overview</p>
         </HashLink>
-        <HashLink smooth to="/#about" className={styles.itemContainer}>
+        <HashLink smooth to="/#about" className={styles.leftItemContainer}>
           <p className={styles.navLink}>About Us</p>
         </HashLink>
-        <HashLink smooth to="/#contact" className={styles.itemContainer}>
+        <HashLink smooth to="/#contact" className={styles.leftItemContainer}>
           <p className={styles.navLink}>Contact Us</p>
         </HashLink>
       </div>

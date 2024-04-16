@@ -7,12 +7,12 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const upperLinks = [
-    { name: "Browse Questions", path: "/browse-question" },
-    { name: "Create Questions", path: "/create-question" },
+    { name: "Browse", path: "/browse-question" },
+    { name: "Create", path: "/create-question" },
     { name: "Performance", path: "/performance" },
     { name: "Leaderboard", path: "/leaderboard" },
     { name: "Feedback", path: "/feedback" },
-    { name: "Review Past Questions", path: "/review" },
+    { name: "Saved", path: "/saved" },
   ];
 
   const lowerLinks = [
@@ -24,33 +24,24 @@ const Sidebar = () => {
     navigate(path);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.upperContainer}>
-        <img
-          className={styles.logo}
-          src={logo}
-          alt="Logo"
-          onClick={() => navigate("/dashboard")}
-        />
-        <hr className={styles.divider} />
-
+        <div className={styles.logoContainer}>
+          <img
+            className={styles.logo}
+            src={logo}
+            alt="Logo"
+            onClick={() => navigate("/dashboard")}
+          />
+        </div>
+        <p className={styles.space}/>
         {upperLinks.map((link, index) => (
-          <div>
-            <div key={index} className={styles.itemContainer}>
-              <p
-                className={styles.listItem}
-                onClick={() => handleCardClick(link.path)}
-              >
-                {link.name}
-              </p>
-            </div>
-            <hr className={styles.subDivider} />
-          </div>
-        ))}
-      </div>
-      <div className={styles.lowerContainer}>
-        {lowerLinks.map((link, index) => (
           <React.Fragment key={index}>
             <div
               className={styles.itemContainer}
@@ -58,9 +49,24 @@ const Sidebar = () => {
             >
               <p className={styles.listItem}>{link.name}</p>
             </div>
-            {index !== lowerLinks.length - 1 && (
-              <hr className={styles.subDivider} />
-            )}
+            {index !== upperLinks.length - 1 && <p className={styles.space} />}
+          </React.Fragment>
+        ))}
+      </div>
+      <div className={styles.lowerContainer}>
+        {lowerLinks.map((link, index) => (
+          <React.Fragment key={index}>
+            <div
+              className={styles.itemContainer}
+              onClick={() =>
+                link.name === "Log out"
+                  ? handleLogout()
+                  : handleCardClick(link.path)
+              }
+            >
+              <p className={styles.listItem}>{link.name}</p>
+            </div>
+            {index !== lowerLinks.length - 1 && <p className={styles.space}/>}
           </React.Fragment>
         ))}
       </div>

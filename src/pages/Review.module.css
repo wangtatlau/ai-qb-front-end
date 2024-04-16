@@ -1,85 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:200,400,400i,700");
+
 .ReviewBody {
   background-color: #f1f9f9;
 }
 
 .pageContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height:100vh;
+  justify-items: c;
+  flex-direction: column;
+  width: 99vw;
+  font-family: Lora, serif;
+}
+
+.top {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  color: #1c1c1c;
+  text-transform: uppercase;
+	letter-spacing: 10px;
+  font-size: calc(1em + 1vw);
+  font-weight: 200;
+}
+
+.title::before {
+	content: '─';
+	margin-right: 0.6em;
+	color: #1c1c1c;
+}
+
+.title::after {
+	content: '─';
+	margin-left: 0.6em;
+	color: #1c1c1c;
+}
+
+.gridContainer {
   width: 100%;
 }
 
-.mainContainer {
-  display: flex;
-  flex-direction: column;
+.topContainer {
+  display:grid;
   justify-content: center;
   align-items: center;
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
+  place-items: center;
+  height: 30vh;
+  min-height: 250px;
 }
 
-.reviewContainer {
-  width: 80%;
+.topOne {
   display: flex;
+  width: 100%;
   justify-content: center;
+  text-align: center;
   align-items: center;
-  font-family: "Lato";
+  height: 100%;
+  min-height: 250px;
+  border-right: 2px;
+	border-left: 0;
+	border-style: solid;
+	border-image: linear-gradient(to bottom, #eee, #181818, #eee) 1 100%;
 }
 
-.chartContainer {
-  flex: 1;
+.topTwo, .topTwo, .bottomOne, .bottomTwo, .bottomThree {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: 250px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 50%;
 }
 
-.summaryContainer {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.bottomOne, .bottomTwo {
+	border-right: 2px;
+	border-left: 0;
+	border-style: solid;
+/* 	border-image: linear-gradient(to bottom, #ccc, #555 66%, #181818) 1 100%; */
+	border-image: linear-gradient(to bottom, #eee, #181818, #eee) 1 100%;
+}
+
+.bottomContainer {
+  display:grid;
   justify-content: center;
-  align-items: center;
-  width: 50%;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  place-items: center;
+  height: 35vh;
 }
 
-.summaryHeading {
-  color: #333;
-  margin-bottom: 1.5em;
-  font-size: 2.5em;
-  font-weight: bold;
+.correctness {
+  color: #666;
+  font-size: calc(2em + 1.8vw);
+  line-height: 1.6;
+  font-weight: 200;
 }
 
 .summaryText {
   color: #666;
-  font-size: 1.5em;
-  line-height: 1.6;
-  font-weight: 600;
-}
-
-.chartTitle {
-  text-align: center;
-  font-size: 2.5em;
-  color: #333;
-}
-
-.percentageDisplay {
-  text-align: center;
-  margin-top: 1em;
-  font-size: 1.5em;
-  color: #333;
-
-}
-
-.bottomContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-top: 5%;
+  font-size: calc(0.2em + 1.5vw);
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 200;
+	line-height: 1em;
 }
 
 .returnButton {
-  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
   outline: 0;
   cursor: pointer;
   border: 2px solid #000;

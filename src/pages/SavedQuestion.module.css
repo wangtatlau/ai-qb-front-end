@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+.savedQuestionBody {
+  background-color: #f5f5f5;
+}
+
+.mainContainer {
+  margin-left: 200px;
+  margin-right: 180px;
+  margin-top: 2%;
+  display: flex;
+  font-family: "Lato";
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.TableContainer {
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+  font-size: 2em;
+}

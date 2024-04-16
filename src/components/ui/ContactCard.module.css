@@ -6,6 +6,7 @@
   background-color: #fff4f4; /* Example background color */
   height: 40vw;
   min-height: 800px;
+  overflow: hidden;
 }
 
 .content {
@@ -20,10 +21,12 @@
 .title {
   font-size: 50px; /* Example font size */
   margin-bottom: 10px;
+  text-align: end;
 }
 
 .description {
   font-size: 23px; /* Example font size */
+  text-align: end;
 }
 
 .contactList {

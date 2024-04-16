@@ -3,17 +3,15 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 6%;
   max-width: 6%;
   min-width: 150px;
   height: 100%;
   overflow: auto;
-  text-align: center;
   background-color: #00308f;
   font-size: 1.4vh;
   display: flex; /* Make sidebar a flex container */
   flex-direction: column; /* Align children vertically */
-  justify-content: space-between; /* Pushes .lowerContainer to the bottom */
+  justify-content: space-between;
 }
 
 @media (max-height: 1000px) {
@@ -28,24 +26,18 @@
   }
 }
 
+.logoContainer {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
 .listItem {
   display: block;
   color: #fff;
   padding: 8%;
   text-decoration: none;
   cursor: pointer;
-}
-
-.divider,
-.subDivider {
-  border: 0;
-  height: 1px;
-  background-color: #ffffff79;
-  width: 75%;
-}
-
-.subDivider {
-  width: 60%;
 }
 
 .logo {
@@ -61,6 +53,10 @@
   width: 100%;
 }
 
+.upperContainer {
+  width: 100%;
+}
+
 .itemContainer {
   border-radius: 8px;
   transition: background-color 0.2s ease;
@@ -70,4 +66,9 @@
 
 .itemContainer:hover {
   background-color: #ffffff1c;
+}
+
+.space {
+  font-size: 1vh;
+  height: 2px;
 }

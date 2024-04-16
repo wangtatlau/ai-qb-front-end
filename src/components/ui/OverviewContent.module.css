@@ -1,0 +1,48 @@
+.bottomContent {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.leftContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  font-size: 30px;
+  margin-bottom: 4%;
+}
+
+.secTitle {
+  font-size: 40px; /* Example font size */
+  text-align: center;
+
+}
+
+.secImageContainer {
+  width: 30%; /* Adjust based on your layout/design */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secImage {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+    .description {
+        font-size: 18px;
+    }
+    .secTitle {
+        font-size: 24px;
+    }
+  }

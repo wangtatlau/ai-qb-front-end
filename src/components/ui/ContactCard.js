@@ -42,17 +42,21 @@ const ContactCard = () => {
         }`}
         ref={contentRef}
       >
-        <h2 className={styles.title}>Contact Us</h2>
+        <h2 className={styles.title}>Got Questions? We've Got Answers</h2>
         <p className={styles.description}>
-          If you have any queries, please contact us at:
+          If you have any questions or feedback, our team is always here to
+          help.
+        </p>
+        <p className={styles.description}>
+          Reach out to us at team@qvault.ai.
         </p>
         <table className={styles.contactList}>
           <tr>
-            <td>Issac Ng:</td> <td>isaac.ng.5@kcl.ac.uk</td>
+            <td>Instagram:</td> <td><a href="https://www.instagram.com/qvault.ai/">@qvault.ai</a></td>
           </tr>
-          <tr>
-            <td>Mandeep Gill Sagoo:</td> <td>mandeep.gill@kcl.ac.uk</td>
-          </tr>
+          {/* <tr>
+            <td>LinkedIn:</td> <td>....</td>
+          </tr> */}
         </table>
       </div>
       <div
@@ -61,11 +65,7 @@ const ContactCard = () => {
         }`}
         ref={imageRef}
       >
-        <img
-          src={contactPhoto}
-          alt="Contact Us"
-          className={styles.image}
-        />
+        <img src={contactPhoto} alt="Contact Us" className={styles.image} />
       </div>
     </div>
   );
