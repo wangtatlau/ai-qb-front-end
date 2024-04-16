@@ -52,11 +52,11 @@ const ContactCard = () => {
         </p>
         <table className={styles.contactList}>
           <tr>
-            <td>Instagram:</td> <td>.....</td>
+            <td>Instagram:</td> <td><a href="https://www.instagram.com/qvault.ai/">@qvault.ai</a></td>
           </tr>
-          <tr>
+          {/* <tr>
             <td>LinkedIn:</td> <td>....</td>
-          </tr>
+          </tr> */}
         </table>
       </div>
       <div

@@ -65,7 +65,8 @@ const SignUpPage = () => {
     };
 
     // const signUpURL = "http://127.0.0.1:5000/signup";
-    const signUpURL = "http://3.217.124.119/signup";
+    // const signUpURL = "http://3.217.124.119/signup";
+    const signUpURL = "";
 
     try {
       const response = await fetch(signUpURL, {
@@ -110,7 +111,7 @@ const SignUpPage = () => {
           />
         </div>
         <div className={styles.innerLeft}>
-          <h2 className={styles.header}>Create Your Account</h2>
+          <h2 className={styles.header}>Create Your Account &#40;Available Soon&#41;</h2>
           <div className={styles.formContainer}>
             <form onSubmit={handleSignUp} className={styles.form}>
               <div className={styles.inputContainer}>
