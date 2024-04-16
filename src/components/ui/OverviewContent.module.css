@@ -1,4 +1,5 @@
 .bottomContent {
+  margin-top: 2%;
   margin-bottom: 5%;
   display: flex;
   justify-content: space-between;
@@ -26,7 +27,7 @@
 }
 
 .secImageContainer {
-  width: 40%; /* Adjust based on your layout/design */
+  width: 30%; /* Adjust based on your layout/design */
   display: flex;
   justify-content: center;
   align-items: center;
