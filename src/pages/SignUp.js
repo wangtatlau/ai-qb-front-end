@@ -64,7 +64,7 @@ const SignUpPage = () => {
       password,
     };
 
-    // const signUpURL = "http://127.0.0.1:5000/signup"; 
+    // const signUpURL = "http://127.0.0.1:5000/signup";
     const signUpURL = "http://3.217.124.119/signup";
 
     try {
@@ -156,14 +156,18 @@ const SignUpPage = () => {
                 <label htmlFor="university" className={styles.inputlabel}>
                   University
                 </label>
-                <input
-                  type="text"
+                <select
                   id="university"
                   name="university"
                   className={styles.inputField}
                   onChange={handleInputChange(setUniversity)}
                   required
-                />
+                >
+                  <option value="">Select a university</option> // Placeholder
+                  option
+                  <option value="King's College London">King's College London</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="password" className={styles.inputlabel}>
@@ -181,7 +185,8 @@ const SignUpPage = () => {
                 />
                 {!isPasswordValid && (
                   <p className={styles.validationError}>
-                    At least 10 characters long and include both letters and numbers.
+                    At least 10 characters long and include both letters and
+                    numbers.
                   </p>
                 )}
               </div>

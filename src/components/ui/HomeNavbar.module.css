@@ -42,7 +42,7 @@
   white-space: nowrap;
 }
 
-.itemContainer {
+.itemContainer, .leftItemContainer {
   border-radius: 8px; /* Adjust as needed for rounded corners */
   transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
   margin-left: 8%;
@@ -51,6 +51,12 @@
   cursor: pointer;
 }
 
-.itemContainer:hover {
+.itemContainer:hover, .leftItemContainer:hover {
   background-color: #ffffff1c;
+}
+
+@media (max-width: 700px) {
+  .leftItemContainer {
+    display: none;
+  }
 }
