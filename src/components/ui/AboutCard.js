@@ -73,7 +73,7 @@ const AboutCard = () => {
             <td>Internal Relations:</td> <td>Oscar Ho</td>
           </tr>
           <tr>
-            <td>Lead Sofware Designer:</td> <td>Abirami</td>
+            <td>Backend Lead:</td> <td>Abirami Muthukumar</td>
           </tr>
           <tr>
             <td>External Relations:</td> <td>Chantelle Gasa</td>
