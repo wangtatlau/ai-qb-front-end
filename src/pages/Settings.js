@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Setting.module.css";
+import styles from "./Settings.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 
-function Setting() {
-  useBodyClass(styles.SettingBody);
+function Settings() {
+  useBodyClass(styles.SettingsBody);
   const navigate = useNavigate();
   const handleOpenInNewTab = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ function Setting() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
-          <h2 className={styles.title}>Setting</h2>
+          <h2 className={styles.title}>Settings</h2>
           <div
             className={styles.bar}
             onClick={() => navigate("/personal-details")}
@@ -37,4 +37,4 @@ function Setting() {
   );
 }
 
-export default Setting;
+export default Settings;

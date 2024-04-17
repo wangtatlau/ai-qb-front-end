@@ -7,7 +7,7 @@ import CreateQuestionPage from "./pages/CreateQuestion";
 import ReviewPage from "./pages/Review";
 import BrowseQuestion from "./pages/BrowseQuestion";
 import SavedQuestion from "./pages/SavedQuestion";
-import Setting from "./pages/Setting";
+import Settings from "./pages/Settings";
 import ChangePassword from "./pages/ChangePassword";
 import Toc from "./pages/Toc";
 import styles from "./index.css";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/toc" element={<Toc />} />
-        <Route path="/setting" element={<ProtectedRoute><Setting /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
         <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} />
         <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
         <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />

@@ -132,7 +132,7 @@ function CreateQuestion() {
                 <h2 className={styles.instruction}>{`File: ${file.name}`}</h2>
               ) : (
                 <h2 className={styles.instruction}>
-                  Drag 'n' drop a PDF here, or click to select files
+                  Drag & drop a PDF here, or click to select files
                 </h2>
               )}
             </div>

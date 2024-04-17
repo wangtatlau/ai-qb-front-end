@@ -55,7 +55,7 @@ function ChangePassword() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
-          <h3 className={styles.setting} onClick={() => navigate("/setting")}>&lt;Setting</h3>
+          <h3 className={styles.settings} onClick={() => navigate("/settings")}>&lt;Settings</h3>
           <h2 className={styles.title}>Change Password</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.fieldContainer}>
