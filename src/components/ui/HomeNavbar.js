@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import styles from './HomeNavbar.module.css';
 import logo from "../../static/logos/qVault_transparent.png";

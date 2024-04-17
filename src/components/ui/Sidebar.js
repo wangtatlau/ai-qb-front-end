@@ -16,7 +16,7 @@ const Sidebar = () => {
   ];
 
   const lowerLinks = [
-    { name: "Setting", path: "/setting" },
+    { name: "Settings", path: "/settings" },
     { name: "Log out", path: "/" },
   ];
 

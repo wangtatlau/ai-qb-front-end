@@ -1,4 +1,5 @@
-/* Sidebar.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
 .sidebar {
   position: fixed;
   left: 0;
@@ -12,6 +13,8 @@
   display: flex; /* Make sidebar a flex container */
   flex-direction: column; /* Align children vertically */
   justify-content: space-between;
+  font-family: "Lato";
+  font-weight: 600;
 }
 
 @media (max-height: 1000px) {
