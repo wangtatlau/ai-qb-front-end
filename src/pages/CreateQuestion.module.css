@@ -69,3 +69,25 @@
   font-size: 20px;
   padding-bottom: 1%;
 }
+
+.loadingAnimation-enter {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.loadingAnimation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1000ms, transform 1000ms; /* Increased duration */
+}
+
+.loadingAnimation-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.loadingAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 1000ms, transform 1000ms; /* Increased duration */
+}

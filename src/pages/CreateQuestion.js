@@ -6,6 +6,7 @@ import Loading from "../components/ui/Loading";
 import styles from "./CreateQuestion.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
+import { CSSTransition } from "react-transition-group";
 
 function CreateQuestion() {
   const navigate = useNavigate();
@@ -85,6 +86,7 @@ function CreateQuestion() {
 
     // Modify this URL to your API endpoint
     const uploadURL = "http://3.217.124.119/upload";
+    // const uploadURL = "";
     const token = localStorage.getItem("token");
     fetch(uploadURL, {
       method: "POST",
@@ -109,7 +111,7 @@ function CreateQuestion() {
   const confirmFile = () => {
     setSubmitted(true);
     setShowMenu(true);
-  }
+  };
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
@@ -119,7 +121,20 @@ function CreateQuestion() {
   });
   return (
     <MainSidebarLayout>
-      {isLoading && <Loading />}
+        <CSSTransition
+          in={isLoading}
+          timeout={500}
+          classNames={{
+            enter: styles["loadingAnimation-enter"],
+            enterActive: styles["loadingAnimation-enter-active"],
+            exit: styles["loadingAnimation-exit"],
+            exitActive: styles["loadingAnimation-exit-active"],
+          }}
+          unmountOnExit
+        >
+          <Loading />
+        </CSSTransition>
+      
       <div>
         <div className={styles.container}>
           <div className={styles.leftContainer}>
@@ -140,11 +155,7 @@ function CreateQuestion() {
               </button>
             )}
           </div>
-          {showMenu && (
-            <MenuCard
-              handleSubmit={handleSubmit}
-            />
-          )}
+          {showMenu && <MenuCard handleSubmit={handleSubmit} />}
         </div>
       </div>
     </MainSidebarLayout>
