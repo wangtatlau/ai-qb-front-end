@@ -39,6 +39,7 @@
   padding-left: 7%;
   padding-right: 7%;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .submitContainer {
