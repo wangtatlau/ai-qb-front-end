@@ -16,12 +16,12 @@ const DashboardPage = () => {
 
   const navigate = useNavigate();
   const cards = [
-    { name: "Browse Questions", icon: browse, path: "/browse-question" },
-    { name: "Create Questions", icon: create, path: "/create-question" },
+    { name: "Browse", icon: browse, path: "/browse-question" },
+    { name: "Create", icon: create, path: "/create-question" },
     { name: "Performance", icon: performance, path: "/performance" },
     { name: "Leaderboard", icon: leaderboard, path: "/leaderboard" },
     { name: "Feedback", icon: feedback, path: "/feedback" },
-    { name: "Saved Questions", icon: review, path: "/saved" },
+    { name: "Saved", icon: review, path: "/saved" },
   ];
 
   const handleCardClick = (path) => {
@@ -32,6 +32,10 @@ const DashboardPage = () => {
     localStorage.removeItem('token');
     navigate("/");
   };
+
+  const openLenny = () => {
+    window.open("https://dev4458.d2fyh4r6skj06f.amplifyapp.com", "_blank", "noopener,noreferrer");
+  }
 
   return (
     <div className={styles.dashboardContainer}>
@@ -45,10 +49,16 @@ const DashboardPage = () => {
           />
         </div>
         <div className={styles.rightContainer}>
-          <div className={styles.itemContainer} onClick={() => navigate("/setting")}>
+          <div className={styles.itemContainer} onClick={() => openLenny()}>
             <p className={styles.navLink}>
               {" "}
-              Setting{" "}
+              Dr. Lenny{" "}
+            </p>
+          </div>
+          <div className={styles.itemContainer} onClick={() => navigate("/settings")}>
+            <p className={styles.navLink}>
+              {" "}
+              Settings{" "}
             </p>
           </div>
           <div className={styles.itemContainer} onClick={handleLogout}>

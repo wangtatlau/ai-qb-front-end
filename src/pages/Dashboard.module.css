@@ -19,8 +19,8 @@
 
 .rightContainer {
   display: flex;
-  position: absolute;
-  right: 5em;
+  position: relative;
+  align-self: flex-end;
   height: 100%;
 }
 
@@ -33,7 +33,7 @@
   background-color: #00308f; /* Consistent blue color */
   padding: 10px; /* Uniform padding */
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle box shadow */
   font-size: 18px;
@@ -47,17 +47,21 @@
   color: #fff;
   white-space: nowrap; /* Prevent text from wrapping */
   font-weight: bold;
+
 }
 
 .itemContainer {
   border-radius: 8px; /* Adjust as needed for rounded corners */
   transition: background-color 0.2s ease; /* Smooth transition for the filter effect */
-  margin-left: 8%;
-  margin-right: 8%;
-  padding-top: 6%;
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-left: 15px;
+  margin-right: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .itemContainer:hover {

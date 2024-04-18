@@ -29,6 +29,10 @@ const Sidebar = () => {
     navigate("/");
   };
 
+  const openLenny = () => {
+    window.open("https://dev4458.d2fyh4r6skj06f.amplifyapp.com", "_blank", "noopener,noreferrer");
+  }
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.upperContainer}>
@@ -40,7 +44,7 @@ const Sidebar = () => {
             onClick={() => navigate("/dashboard")}
           />
         </div>
-        <p className={styles.space}/>
+        <p className={styles.space} />
         {upperLinks.map((link, index) => (
           <React.Fragment key={index}>
             <div
@@ -49,9 +53,17 @@ const Sidebar = () => {
             >
               <p className={styles.listItem}>{link.name}</p>
             </div>
-            {index !== upperLinks.length - 1 && <p className={styles.space} />}
+            {index !== upperLinks.length && <p className={styles.space} />}
           </React.Fragment>
         ))}
+        <React.Fragment>
+        <div
+          className={styles.itemContainer}
+          onClick={() => openLenny()}
+        >
+          <p className={styles.listItem}>Dr. Lenny</p>
+        </div>
+        </React.Fragment>
       </div>
       <div className={styles.lowerContainer}>
         {lowerLinks.map((link, index) => (
@@ -66,7 +78,7 @@ const Sidebar = () => {
             >
               <p className={styles.listItem}>{link.name}</p>
             </div>
-            {index !== lowerLinks.length - 1 && <p className={styles.space}/>}
+            {index !== lowerLinks.length - 1 && <p className={styles.space} />}
           </React.Fragment>
         ))}
       </div>
