@@ -122,7 +122,7 @@ const OverviewCard = () => {
         />
         <OverviewContentReverse
           title="Safe, Secure, and Built from the Ground Up"
-          description="At qVault.ai, we take your privacy seriously. We've built our platform from the ground up with security at its core. *We never save your uploaded materials*, ensuring that your data remains confidential and secure at all times."
+          description="At qVault.ai, we take your privacy seriously. We've built our platform from the ground up with security at its core. We never save your uploaded materials, ensuring that your data remains confidential and secure at all times."
           image={secure}
         />
         <OverviewContent
