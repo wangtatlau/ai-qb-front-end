@@ -14,6 +14,7 @@ import styles from "./index.css";
 import LogInPage from "./pages/LogIn";
 import PersonalDetails from "./pages/PersonalDetails";
 import ProtectedRoute from "./ProtectedRoute";
+import EmptyPage from "./components/ui/EmptyPage";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         <Route path="/create-question" element={<ProtectedRoute><CreateQuestionPage /></ProtectedRoute>} />
         <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
         <Route path="/personal-details" element={<ProtectedRoute><PersonalDetails /></ProtectedRoute>} />
+        <Route path="/performance" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
+        <Route path="/leaderboard" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
+        <Route path="/feedback" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
       </Routes>
 
   );

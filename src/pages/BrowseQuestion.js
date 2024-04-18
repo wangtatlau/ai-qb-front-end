@@ -272,7 +272,7 @@ function BrowseQuestion() {
               </span>
             </form>
           </div>
-          <BrowseTable data={dummyData} onRowClick={handleRowClick} />
+          <BrowseTable data={decks} onRowClick={handleRowClick} />
         </div>
       </div>
     </MainSidebarLayout>
