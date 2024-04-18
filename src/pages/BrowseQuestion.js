@@ -5,35 +5,39 @@ import useBodyClass from "./useBodyClass";
 import BrowseTable from "../components/ui/BrowseTable";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 import searchLogo from "../static/logos/browse.png";
+import DeckDetails from "../components/ui/DeckDetails";
 
 function BrowseQuestion() {
   useBodyClass(styles.browseQuestionBody);
-  // const dummyData = [
-  //   {
-  //     name: "Deck A",
-  //     topic: "Anatomy",
-  //     numberOfQuestions: 20,
-  //     education: "A-Level",
-  //     creator: "King's College London",
-  //     verified: "Staff + Crowd",
-  //   },
-  //   {
-  //     name: "Deck B",
-  //     topic: "Brain and Behavior",
-  //     numberOfQuestions: 30,
-  //     education: "Undergrad",
-  //     creator: "Anonymous",
-  //     verified: "None",
-  //   },
-  //   {
-  //     name: "Deck C",
-  //     topic: "Brain and Behavior",
-  //     numberOfQuestions: 30,
-  //     education: "Undergrad",
-  //     creator: "King's College London",
-  //     verified: "None",
-  //   },
-  // ];
+  const dummyData = [
+    {
+      id: 1,
+      name: "Deck A",
+      topic: "Anatomy",
+      numberOfQuestions: 20,
+      education: "A-Level",
+      creator: "King's College London",
+      verified: "Staff + Crowd",
+    },
+    {
+      id: 2,
+      name: "Deck B",
+      topic: "Brain and Behavior",
+      numberOfQuestions: 30,
+      education: "Undergrad",
+      creator: "Anonymous",
+      verified: "None",
+    },
+    {
+      id: 3,
+      name: "Deck C",
+      topic: "Brain and Behavior",
+      numberOfQuestions: 30,
+      education: "Undergrad",
+      creator: "King's College London",
+      verified: "None",
+    },
+  ];
   // const [filteredData, setFilteredData] = useState(dummyData);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -50,6 +54,17 @@ function BrowseQuestion() {
   const [selectedCreators, setSelectedCreators] = useState({});
   const [selectedEducations, setSelectedEducations] = useState({});
   const [selectedTopics, setSelectedTopics] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleRowClick = (item) => {
+    setSelectedItem(item);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   // Fetch filter options
   const fetchFilterOptions = async () => {
@@ -163,6 +178,10 @@ function BrowseQuestion() {
   // };
   return (
     <MainSidebarLayout>
+      {modalOpen && <DeckDetails
+        close={closeModal}
+        itemId={selectedItem?.id}
+      />}
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}>
           {/* <div className={styles.filterTable}>
@@ -253,7 +272,7 @@ function BrowseQuestion() {
               </span>
             </form>
           </div>
-          <BrowseTable data={decks} />
+          <BrowseTable data={dummyData} onRowClick={handleRowClick} />
         </div>
       </div>
     </MainSidebarLayout>

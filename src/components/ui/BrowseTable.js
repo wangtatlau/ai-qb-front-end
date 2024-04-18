@@ -3,7 +3,7 @@ import styles from "./BrowseTable.module.css";
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io';
 
 
-const BrowseTable = ({ data }) => {
+const BrowseTable = ({ data, onRowClick }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
   const sortedData = useMemo(() => {
@@ -55,7 +55,7 @@ const BrowseTable = ({ data }) => {
         </thead>
         <tbody>
           {sortedData.map((item, index) => (
-            <tr key={index}>
+            <tr key={index} onClick={() => onRowClick(item)}>
               <td>{item.name}</td>
               <td>{item.topic}</td>
               <td>{item.numberOfQuestions}</td>
