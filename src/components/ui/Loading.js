@@ -1,55 +1,23 @@
 import React from "react";
-import ReactLoading from "react-loading";
-import backgroundImage from "../../static/photos/bg.webp";
+// import ReactLoading from "react-loading";
+import bg from "../../static/photos/bg.webp";
+import styles from "./Loading.module.css";
 
 function Loading() {
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 1000,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "brightness(20%)",
-        }}
-      />
-
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1001,
-          display: "flex", 
-          flexDirection: "column",
-          justifyContent: "center", 
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
-        <ReactLoading
+    <div className={styles.fixbg}>
+      <div className={styles.absolutebg} />
+      <div className={styles.flexbg}>
+        <img className={styles.image} src={bg} />
+        {/* <ReactLoading
           type={"bars"}
           color={"#0055ff"}
-          height={200}
-          width={200}
-        />
-        <h3 style={{ fontSize: "30px", fontFamily: "Lato", color: "white" }}>
-          It might take up to 1 minute, please wait patiently.
+          height={100}
+          width={150}
+        /> */}
+        <div className={styles.container} />
+        <h3 className={styles.text}>
+          This might a few minutes, please do not reload.
         </h3>
       </div>
     </div>
