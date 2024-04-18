@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./MenuCard.module.css";
 
-function MenuCard({ topics, questionNumbers, questionTypes }) {
-  const navigate = useNavigate();
-  const [selectedTopics, setSelectedTopics] = useState([]);
+function MenuCard({ handleSubmit }) {
+  // const [selectedTopics, setSelectedTopics] = useState([]);
   const [numberOfQuestions, setNumberOfQuestions] = useState("");
-  const [selectedTypes, setSelectedTypes] = useState([]);
+  // const [selectedTypes, setSelectedTypes] = useState([]);
+  const [modelUsed, setModelUsed] = useState("");
+  const questionNumbers = ["10", "20", "30"];
+  const questionModel = ["Sonic", "Yoda"];
 
   const toggleSelection = (item, setFunction, array, multiple = true) => {
     const currentIndex = array.indexOf(item);
+
     let newSelection = [...array];
 
     if (currentIndex === -1) {
@@ -21,21 +23,19 @@ function MenuCard({ topics, questionNumbers, questionTypes }) {
     setFunction(newSelection);
   };
 
-  const canSubmit =
-    numberOfQuestions !== "" &&
-    selectedTopics.length > 0 &&
-    selectedTypes.length > 0;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Process form data here
-
-    navigate("/question");
-  };
+  const canSubmit = numberOfQuestions !== "" && modelUsed !== "";
+  // && selectedTopics.length > 0 &&
+  // selectedTypes.length > 0;
 
   return (
-    <form onSubmit={handleSubmit} className={styles.menuCard}>
-      <div className={styles.menuSection}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(numberOfQuestions, modelUsed);
+      }}
+      className={styles.menuCard}
+    >
+      {/* <div className={styles.menuSection}>
         <h3 className={styles.menuLabel}>Topic:</h3>
         {topics.map((topic) => (
           <span
@@ -50,7 +50,7 @@ function MenuCard({ topics, questionNumbers, questionTypes }) {
             {topic}
           </span>
         ))}
-      </div>
+      </div> */}
       <div className={styles.menuSection}>
         <h3 className={styles.menuLabel}>Number of Questions:</h3>
         {questionNumbers.map((number) => (
@@ -66,6 +66,24 @@ function MenuCard({ topics, questionNumbers, questionTypes }) {
         ))}
       </div>
       <div className={styles.menuSection}>
+        <h3 className={styles.menuLabel}>AI Model:</h3>
+        {questionModel.map((model) => (
+          <span
+            key={model}
+            className={`${styles.modelButton} ${
+              modelUsed === model ? styles.selected : ""
+            }`}
+            onClick={() => setModelUsed(model)}
+            data-tooltip={
+              model === "Sonic" ? "Fast but Reckless" : "Slow but Wiser"
+            }
+          >
+            {model}
+          </span>
+        ))}
+      </div>
+
+      {/* <div className={styles.menuSection}>
         <h3 className={styles.menuLabel}>Question Type:</h3>
         {questionTypes.map((type) => (
           <span
@@ -80,7 +98,7 @@ function MenuCard({ topics, questionNumbers, questionTypes }) {
             {type}
           </span>
         ))}
-      </div>
+      </div> */}
       {canSubmit && (
         <button type="submit" className={styles.submitButton}>
           Generate

@@ -17,7 +17,7 @@ function CreateQuestion() {
     "A-Level",
     "GCSE",
   ];
-  const dummyQuestionNumbers = ["10", "20", "30"];
+
   const dummyQuestionTypes = ["Factual", "Differential diagnosis"];
 
   useBodyClass(styles.createQuestionBody);
@@ -25,7 +25,7 @@ function CreateQuestion() {
   const [file, setFile] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [fileError, setFileError] = useState(""); // State to store file upload error
+  const [fileError, setFileError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   // const LoadingOverlay = () => (
@@ -43,16 +43,7 @@ function CreateQuestion() {
   //   }}>
   //     <div>Loading...</div> {/* Customize with your loading animation */}
   //   </div>
-  // );  
-
-  useEffect(() => {
-    fetch("YOUR_API_ENDPOINT")
-      .then((response) => response.json())
-      .then((data) => {
-        // Set state with fetched data
-      })
-      .catch((error) => console.error("Error:", error));
-  }, []);
+  // );
 
   const onDrop = (acceptedFiles, fileRejections) => {
     setFileError(""); // Reset file error state
@@ -77,25 +68,30 @@ function CreateQuestion() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (numberOfQuestions, modelUsed) => {
     if (!file) {
       alert("No file selected");
       return;
     }
     setIsLoading(true);
     const formData = new FormData();
-    formData.append("file", file); // Append the file to form data
+    formData.append("file", file);
+    formData.append("numberOfQuestions", numberOfQuestions);
+    formData.append("modelUsed", modelUsed);
+
+    // for (let [key, value] of formData.entries()) {
+    //   console.log(`${key}:`, value);
+    // }
 
     // Modify this URL to your API endpoint
     const uploadURL = "http://3.217.124.119/upload";
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     fetch(uploadURL, {
       method: "POST",
       headers: {
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       body: formData,
-      // You may need to set additional headers depending on your API requirements
     })
       .then((response) => response.json())
       .then((data) => {
@@ -108,14 +104,16 @@ function CreateQuestion() {
         console.error("Error:", error);
         // Handle errors here
       });
-
-    setSubmitted(true); // Set submitted state to true
-    setShowMenu(true);
   };
+
+  const confirmFile = () => {
+    setSubmitted(true);
+    setShowMenu(true);
+  }
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: "application/pdf", // Accept only PDF files
+    accept: "application/pdf",
     noClick: submitted,
     noDrag: submitted,
   });
@@ -137,18 +135,16 @@ function CreateQuestion() {
               )}
             </div>
             {file && !submitted && (
-              <button onClick={handleSubmit} className={styles.submitButton}>
+              <button onClick={confirmFile} className={styles.submitButton}>
                 Submit
               </button>
             )}
           </div>
-          {/* {showMenu && (
+          {showMenu && (
             <MenuCard
-              topics={dummyTopics}
-              questionNumbers={dummyQuestionNumbers}
-              questionTypes={dummyQuestionTypes}
+              handleSubmit={handleSubmit}
             />
-          )} */}
+          )}
         </div>
       </div>
     </MainSidebarLayout>

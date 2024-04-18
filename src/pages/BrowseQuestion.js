@@ -41,91 +41,77 @@ function BrowseQuestion() {
     setSearchTerm(event.target.value);
   };
 
-  // // Extract unique creators and educations for filters
-  // const uniqueCreators = Array.from(
-  //   new Set(dummyData.map((item) => item.creator))
-  // );
-  // const uniqueEducations = Array.from(
-  //   new Set(dummyData.map((item) => item.education))
-  // );
-
-  // // State to track which filters are selected
-  // const [selectedCreators, setSelectedCreators] = useState({});
-  // const [selectedEducations, setSelectedEducations] = useState({});
-
-  // const toggleCreatorFilter = (creator) => {
-  //   setSelectedCreators((prev) => ({
-  //     ...prev,
-  //     [creator]: !prev[creator],
-  //   }));
-  // };
-
-  // const toggleEducationFilter = (education) => {
-  //   setSelectedEducations((prev) => ({
-  //     ...prev,
-  //     [education]: !prev[education],
-  //   }));
-  // };
-
-  // // Update filtered data when filters change
-  // useEffect(() => {
-  //   let updatedData = dummyData;
-
-  //   const activeCreators = Object.keys(selectedCreators).filter(
-  //     (creator) => selectedCreators[creator]
-  //   );
-  //   if (activeCreators.length) {
-  //     updatedData = updatedData.filter((deck) =>
-  //       activeCreators.includes(deck.creator)
-  //     );
-  //   }
-
-  //   const activeEducations = Object.keys(selectedEducations).filter(
-  //     (education) => selectedEducations[education]
-  //   );
-  //   if (activeEducations.length) {
-  //     updatedData = updatedData.filter((deck) =>
-  //       activeEducations.includes(deck.education)
-  //     );
-  //   }
-
-  //   setFilteredData(updatedData);
-  // }, [selectedCreators, selectedEducations]);
-
   const [decks, setDecks] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [filters, setFilters] = useState({ creators: [], educations: [], topics: []});
+  const [filters, setFilters] = useState({
+    creators: [],
+    educations: [],
+    topics: [],
+  });
   const [selectedCreators, setSelectedCreators] = useState({});
   const [selectedEducations, setSelectedEducations] = useState({});
   const [selectedTopics, setSelectedTopics] = useState({});
 
   // Fetch filter options
   const fetchFilterOptions = async () => {
+    const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://3.217.124.119/filters");
+      const response = await fetch("http://3.217.124.119/filters", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
+      console.log(data); // Ensure this is what you expect
       setFilters({
-        creators: [...new Set(data.map((item) => item.creator))],
-        educations: [...new Set(data.map((item) => item.education))],
-        topics: [...new Set(data.map((item) => item.topic))],
+        creators: [...new Set(data.creator)], // directly use data.creator
+        educations: [...new Set(data.education)], // directly use data.education
+        topics: [...new Set(data.topic)], // directly use data.topic
       });
     } catch (error) {
       console.error("Error fetching filter options:", error);
     }
   };
 
-  // Fetch decks based on selected filters
   const fetchDecks = async () => {
+    const token = localStorage.getItem("token");
+    const url = new URL("http://3.217.124.119/decks");
+
+    const activeCreators = Object.keys(selectedCreators).filter(
+      (key) => selectedCreators[key]
+    );
+    const activeEducations = Object.keys(selectedEducations).filter(
+      (key) => selectedEducations[key]
+    );
+    const activeTopics = Object.keys(selectedTopics).filter(
+      (key) => selectedTopics[key]
+    );
+
+    if (activeCreators.length) {
+      url.searchParams.set("creators", JSON.stringify(activeCreators));
+    } else {
+      url.searchParams.delete("creators");
+    }
+
+    if (activeEducations.length) {
+      url.searchParams.set("educations", JSON.stringify(activeEducations));
+    } else {
+      url.searchParams.delete("educations");
+    }
+
+    if (activeTopics.length) {
+      url.searchParams.set("topics", JSON.stringify(activeTopics));
+    } else {
+      url.searchParams.delete("topics");
+    }
+
     try {
-      const response = await fetch(
-        `http://3.217.124.119/decks?creators=${encodeURIComponent(JSON.stringify(selectedCreators))}
-          &educations=${encodeURIComponent(JSON.stringify(selectedEducations))}
-          &topics=${encodeURIComponent(JSON.stringify(selectedTopics))}
-        `
-      );
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       setDecks(data);
-      setFilteredData(data);
     } catch (error) {
       console.error("Error fetching decks:", error);
     }
@@ -162,14 +148,19 @@ function BrowseQuestion() {
     }));
   };
 
-  //   useEffect(() => {
-  //     // Replace this URL with the actual endpoint from which you're fetching data
-  //     fetch("https://your-backend-endpoint/data")
-  //       .then((response) => response.json())
-  //       .then((data) => setTableData(data))
-  //       .catch((error) => console.error("Error fetching data:", error));
-  //   }, []);
+  // const toggleCreatorFilter = (creator) => {
+  //   setSelectedCreators((prev) => ({
+  //     ...prev,
+  //     [creator]: !prev[creator],
+  //   }));
+  // };
 
+  // const toggleEducationFilter = (education) => {
+  //   setSelectedEducations((prev) => ({
+  //     ...prev,
+  //     [education]: !prev[education],
+  //   }));
+  // };
   return (
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
@@ -262,7 +253,7 @@ function BrowseQuestion() {
               </span>
             </form>
           </div>
-          <BrowseTable data={filteredData} />
+          <BrowseTable data={decks} />
         </div>
       </div>
     </MainSidebarLayout>

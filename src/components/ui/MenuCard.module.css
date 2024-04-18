@@ -20,7 +20,8 @@
   display: block;
 }
 
-.menuButton {
+.menuButton, .modelButton {
+  position: relative;
   padding: 10px 20px;
   display: inline-block;
   outline: 0;
@@ -34,7 +35,7 @@
   font-weight: 700;
 }
 
-.menuButton.selected {
+.menuButton.selected, .modelButton.selected {
   color: #fff;
   background: #000;
 }
@@ -61,4 +62,29 @@
 .submitButton:hover {
   color: #fff;
   background: #000;
+}
+
+.modelButton::before {
+  content: attr(data-tooltip); /* Tooltip text */
+  position: absolute;
+  white-space: nowrap;
+  bottom: calc(100% + 5px); /* Spacing between button and tooltip */
+  left: 50%; /* Center the tooltip */
+  transform: translateX(-50%) translateY(-10px);
+  padding: 5px 10px;
+  border-radius: 6px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.modelButton:hover::before {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-15px);
 }
