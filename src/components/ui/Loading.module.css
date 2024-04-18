@@ -1,6 +1,6 @@
 .container {
-  margin-top: 1%;
-  --uib-size: 400px;
+  margin-top: 2%;
+  --uib-size: 25vw;
   --uib-color: #00308f;
   --uib-speed: 1.75s;
   --uib-stroke: 8px;
