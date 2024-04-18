@@ -65,8 +65,8 @@ const SignUpPage = () => {
     };
 
     // const signUpURL = "http://127.0.0.1:5000/signup";
-    // const signUpURL = "http://3.217.124.119/signup";
-    const signUpURL = "";
+    const signUpURL = "http://3.217.124.119/signup";
+    // const signUpURL = "";
 
     try {
       const response = await fetch(signUpURL, {
@@ -79,7 +79,9 @@ const SignUpPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Please use a different email/username.");
+        const errorData = await response.json();
+        console.log(errorData);
+        throw new Error(errorData.msg || "An unknown error occurred.");
       }
 
       const data = await response.json();

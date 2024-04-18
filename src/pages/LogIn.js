@@ -39,7 +39,9 @@ const LogInPage = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Incorrect Credentials');
+        const errorData = await response.json();
+        console.log(errorData);
+        throw new Error(errorData.msg || "An unknown error occurred.");
       }
 
       const data = await response.json();
