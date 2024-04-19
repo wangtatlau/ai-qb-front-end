@@ -15,16 +15,16 @@
 }
 
 .title {
-  font-size: 50px; /* Example font size */
+  font-size: calc(1.2vw + 1em);
   margin-bottom: 10px;
 }
 
 .description {
-  font-size: 23px; /* Example font size */
+  font-size: calc(0.9vw + 0.6em);
 }
 
 .teamList {
-  font-size: 20px;
+  font-size: calc(0.4vw + 0.7em);
 }
 
 .teamList td {

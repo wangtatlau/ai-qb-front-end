@@ -18,6 +18,8 @@ function BrowseQuestion() {
       education: "A-Level",
       creator: "King's College London",
       verified: "Staff + Crowd",
+      useCount: 1,
+      upvotes: 1,
     },
     {
       id: 2,
@@ -27,6 +29,8 @@ function BrowseQuestion() {
       education: "Undergrad",
       creator: "Anonymous",
       verified: "None",
+      useCount: 2,
+      upvotes: 3,
     },
     {
       id: 3,
@@ -36,6 +40,8 @@ function BrowseQuestion() {
       education: "Undergrad",
       creator: "King's College London",
       verified: "None",
+      useCount: 0,
+      upvotes: 5,
     },
   ];
   // const [filteredData, setFilteredData] = useState(dummyData);
@@ -76,11 +82,11 @@ function BrowseQuestion() {
         },
       });
       const data = await response.json();
-      console.log(data); // Ensure this is what you expect
+      console.log(data); 
       setFilters({
-        creators: [...new Set(data.creator)], // directly use data.creator
-        educations: [...new Set(data.education)], // directly use data.education
-        topics: [...new Set(data.topic)], // directly use data.topic
+        creators: [...new Set(data.creator)], 
+        educations: [...new Set(data.education)], 
+        topics: [...new Set(data.topic)], 
       });
     } catch (error) {
       console.error("Error fetching filter options:", error);

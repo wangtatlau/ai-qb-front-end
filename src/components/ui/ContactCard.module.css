@@ -19,18 +19,18 @@
 }
 
 .title {
-  font-size: 50px; /* Example font size */
+  font-size: calc(1.2vw + 1em);
   margin-bottom: 10px;
   text-align: end;
 }
 
 .description {
-  font-size: 23px; /* Example font size */
+  font-size: calc(0.9vw + 0.6em);
   text-align: end;
 }
 
 .contactList {
-  font-size: 20px;
+  font-size: calc(0.4vw + 0.7em);
 }
 
 .contactList td {

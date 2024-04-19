@@ -51,6 +51,8 @@ const BrowseTable = ({ data, onRowClick }) => {
             <th onClick={() => requestSort('education')}>Education Level {sortConfig.key === 'education' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
             <th onClick={() => requestSort('creator')}>Creator/University {sortConfig.key === 'creator' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
             <th onClick={() => requestSort('verified')}>Verified {sortConfig.key === 'verified' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th onClick={() => requestSort('useCount')}>Use Count {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th onClick={() => requestSort('upvotes')}>Upvotes {sortConfig.key === 'upvotes' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
           </tr>
         </thead>
         <tbody>
@@ -62,6 +64,8 @@ const BrowseTable = ({ data, onRowClick }) => {
               <td>{item.education}</td>
               <td>{item.creator}</td>
               <td>{item.verified}</td>
+              <td>{item.useCount}</td>
+              <td>{item.upvotes}</td>
             </tr>
           ))}
         </tbody>

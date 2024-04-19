@@ -73,7 +73,7 @@ const AboutCard = () => {
             <td>Internal Relations:</td> <td>Oscar Ho</td>
           </tr>
           <tr>
-            <td>Backend Lead:</td> <td>Abirami Muthukumar</td>
+            <td>Lead Software Designer:</td> <td>Abirami Muthukumar</td>
           </tr>
           <tr>
             <td>External Relations:</td> <td>Chantelle Gasa</td>
@@ -85,7 +85,7 @@ const AboutCard = () => {
             <td>Frontend Lead:</td> <td>Victor Lau</td>
           </tr>
           <tr>
-            <td>Staff Contributor:</td> <td>Anatoliy Markiv</td>
+            <td>Technology Enhanced Learning Academic Lead:</td> <td>Anatoliy Markiv</td>
           </tr>
         </table>
       </div>

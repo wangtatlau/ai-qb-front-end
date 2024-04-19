@@ -25,20 +25,20 @@
 } */
 
 .title {
-  font-size: 50px;
+  font-size: calc(1.5vw + 1em);
   text-align: center;
   margin-bottom: 3%;
   white-space: nowrap;
 }
 
 .subtitle {
-  font-size: 30px; 
+  font-size: calc(1.2vw + 0.7em);
   margin-bottom: 4%;
   text-align: center;
 }
 
 .description {
-  font-size: 30px;
+  font-size: calc(1.4vw + 0.7em);
   margin-bottom: 4%;
   padding-left: 15%;
   padding-right: 15%;
@@ -156,11 +156,11 @@
 }
 
 .step{
-  font-size: 40px;
+  font-size: calc(1.6vw + 1em);
 }
 
 .stepDescription {
-  font-size: 30px;
+  font-size: calc(1.3vw + 0.7em);
 }
 
   
@@ -184,7 +184,7 @@
 }
 
 .subSectionTitle {
-  font-size: 50px;
+  font-size: calc(2vw + 1em);
   margin-top: 80px;
 }
 

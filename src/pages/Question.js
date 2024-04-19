@@ -85,8 +85,35 @@ const QuestionPage = () => {
     }
   };
 
-  const handleSubmitTest = () => {
-    navigate("/review", { state: { correctCount, wrongCount } }); // Use state to pass the correct and wrong counts
+  const handleSubmitTest = async () => {
+    const token = localStorage.getItem("token");
+    const endpoint = "http://3.217.124.119/submit-test";
+    const payload = {
+      userAnswers,
+      ratings,
+      bookmarks,
+    };
+  
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload)
+      });
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Test submitted successfully:', responseData);
+        navigate("/review", { state: { correctCount, wrongCount, response: responseData } });
+      } else {
+        throw new Error('Failed to submit test');
+      }
+    } catch (error) {
+      console.error('Error submitting test:', error);
+    }
   };
 
   const handleScoreItemClick = (index) => {
