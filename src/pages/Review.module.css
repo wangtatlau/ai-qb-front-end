@@ -6,10 +6,9 @@
 
 .pageContainer {
   display: flex;
-  align-items: center;
-  justify-items: c;
   flex-direction: column;
-  width: 99vw;
+  justify-content: space-evenly;
+  align-items: center;
   font-family: Lora, serif;
 }
 
@@ -44,13 +43,15 @@
 
 .gridContainer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .topContainer {
-  display:grid;
-  justify-content: center;
+  display:flex;
+  justify-content: space-evenly;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
   width: 100%;
   place-items: center;
   height: 30vh;
@@ -64,7 +65,6 @@
   text-align: center;
   align-items: center;
   height: 100%;
-  min-height: 250px;
   border-right: 2px;
 	border-left: 0;
 	border-style: solid;
@@ -76,7 +76,6 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  min-height: 250px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -91,9 +90,8 @@
 }
 
 .bottomContainer {
-  display:grid;
-  justify-content: center;
-  grid-template-columns: repeat(3, 1fr);
+  display:flex;
+  justify-content: space-evenly;
   width: 100%;
   place-items: center;
   height: 35vh;
@@ -117,8 +115,8 @@
 }
 
 .returnButton {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
   display: flex;
   outline: 0;
   cursor: pointer;
@@ -126,7 +124,7 @@
   border-radius: 3px;
   color: #000;
   background: #fff;
-  font-size: 17px;
+  font-size: calc(0.7em + 0.4vw);
   font-weight: 400;
   line-height: 20px;
   padding: 6px 9px;
@@ -140,3 +138,35 @@
   color: #fff;
   background: #000;
 }
+
+.rateButton {
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 3px;
+  color: #000;
+  background: #fff;
+  font-size: calc(0.7em + 0.4vw);
+  font-weight: 400;
+  line-height: 20px;
+  padding: 5px 10px;
+  text-align:center;
+  transition-duration: .15s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  width: 3.5em;
+  height: 2.4em;
+  margin-right: 1em;
+}
+
+.rateButton:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* .buttonContainer {
+
+} */

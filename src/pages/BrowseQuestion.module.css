@@ -25,6 +25,7 @@
 
 .row {
   margin-bottom: 2%;
+  display: none; /* delete this line when search is implemented */
 }
 
 .filterCategory {

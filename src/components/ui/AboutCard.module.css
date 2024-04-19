@@ -5,8 +5,8 @@
   overflow: hidden;
   padding: 20px;
   background-color: #f3fff6; /* Example background color */
-  height: 40vw;
-  min-height: 800px;
+  height: 45vw;
+  min-height: 500px;
 }
 
 .content {

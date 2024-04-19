@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Review.module.css";
@@ -8,9 +8,13 @@ const ReviewPage = () => {
   useBodyClass(styles.questionBody);
   const location = useLocation();
   const navigate = useNavigate();
-  const { correctCount, wrongCount } = location.state || {
+
+  const [hasBeenRated, setHasBeenRated] = useState(false);
+
+  const { correctCount, wrongCount, deckId } = location.state || {
     correctCount: 0,
     wrongCount: 0,
+    deckId: null,
   };
 
   useBodyClass(styles.ReviewBody);
@@ -18,6 +22,32 @@ const ReviewPage = () => {
     { name: "Correct Answers", value: correctCount },
     { name: "Incorrect Answers", value: wrongCount },
   ];
+
+  const handleRating = async (rating) => {
+    const ratingURL = "http://3.217.124.119/deck-rating";
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await fetch(ratingURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ deckId, rating }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit rating");
+      }
+
+      const responseData = await response.json();
+      setHasBeenRated(true);
+    } catch (error) {
+      console.error("Error submitting rating:", error);
+      alert("Error submitting rating: " + error.message);
+    }
+  };
 
   const COLORS = ["#45d43d", "#d43d3d"];
 
@@ -71,14 +101,40 @@ const ReviewPage = () => {
           </div>
         </div>
       </div>
+      {/* <div className={styles.buttonContainer}> */}
+        {hasBeenRated && (
+          <div className={styles.nextButtonContainer}>
+            <button
+              onClick={() => navigate("/dashboard")}
+              className={styles.returnButton}
+            >
+              Back to Dashboard
+            </button>
+          </div>
+        )}
 
-        <button
-          className={styles.returnButton}
-          onClick={() => navigate("/dashboard")}
-        >
-          Back to Dashboard
-        </button>
-
+        {!hasBeenRated && (
+          <div className={styles.ratingButtonsContainer}>
+            {/* Rating buttons */}
+            <button
+              onClick={() => {
+                handleRating("good");
+              }}
+              className={styles.rateButton}
+            >
+              👍
+            </button>
+            <button
+              onClick={() => {
+                handleRating("bad");
+              }}
+              className={styles.rateButton}
+            >
+              👎
+            </button>
+          </div>
+        )}
+      {/* </div> */}
     </div>
   );
 };
