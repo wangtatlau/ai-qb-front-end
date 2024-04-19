@@ -7,21 +7,24 @@ import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 function PersonalDetails() {
   useBodyClass(styles.ChangePasswordBody);
 
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [name, setName] = useState('');
-  const [university, setUniversity] = useState('');
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [university, setUniversity] = useState("");
   const [isModified, setIsModified] = useState(false);
 
   const navigate = useNavigate();
 
   const fetchDetails = async () => {
-    // Example URL, change to your actual API endpoint
-    const detailsURL = "URLHERE";
-
+    const detailsURL = "http://3.217.124.119/personal-details";
+    const token = localStorage.getItem("token");
     try {
-      const response = await fetch(detailsURL);
-      if (!response.ok) throw new Error('Failed to fetch.');
+      const response = await fetch(detailsURL, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (!response.ok) throw new Error("Failed to fetch.");
 
       const data = await response.json();
       setEmail(data.email);
@@ -29,7 +32,7 @@ function PersonalDetails() {
       setName(data.name);
       setUniversity(data.university);
     } catch (error) {
-      console.error('Error fetching details:', error);
+      console.error("Error fetching details:", error);
     }
   };
 
@@ -42,40 +45,99 @@ function PersonalDetails() {
     setter(value);
     setIsModified(true);
   };
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Change details request submitted.'); // Placeholder for actual API call
+  
+    const updateURL = "http://3.217.124.119/update-details"; // Replace with your actual API endpoint
+    const token = localStorage.getItem("token");
+  
+    const userDetails = {
+      email,
+      username,
+      name,
+      university
+    };
+  
+    try {
+      const response = await fetch(updateURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(userDetails)
+      });
+  
+      if (response.ok) {
+        alert('Details updated successfully');
+        console.log('Details updated successfully');
+        setIsModified(false);
+      } else {
+        throw new Error('Failed to update details');
+      }
+    } catch (error) {
+      console.error('Error updating details:', error);
+      // Optionally handle errors, e.g., by displaying a message to the user
+    }
   };
+  
 
   return (
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
-        <h3 className={styles.settings} onClick={() => navigate("/settings")}>&lt;Settings</h3>
+          <h3 className={styles.settings} onClick={() => navigate("/settings")}>
+            &lt;Settings
+          </h3>
           <h2 className={styles.title}>Personal Details</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.fieldContainer}>
               <label className={styles.subtitle}>Email</label>
-              <input type="email" value={email}
-                onChange={(e) => handleInputChange(e.target.value, setEmail)} className={styles.field} required />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => handleInputChange(e.target.value, setEmail)}
+                className={styles.field}
+                required
+              />
             </div>
             <div className={styles.fieldContainer}>
               <label className={styles.subtitle}>Username</label>
-              <input type="text" value={username}
-                onChange={(e) => handleInputChange(e.target.value, setUsername)} className={styles.field} required />
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => handleInputChange(e.target.value, setUsername)}
+                className={styles.field}
+                required
+              />
             </div>
             <div className={styles.fieldContainer}>
               <label className={styles.subtitle}>Name</label>
-              <input type="text" value={name}
-                onChange={(e) => handleInputChange(e.target.value, setName)} className={styles.field} required />
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => handleInputChange(e.target.value, setName)}
+                className={styles.field}
+                required
+              />
             </div>
             <div className={styles.fieldContainer}>
               <label className={styles.subtitle}>University</label>
-              <input type="text" value={university}
-                onChange={(e) => handleInputChange(e.target.value, setUniversity)} className={styles.field} required />
+              <input
+                type="text"
+                value={university}
+                onChange={(e) =>
+                  handleInputChange(e.target.value, setUniversity)
+                }
+                className={styles.field}
+                required
+              />
             </div>
             {isModified && (
-              <button type="submit" className={styles.button}>Submit Changes</button>
+              <button type="submit" className={styles.button}>
+                Submit Changes
+              </button>
             )}
           </form>
         </div>

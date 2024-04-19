@@ -29,7 +29,7 @@ function ChangePassword() {
     setIsPasswordValid(validatePassword(newPassword));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!currentPassword || !newPassword || !confirmNewPassword || !isPasswordValid) {
@@ -46,9 +46,32 @@ function ChangePassword() {
       setErrorMessage("New Password cannot be the same as the Current Password.");
       return;
     }
+    const token = localStorage.getItem("token");
+    const changePasswordUrl = "http://3.217.124.119/change-password";
+    try {
+      const response = await fetch(changePasswordUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify(newPassword),
+      });
 
-    // API call logic or other password change handling can go here
-    console.log('Change password request submitted.'); // Placeholder for actual API call
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log(errorData);
+        throw new Error(errorData.msg || "An unknown error occurred.");
+      }
+
+      const data = await response.json();
+      alert('Password updated successfully');
+      console.log("Success:", data);
+    } catch (error) {
+      console.error("Error during sign up:", error);
+      alert("Failed to sign up: " + error.message);
+    }
+    console.log('Change password request submitted.');
   };
 
   return (
