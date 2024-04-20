@@ -9,15 +9,17 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow-y: hidden;
 }
 
 .modalContent {
-  width: 50%;
+  overflow-y: auto;
+  max-width: 50%;
+  width: 1250px;
   height: 80%;
   background: #faffff;
   padding: 20px;
   border-radius: 5px;
-  position: relative;
   display: flex;
   font-family: Lato;
 }
@@ -42,45 +44,50 @@
 }
 
 .start {
-  position: absolute;
-  bottom: 10px;
-  width: 80%;
-  display: inline-block;
-  outline: 0;
+  position: fixed;
+  bottom: 11vh;
+  width: 30%;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
   cursor: pointer;
-  border: 2px solid #000;
-  border-radius: 3px;
-  color: #000;
-  background: #fff;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 20px;
-  padding: 6px 9px;
-  text-align:center;
-  transition-duration: .1s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: calc(0.6em + 0.5vw);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .start:hover {
-  color: #fff;
-  background: #000;
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
 
 .horizontal {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
   width: 100%;
+  margin-top: 3vh;
 }
 
-.vertical {
-  width: 33%;
+.verticalOne, .verticalTwo, .verticalThree {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 5vw;
-  margin-left: 5vw;
+}
+
+.verticalOne, .verticalTwo {
+  border-right-style: solid;
+  border-color: #a1a1a1;
 }
 
 .title {
@@ -92,9 +99,12 @@
 .subtitle {
   font-size: calc(0.5em + 0.5vw);
   white-space: nowrap;
+  text-align: center;
 }
 
 .description {
   font-size: calc(0.5em + 0.3vw);
   color: #646464;
+  margin-top: 5vh;
+  margin-bottom: 23vh;
 }

@@ -76,15 +76,15 @@ const DeckDetails = ({ close, itemId }) => {
             <h4 className={styles.subtitle}>By {deckDetails.creator}</h4>
           </div>
           <div className={styles.horizontal}>
-            <div className={styles.vertical}>
+            <div className={styles.verticalOne}>
               <h4 className={styles.subtitle}>Upvotes</h4>
               <h4 className={styles.subtitle}>{deckDetails.upvotes}</h4>
             </div>
-            <div className={styles.vertical}>
+            <div className={styles.verticalTwo}>
               <h4 className={styles.subtitle}>Used by</h4>
               <h4 className={styles.subtitle}>{deckDetails.used} People</h4>
             </div>
-            <div className={styles.vertical}>
+            <div className={styles.verticalThree}>
               <h4 className={styles.subtitle}>Creator's University</h4>
               <h4 className={styles.subtitle}>{deckDetails.university}</h4>
             </div>
