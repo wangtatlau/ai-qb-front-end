@@ -14,7 +14,7 @@ const ReviewPage = () => {
   const { correctCount, wrongCount, deckId } = location.state || {
     correctCount: 0,
     wrongCount: 0,
-    deckId: null,
+    deckId: 0,
   };
 
   useBodyClass(styles.ReviewBody);

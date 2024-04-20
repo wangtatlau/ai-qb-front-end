@@ -29,8 +29,8 @@ const SignUpPage = () => {
 
   const handlePasswordChange = (event) => {
     const newPassword = event.target.value;
-    setPassword(newPassword); // Update password state
-    setIsPasswordValid(validatePassword(newPassword)); // Check and update password validity
+    setPassword(newPassword);
+    setIsPasswordValid(validatePassword(newPassword));
   };
 
   //Need to change when have server
@@ -113,7 +113,7 @@ const SignUpPage = () => {
           />
         </div>
         <div className={styles.innerLeft}>
-          <h2 className={styles.header}>Create Your Account &#40;Available Soon&#41;</h2>
+          <h2 className={styles.header}>Create Your Account</h2>
           <div className={styles.formContainer}>
             <form onSubmit={handleSignUp} className={styles.form}>
               <div className={styles.inputContainer}>
@@ -230,6 +230,7 @@ const SignUpPage = () => {
                   >
                     Terms and Conditions
                   </a>
+                  .
                 </label>
               </div>
               <div className={styles.submitContainer}>

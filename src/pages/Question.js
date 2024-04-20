@@ -9,6 +9,10 @@ import QuestionNavbar from "../components/ui/QuestionNavbar";
 const QuestionPage = () => {
   useBodyClass(styles.questionBody);
   const location = useLocation();
+  const [deckId, setdeckId] = useState(() => {
+    const state = location.state ? location.state.deckId : 0;
+    return state;
+  });
   const [questionStack, setQuestionStack] = useState(() => {
     const state = location.state ? location.state.questionStack : [];
     return state;
@@ -92,6 +96,7 @@ const QuestionPage = () => {
       userAnswers,
       ratings,
       bookmarks,
+      deckId,
     };
   
     try {
@@ -107,7 +112,7 @@ const QuestionPage = () => {
       if (response.ok) {
         const responseData = await response.json();
         console.log('Test submitted successfully:', responseData);
-        navigate("/review", { state: { correctCount, wrongCount, response: responseData } });
+        navigate("/review", { state: { correctCount, wrongCount, deckId } });
       } else {
         throw new Error('Failed to submit test');
       }

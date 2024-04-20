@@ -34,7 +34,8 @@ const DashboardPage = () => {
   };
 
   const openLenny = () => {
-    window.open("https://dev4458.d2fyh4r6skj06f.amplifyapp.com", "_blank", "noopener,noreferrer");
+    // window.open("https://dev4458.d2fyh4r6skj06f.amplifyapp.com", "_blank", "noopener,noreferrer");
+    //uncomment for it to work
   }
 
   return (

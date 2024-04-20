@@ -100,7 +100,7 @@ function CreateQuestion() {
         console.log("Success:", data);
         // Handle successful response
         //Temp
-        navigate("/question", { state: { questionStack: data.questionStack } });
+        navigate("/question", { state: { questionStack: data.questionStack, deckId: data.deckId } });
       })
       .catch((error) => {
         console.error("Error:", error);

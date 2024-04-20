@@ -54,9 +54,9 @@ const DeckDetails = ({ close, itemId }) => {
         },
       });
       if (!response.ok) throw new Error("Failed to start deck session");
-      const deck = await response.json();
+      const data = await response.json();
       // console.log("Deck session started:", result);
-      navigate("/question", { state: { questionStack: deck.questionStack } });
+      navigate("/question", { state: { questionStack: data.questionStack, deckId: data.deckId } });
     } catch (error) {
       console.error("Error starting deck:", error);
     }
