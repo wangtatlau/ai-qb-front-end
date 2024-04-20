@@ -19,6 +19,12 @@ const SignUpPage = () => {
     setter(event.target.value);
   };
 
+  const isValidEmail = (email) => {
+    const endsWithKcl = email.endsWith("@kcl.ac.uk");
+    const numberOfDigits = (email.match(/\d/g) || []).length;
+    return endsWithKcl && numberOfDigits < 4;
+  };
+
   const validatePassword = (password) => {
     const isLongEnough = password.length >= 10;
     const hasNumbers = /\d/.test(password);
@@ -44,7 +50,8 @@ const SignUpPage = () => {
       !university ||
       !password ||
       !confirmPassword ||
-      !isPasswordValid
+      !isPasswordValid ||
+      !isValidEmail(email)
     ) {
       alert("Please make sure all fields are filled in correctly.");
       return;
@@ -118,7 +125,7 @@ const SignUpPage = () => {
             <form onSubmit={handleSignUp} className={styles.form}>
               <div className={styles.inputContainer}>
                 <label htmlFor="email" className={styles.inputlabel}>
-                  Email
+                  Email &#40;KCL only, please use the format your.name@kcl.ac.uk&#41;
                 </label>
                 <input
                   type="email"
