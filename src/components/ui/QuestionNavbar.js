@@ -42,9 +42,9 @@ const NavBar = ({
       <div className={styles.rightContainer}>
         {allQuestionsRated && ( 
           <div className={styles.submitContainer} onClick={handleSubmitTest}>
-            <Link to="/submit-review" className={styles.submitLink}>
+            <div className={styles.submitLink}>
               Submit & Review
-            </Link>
+            </div>
           </div>
         )}
       </div>
