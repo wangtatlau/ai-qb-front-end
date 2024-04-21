@@ -104,6 +104,9 @@ function CreateQuestion() {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setIsLoading(false);
+        alert('Error, please try with a smaller file');
+        window.location.reload();
         // Handle errors here
       });
   };
