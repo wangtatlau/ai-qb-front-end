@@ -73,6 +73,7 @@ function PersonalDetails() {
         alert('Details updated successfully');
         console.log('Details updated successfully');
         setIsModified(false);
+        handleLogout();
       } else {
         const errorData = await response.json();
         console.log(errorData);
@@ -82,6 +83,12 @@ function PersonalDetails() {
       console.error('Error updating details:', error);
       // Optionally handle errors, e.g., by displaying a message to the user
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+    alert("Please login again.")
   };
   
 
