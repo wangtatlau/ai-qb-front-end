@@ -10,16 +10,6 @@
   overflow: hidden;
 }
 
-.table thead th {
-  background-color: #04a96d;
-  color: white;
-  padding: 10px;
-  text-align: left;
-  cursor: pointer;
-  user-select: none; /* Prevents text selection */
-  font-size: 19px;
-}
-
 .table tbody td {
   padding: 10px;
   border-bottom: 1px solid #ccc;
@@ -27,14 +17,15 @@
   font-size: 19px;
 }
 
-.table tbody tr:hover, .table tbody tr:focus {
-    cursor:pointer;
+.table tbody tr:hover,
+.table tbody tr:focus {
+  cursor: pointer;
 }
 
 .table tr {
-    white-space: nowrap;
-    padding: 16px 16px 16px 0;
-    height: 72px;
+  white-space: nowrap;
+  padding: 16px 16px 16px 0;
+  height: 72px;
 }
 
 @media (max-height: 1000px) {
@@ -63,4 +54,30 @@
     padding: 12px 12px 12px 0;
     height: 60px;
   }
+}
+
+.centerTd {
+  text-align: center;
+}
+
+.centerTh {
+  background-color: #04a96d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none; /* Prevents text selection */
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.th {
+  background-color: #04a96d;
+  color: white;
+  padding: 3px;
+  text-align: left;
+  cursor: pointer;
+  user-select: none; /* Prevents text selection */
+  font-size: 19px;
+  font-weight: 700;
 }

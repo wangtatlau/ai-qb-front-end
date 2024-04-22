@@ -45,14 +45,14 @@ const BrowseTable = ({ data, onRowClick }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th onClick={() => requestSort('name')}>Name {sortConfig.key === 'name' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('topic')}>Topic {sortConfig.key === 'topic' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('numberOfQuestions')}>No. of questions {sortConfig.key === 'numberOfQuestions' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('education')}>Education Level {sortConfig.key === 'education' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('creator')}>Creator/University {sortConfig.key === 'creator' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('verified')}>Verified {sortConfig.key === 'verified' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('useCount')}>Use Count {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th onClick={() => requestSort('upvotes')}>Upvotes {sortConfig.key === 'upvotes' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th}onClick={() => requestSort('name')}>Name {sortConfig.key === 'name' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th} onClick={() => requestSort('topic')}>Topic {sortConfig.key === 'topic' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => requestSort('numberOfQuestions')}>No. of questions {sortConfig.key === 'numberOfQuestions' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => requestSort('education')}>Education Level {sortConfig.key === 'education' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th} onClick={() => requestSort('creator')}>Creator/University {sortConfig.key === 'creator' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th} onClick={() => requestSort('verified')}>Verified {sortConfig.key === 'verified' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => requestSort('useCount')}>Use Count {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => requestSort('upvotes')}>Upvotes {sortConfig.key === 'upvotes' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
           </tr>
         </thead>
         <tbody>
@@ -60,12 +60,12 @@ const BrowseTable = ({ data, onRowClick }) => {
             <tr key={index} onClick={() => onRowClick(item)}>
               <td>{item.name}</td>
               <td>{item.topic}</td>
-              <td>{item.numberOfQuestions}</td>
-              <td>{item.education}</td>
+              <td className={styles.centerTd}>{item.numberOfQuestions}</td>
+              <td className={styles.centerTd}>{item.education}</td>
               <td>{item.creator}</td>
               <td>{item.verified}</td>
-              <td>{item.useCount}</td>
-              <td>{item.upvotes}</td>
+              <td className={styles.centerTd}>{item.useCount}</td>
+              <td className={styles.centerTd}>{item.upvotes}</td>
             </tr>
           ))}
         </tbody>
