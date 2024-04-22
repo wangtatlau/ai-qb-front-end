@@ -82,7 +82,8 @@ function ChangePassword() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/login");
+    alert("Please login using the new password")
   };
 
   return (
