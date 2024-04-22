@@ -28,6 +28,8 @@ const QuestionPage = () => {
   const [bookmarks, setBookmarks] = useState({}); // State to store bookmarks
   const isLastQuestion = currentQuestionIndex === questionStack.length - 1;
   const [strikedOptions, setStrikedOptions] = useState({});
+  const [choiceIndices, setChoiceIndices] = useState([]);
+
   const allQuestionsRated =
     Object.keys(ratings).length === questionStack.length;
 
@@ -35,7 +37,7 @@ const QuestionPage = () => {
 
   // Fetch question stack from the API when the component mounts
 
-  const handleAnswerClick = (selectedAnswer) => {
+  const handleAnswerClick = (selectedAnswer, index) => {
     if (answered) return;
     const currentStrikes = strikedOptions[currentQuestionIndex + 1] || [];
     if (currentStrikes.includes(selectedAnswer)) {
@@ -48,6 +50,10 @@ const QuestionPage = () => {
       ...userAnswers,
       { questionId: currentQuestionIndex + 1, selectedAnswer, isCorrect },
     ]);
+
+    const newChoiceIndices = [...choiceIndices];
+    newChoiceIndices[currentQuestionIndex] = index;
+    setChoiceIndices(newChoiceIndices);
     if (isCorrect) {
       setCorrectCount(correctCount + 1);
     } else {
@@ -57,7 +63,7 @@ const QuestionPage = () => {
   };
 
   const handleRightClick = (questionId, option) => {
-    setStrikedOptions(prev => {
+    setStrikedOptions((prev) => {
       const strikesForQuestion = new Set(prev[questionId] || []);
       if (strikesForQuestion.has(option)) {
         strikesForQuestion.delete(option);
@@ -97,27 +103,29 @@ const QuestionPage = () => {
       ratings,
       bookmarks,
       deckId,
+      choiceIndices
     };
-  
+    console.log(payload);
+
     try {
       const response = await fetch(endpoint, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
-  
+
       if (response.ok) {
         const responseData = await response.json();
-        console.log('Test submitted successfully:', responseData);
+        console.log("Test submitted successfully:", responseData);
         navigate("/review", { state: { correctCount, wrongCount, deckId } });
       } else {
-        throw new Error('Failed to submit test');
+        throw new Error("Failed to submit test");
       }
     } catch (error) {
-      console.error('Error submitting test:', error);
+      console.error("Error submitting test:", error);
     }
   };
 
@@ -202,7 +210,9 @@ const QuestionPage = () => {
           isLastQuestion={isLastQuestion}
           handleSubmitTest={handleSubmitTest}
           strikedOptions={strikedOptions[currentQuestion.id] || []}
-          handleRightClick={(option) => handleRightClick(currentQuestion.id, option)}
+          handleRightClick={(option) =>
+            handleRightClick(currentQuestion.id, option)
+          }
         />
         <div className={styles.scoreBoardContainer}>
           <ScoreBoard

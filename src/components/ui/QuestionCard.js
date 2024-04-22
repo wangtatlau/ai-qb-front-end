@@ -65,7 +65,7 @@ const QuestionCard = ({
       </div>
       <ul className={`${styles.optionsList} ${styles.vertical}`}>
         {options.map((option, index) => (
-          <li key={index} onClick={() => handleAnswerClick(option)}
+          <li key={index} onClick={() => handleAnswerClick(option, index)}
           onContextMenu={(event) => onOptionRightClick(event, option)}
           className={styles.optionItem}>
             <div className={styles.optionContent}>
