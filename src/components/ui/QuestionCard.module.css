@@ -53,6 +53,7 @@
   margin: 0;
   font-size: 20px;
   padding-bottom: 1%;
+  font-weight: 500;
 }
 
 .questionLeadIn {
@@ -60,6 +61,7 @@
   margin: 0;
   font-size: 20px;
   padding-bottom: 1%;
+  font-weight: 500;
 }
 
 .optionsList {
@@ -176,6 +178,7 @@
   margin: 0;
   font-size: 20px;
   padding-bottom: 1%;
+  font-weight: 500;
 }
 
 .nextButton {

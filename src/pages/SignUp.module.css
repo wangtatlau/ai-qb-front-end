@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
-
 .SignUpBody {
   background-color: #ffffff;
 }
@@ -16,6 +14,7 @@
 
 .header {
   font-size: 50px;
+  font-weight: 500;
 }
 
 .logo {
@@ -151,6 +150,7 @@
   background: #fff;
   font-family: "Lato";
   font-weight: bold;
+  margin-bottom: 3vh;
 }
 
 .loginButton {

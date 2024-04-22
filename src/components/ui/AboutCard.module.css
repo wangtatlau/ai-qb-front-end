@@ -7,16 +7,17 @@
   background-color: #f3fff6; /* Example background color */
   height: 45vw;
   min-height: 500px;
+  font-weight: 400;
 }
 
 .content {
   flex-basis: 50%; /* Adjust based on your layout/design */
-  font-weight: bold;
 }
 
 .title {
   font-size: calc(1.2vw + 1em);
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .description {

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 .sidebar {
   position: fixed;
@@ -14,7 +14,7 @@
   flex-direction: column; /* Align children vertically */
   justify-content: space-between;
   font-family: "Lato";
-  font-weight: 600;
+  font-weight: 900;
 }
 
 @media (max-height: 1000px) {
