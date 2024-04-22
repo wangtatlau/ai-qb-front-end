@@ -25,7 +25,8 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/toc" element={<Toc />} />
         <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-        <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} />
+        {/* <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} /> */}
+        <Route path="/saved" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
         <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
         <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />

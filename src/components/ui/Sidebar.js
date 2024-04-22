@@ -62,7 +62,7 @@ const Sidebar = () => {
           className={styles.itemContainer}
           onClick={() => openLenny()}
         >
-          <p className={styles.listItem}>Dr. Lenny</p>
+          <p className={styles.lenny}>Dr. Lenny</p>
         </div>
         </React.Fragment>
       </div>

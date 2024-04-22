@@ -74,7 +74,9 @@ function PersonalDetails() {
         console.log('Details updated successfully');
         setIsModified(false);
       } else {
-        throw new Error('Failed to update details');
+        const errorData = await response.json();
+        console.log(errorData);
+        throw new Error(errorData.msg || "An unknown error occurred.");
       }
     } catch (error) {
       console.error('Error updating details:', error);

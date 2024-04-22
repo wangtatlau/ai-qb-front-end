@@ -51,7 +51,7 @@ const DashboardPage = () => {
         </div>
         <div className={styles.rightContainer}>
           <div className={styles.itemContainer} onClick={() => openLenny()}>
-            <p className={styles.navLink}>
+            <p className={styles.lenny}>
               {" "}
               Dr. Lenny{" "}
             </p>

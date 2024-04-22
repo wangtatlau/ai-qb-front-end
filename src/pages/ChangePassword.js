@@ -46,6 +46,11 @@ function ChangePassword() {
       setErrorMessage("New Password cannot be the same as the Current Password.");
       return;
     }
+
+    const loginData = {
+      currentPassword,
+      newPassword,
+    };
     const token = localStorage.getItem("token");
     const changePasswordUrl = "http://3.217.124.119/change-password";
     try {
@@ -55,7 +60,7 @@ function ChangePassword() {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${token}`,
         },
-        body: JSON.stringify(newPassword),
+        body: JSON.stringify(loginData),
       });
 
       if (!response.ok) {
@@ -72,6 +77,12 @@ function ChangePassword() {
       alert("Failed to sign up: " + error.message);
     }
     console.log('Change password request submitted.');
+    handleLogout();
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (

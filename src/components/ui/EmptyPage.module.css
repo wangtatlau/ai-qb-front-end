@@ -1,0 +1,18 @@
+.EmptyBody {
+  background-color: #f1f9f9;
+}
+
+.title {
+    margin-top: 20vh;
+    font-family: Lato;
+    font-size: 35px;
+}
+
+.mainContainer {
+    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
