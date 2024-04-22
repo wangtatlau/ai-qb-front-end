@@ -72,12 +72,13 @@ function ChangePassword() {
       const data = await response.json();
       alert('Password updated successfully');
       console.log("Success:", data);
+      handleLogout();
     } catch (error) {
       console.error("Error during sign up:", error);
       alert("Failed to sign up: " + error.message);
     }
     console.log('Change password request submitted.');
-    handleLogout();
+
   };
 
   const handleLogout = () => {
