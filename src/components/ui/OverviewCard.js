@@ -24,9 +24,6 @@ const OverviewCard = () => {
       <div className={styles.content}>
         <h2 className={styles.title}>The World's Most Advanced AI-Powered</h2>
         <h2 className={styles.title}>Question Bank for Medical Students</h2>
-        <p className={styles.subtitle}>
-          Transforming Medical Education, One Question at a Time
-        </p>
         <p className={styles.subtitle}>Unleash Your Potential with qVault.ai</p>
         <button
           className={styles.signUpButton}
