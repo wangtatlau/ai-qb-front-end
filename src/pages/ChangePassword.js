@@ -74,8 +74,8 @@ function ChangePassword() {
       console.log("Success:", data);
       handleLogout();
     } catch (error) {
-      console.error("Error during sign up:", error);
-      alert("Failed to sign up: " + error.message);
+      console.error("Error:", error);
+      alert("Failed to change password: " + error.message);
     }
     console.log('Change password request submitted.');
 
