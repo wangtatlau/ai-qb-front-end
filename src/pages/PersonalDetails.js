@@ -77,11 +77,11 @@ function PersonalDetails() {
       } else {
         const errorData = await response.json();
         console.log(errorData);
-        throw new Error(errorData.msg || "An unknown error occurred.");
+        throw new Error(errorData.error || "An unknown error occurred.");
       }
     } catch (error) {
-      console.error('Error updating details:', error);
-      // Optionally handle errors, e.g., by displaying a message to the user
+      console.error('Error updating details:', error.message || error);
+      alert(error);
     }
   };
 
