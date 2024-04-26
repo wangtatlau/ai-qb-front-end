@@ -48,30 +48,30 @@ function PersonalDetails() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     const updateURL = "http://3.217.124.119/update-details"; // Replace with your actual API endpoint
     const token = localStorage.getItem("token");
-  
+
     const userDetails = {
       email,
       username,
       name,
-      university
+      university,
     };
-  
+
     try {
       const response = await fetch(updateURL, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(userDetails)
+        body: JSON.stringify(userDetails),
       });
-  
+
       if (response.ok) {
-        alert('Details updated successfully');
-        console.log('Details updated successfully');
+        alert("Details updated successfully");
+        console.log("Details updated successfully");
         setIsModified(false);
         handleLogout();
       } else {
@@ -80,7 +80,7 @@ function PersonalDetails() {
         throw new Error(errorData.error || "An unknown error occurred.");
       }
     } catch (error) {
-      console.error('Error updating details:', error.message || error);
+      console.error("Error updating details:", error.message || error);
       alert(error);
     }
   };
@@ -88,9 +88,8 @@ function PersonalDetails() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
-    alert("Please login again.")
+    alert("Please login again.");
   };
-  
 
   return (
     <MainSidebarLayout>
@@ -133,15 +132,19 @@ function PersonalDetails() {
             </div>
             <div className={styles.fieldContainer}>
               <label className={styles.subtitle}>University</label>
-              <input
-                type="text"
+              <select
                 value={university}
                 onChange={(e) =>
                   handleInputChange(e.target.value, setUniversity)
                 }
                 className={styles.field}
                 required
-              />
+              >
+                <option value="King's College London">
+                  King's College London
+                </option>
+                <option value="Other">Other</option>
+              </select>
             </div>
             {isModified && (
               <button type="submit" className={styles.button}>
