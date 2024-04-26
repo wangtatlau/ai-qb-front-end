@@ -50,9 +50,9 @@ const Sidebar = () => {
           <React.Fragment key={index}>
             <div
               className={styles.itemContainer}
-              onClick={() => handleCardClick(link.path)}
+              onClick={link.name === "Browse" ? () => handleCardClick(link.path) : undefined}
             >
-              <p className={styles.listItem}>{link.name}</p>
+              <p className={link.name !== "Browse" ? styles.lenny : styles.listItem}>{link.name}</p>
             </div>
             {index !== upperLinks.length && <p className={styles.space} />}
           </React.Fragment>
@@ -62,7 +62,7 @@ const Sidebar = () => {
           className={styles.itemContainer}
           onClick={() => openLenny()}
         >
-          <p className={styles.lenny}>Dr. Lenny</p>
+          <p className={styles.lenny}>Lenny</p>
         </div>
         </React.Fragment>
       </div>

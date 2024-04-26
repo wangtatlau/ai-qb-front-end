@@ -4,7 +4,7 @@
 
 .mainContainer {
   margin-left: 200px;
-  margin-right: 4vw;
+  margin-right: 2vw;
   margin-top: 5%;
   display: flex;
   font-family: "Lato";
@@ -12,7 +12,11 @@
 
 .leftContainer {
   width: 15%;
-  margin-left: 2%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
 }
 
 .rightContainer {
@@ -28,11 +32,13 @@
 
 .filterCategory {
   margin-bottom: 20px;
+  font-size: calc(0.6em + 0.6vw);
 }
 
 .filterOption {
   display: block;
   margin-bottom: 5px;
+  font-size: calc(0.6em + 0.3vw);
 }
 
 /* Search Box */

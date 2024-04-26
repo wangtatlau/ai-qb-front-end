@@ -89,3 +89,9 @@
   grid-template-rows: repeat(2, 1fr); /* Two rows */
   padding: 2rem;
 }
+
+.note {
+  bottom: 5vh;
+  position: fixed;
+  color: #686868;
+}

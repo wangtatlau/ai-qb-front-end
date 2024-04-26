@@ -26,18 +26,18 @@ const NavBar = ({
             </div>
           )}
         </div>
-        <a className={styles.itemContainer} href="https://bnf.nice.org.uk">
+        <div className={styles.itemContainer} onClick={() => window.open("https://bnf.nice.org.uk", "_blank", "noopener,noreferrer")}>
           <p className={styles.navLink}>BNF</p>
-        </a>
-        <a className={styles.itemContainer} href="https://www.nice.org.uk">
+        </div>
+        <div className={styles.itemContainer}  onClick={() => window.open("https://www.nice.org.uk", "_blank", "noopener,noreferrer")}>
           <p className={styles.navLink}>NICE</p>
-        </a>
-        <a
+        </div>
+        <div
           className={styles.itemContainer}
-          href="https://www.uptodate.com/contents/table-of-contents/primary-care-adult/general-medicine"
+          onClick={() => window.open("https://www.uptodate.com/contents/table-of-contents/primary-care-adult/general-medicine", "_blank", "noopener,noreferrer")}
         >
           <p className={styles.navLink}>UpToDate</p>
-        </a>
+        </div>
       </div>
       <div className={styles.rightContainer}>
         {allQuestionsRated && ( 

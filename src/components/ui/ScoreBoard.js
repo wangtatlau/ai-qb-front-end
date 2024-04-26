@@ -22,12 +22,12 @@ const ScoreBoard = ({ userAnswers, onScoreItemClick }) => {
       <div className={styles.scoreStats}>
         <p>Correct Answers: {correctAnswersCount}</p>
         <p>Wrong Answers: {userAnswers.filter(answer => !answer.isCorrect).length}</p>
-        <p>Total Questions Answered: {userAnswers.length}</p>
+        {/* <p>Total Questions Answered: {userAnswers.length}</p> */}
         {/* New line for correct percentage */}
         <p>Correct Percentage: {isNaN(correctPercentage) ? '0.00' : correctPercentage}%</p>
-        <p>Facility: ???</p>
-        <p>Discrimination: ???</p>
-        <p>Point biserial: ???</p>
+        <p>Facility: Coming Soon</p>
+        <p>Discrimination: Coming Soon</p>
+        <p>Point biserial: Coming Soon</p>
       </div>
     </div>
   );

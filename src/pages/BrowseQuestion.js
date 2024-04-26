@@ -231,8 +231,8 @@ function BrowseQuestion() {
                 </label>
               ))}
             </div> */}
-            <div className={styles.filterCategory}>
-              <h3>Education</h3>
+            <div>
+              <h3 className={styles.filterCategory}>Education</h3>
               {filters.educations.map((education) => (
                 <label key={education} className={styles.filterOption}>
                   <input
@@ -244,8 +244,8 @@ function BrowseQuestion() {
                 </label>
               ))}
             </div>
-            <div className={styles.filterCategory}>
-              <h3>Topic</h3>
+            <div>
+              <h3 className={styles.filterCategory}>Topic</h3>
               {filters.topics.map((topic) => (
                 <label key={topic} className={styles.filterOption}>
                   <input

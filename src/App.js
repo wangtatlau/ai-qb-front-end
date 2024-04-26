@@ -26,17 +26,17 @@ function App() {
         <Route path="/toc" element={<Toc />} />
         <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
         {/* <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} /> */}
-        <Route path="/saved" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
+        {/* <Route path="/saved" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}
         <Route path="/browse-question" element={<ProtectedRoute><BrowseQuestion /></ProtectedRoute>} />
         <Route path="/review" element={<ProtectedRoute><ReviewPage /></ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
         <Route path="/question" element={<ProtectedRoute><QuestionPage /></ProtectedRoute>} />
-        <Route path="/create-question" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
+        {/* <Route path="/create-question" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}
         <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
         <Route path="/personal-details" element={<ProtectedRoute><PersonalDetails /></ProtectedRoute>} />
-        <Route path="/performance" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
+        {/* <Route path="/performance" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
         <Route path="/leaderboard" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
-        <Route path="/feedback" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
+        <Route path="/feedback" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}
       </Routes>
 
   );

@@ -91,7 +91,7 @@
 }
 
 .title {
-  margin-top: 70%;
+  margin-top: 15vh;
   font-size: calc(1em + 1vw);
   white-space: nowrap;
 }

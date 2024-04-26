@@ -89,20 +89,20 @@ const ReviewPage = () => {
         <div className={styles.bottomContainer}>
           <div className={styles.bottomOne}>
             <p className={styles.summaryText}>Facility</p>
-            <p className={styles.summaryText}>Not Available</p>
+            <p className={styles.summaryText}>Coming Soon</p>
           </div>
           <div className={styles.bottomTwo}>
             <p className={styles.summaryText}>Discrimination</p>
-            <p className={styles.summaryText}>Not Available</p>
+            <p className={styles.summaryText}>Coming Soon</p>
           </div>
           <div className={styles.bottomThree}>
             <p className={styles.summaryText}>Point biserial</p>
-            <p className={styles.summaryText}>Not Available</p>
+            <p className={styles.summaryText}>Coming Soon</p>
           </div>
         </div>
       </div>
       {/* <div className={styles.buttonContainer}> */}
-        {hasBeenRated && (
+        {
           <div className={styles.nextButtonContainer}>
             <button
               onClick={() => navigate("/dashboard")}
@@ -111,7 +111,7 @@ const ReviewPage = () => {
               Back to Dashboard
             </button>
           </div>
-        )}
+        }
 
         {!hasBeenRated && (
           <div className={styles.ratingButtonsContainer}>

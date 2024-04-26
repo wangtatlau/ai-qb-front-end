@@ -53,7 +53,7 @@ const DashboardPage = () => {
           <div className={styles.itemContainer} onClick={() => openLenny()}>
             <p className={styles.lenny}>
               {" "}
-              Dr. Lenny{" "}
+              Lenny{" "}
             </p>
           </div>
           <div className={styles.itemContainer} onClick={() => navigate("/settings")}>
@@ -80,6 +80,7 @@ const DashboardPage = () => {
           />
         ))}
       </div>
+      <h3 className={styles.note}>Our beta software does not support saving questions currently. Always take note of what you got wrong.</h3>
     </div>
   );
 };

@@ -12,15 +12,29 @@
   font-family: "Lato";
 }
 
-.card:hover {
+.greycard {
+  background-color: #d4d4d4;
+  margin: 0.5rem;
+  padding: 1rem; 
+  position: relative;
+  max-width: 340px;
+  max-height: 275;
+  width: 17vw; 
+  height: 13.4vw; 
+  font-family: "Lato";
+  pointer-events: none; 
+}
+
+.card.interactive:hover {
   transform: translateY(-5px); /* Move up the card slightly */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); /* Shadow for lifted effect */
 }
 
-.card:hover .decoration {
+.card.interactive:hover .decoration {
   background-color: rgba(59, 130, 246, 0.5); /* Change color on hover */
   width: 50%; /* Change width on hover */
 }
+
 
 .decoration {
   position: absolute; /* Positioned absolutely within the card */
@@ -48,3 +62,56 @@
   color: black; /* Equivalent to text-black */
   font-family: "Lato";
 }
+
+
+
+/* .card {
+  transition: all 1s;
+  background-color: #ffffff;
+  margin: 0.5rem;
+  padding: 1rem; 
+  position: relative;
+  max-width: 340px;
+  max-height: 275;
+  width: 17vw; 
+  height: 13.4vw; 
+  cursor: pointer;
+  font-family: "Lato";
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); 
+}
+
+.card:hover .decoration {
+  background-color: rgba(59, 130, 246, 0.5); 
+  width: 50%; 
+}
+
+.decoration {
+  position: absolute;
+  background-color: rgba(59, 130, 246, 0.5); 
+  top: 0; 
+  left: 0;
+  width: 6rem;
+  height: 0.25rem;
+  transition: all 0.2s; 
+}
+
+.innerCard {
+  padding: 2% 5% 5% 5%;
+}
+
+.icon {
+  height: 35px;
+  width: auto;
+}
+
+.text {
+  margin-top: 1rem;
+  font-size: calc(0.9vh + 12px);
+  font-weight: 500;
+  color: black; 
+  font-family: "Lato";
+} */

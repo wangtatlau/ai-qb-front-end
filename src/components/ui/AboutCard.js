@@ -64,7 +64,7 @@ const AboutCard = () => {
         <table className={styles.teamList}>
           <tr>
             <td>Project Lead & Head of MBBS Stage 1 Assessments:</td>{" "}
-            <td>Dr Mandeep Sagoo</td>
+            <td>Dr Mandeep Gill Sagoo</td>
           </tr>
           <tr>
             <td>Project Lead:</td> <td>Issac Ng</td>
@@ -85,7 +85,7 @@ const AboutCard = () => {
             <td>Frontend Lead:</td> <td>Victor Lau</td>
           </tr>
           <tr>
-            <td>Technology Enhanced Learning Academic Lead:</td> <td>Anatoliy Markiv</td>
+            <td>Technology Enhanced Learning Academic Lead:</td> <td>Dr. Anatoliy Markiv</td>
           </tr>
         </table>
       </div>

@@ -22,9 +22,10 @@ const OverviewCard = () => {
   return (
     <div className={styles.card}>
       <div className={styles.content}>
-        <h2 className={styles.title}>The World's Most Advanced AI-Powered</h2>
-        <h2 className={styles.title}>Question Bank for Medical Students</h2>
-        <p className={styles.subtitle}>Unleash Your Potential with qVault.ai</p>
+        <p className={styles.subtitle}>The World's Most Advanced</p>
+        <h2 className={styles.title}>AI-Powered Question Bank</h2>
+        <h2 className={styles.title}>For Medical Students</h2>
+
         <button
           className={styles.signUpButton}
           onClick={() => navigate("/signup")}
@@ -130,11 +131,11 @@ const OverviewCard = () => {
       </div>
       <h2 className={styles.subSectionTitle}>Join the qVault.ai Revolution</h2>
       <button
-          className={styles.signUpButton}
-          onClick={() => navigate("/signup")}
-        >
-          Sign Up Now
-        </button>
+        className={styles.signUpButton}
+        onClick={() => navigate("/signup")}
+      >
+        Sign Up Now
+      </button>
       <p className={styles.description}>
         We're not just building a question bank; we're creating a movement. A
         movement of medical students who refuse to settle for mundane, generic
