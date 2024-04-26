@@ -52,7 +52,7 @@ const ContactCard = () => {
         </p>
         <table className={styles.contactList}>
           <tr>
-            <td>Instagram:</td> <td><a href="https://www.instagram.com/qvault.ai/">@qvault.ai</a></td>
+            <td>Instagram:</td> <td><p className={styles.link} onClick={() => window.open("https://www.instagram.com/qvault.ai/", "_blank", "noopener,noreferrer")}>@qvault.ai</p></td>
           </tr>
           {/* <tr>
             <td>LinkedIn:</td> <td>....</td>

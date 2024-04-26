@@ -67,25 +67,25 @@ const AboutCard = () => {
             <td>Dr Mandeep Gill Sagoo</td>
           </tr>
           <tr>
+            <td>Technology Enhanced Learning Academic Lead:</td> <td>Dr Anatoliy Markiv</td>
+          </tr>
+          <tr>
             <td>Project Lead:</td> <td>Issac Ng</td>
-          </tr>
-          <tr>
-            <td>Internal Relations:</td> <td>Oscar Ho</td>
-          </tr>
-          <tr>
-            <td>Backend Lead:</td> <td>Abirami Muthukumar</td>
-          </tr>
-          <tr>
-            <td>External Relations:</td> <td>Chantelle Gasa</td>
           </tr>
           <tr>
             <td>Research Lead:</td> <td>Claire Han</td>
           </tr>
           <tr>
+            <td>Backend Lead:</td> <td>Abirami Muthukumar</td>
+          </tr>
+          <tr>
             <td>Frontend Lead:</td> <td>Victor Lau</td>
           </tr>
           <tr>
-            <td>Technology Enhanced Learning Academic Lead:</td> <td>Dr. Anatoliy Markiv</td>
+            <td>Internal Relations:</td> <td>Oscar Ho</td>
+          </tr>
+          <tr>
+            <td>External Relations:</td> <td>Chantelle Gasa</td>
           </tr>
         </table>
       </div>

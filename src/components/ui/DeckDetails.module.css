@@ -14,7 +14,8 @@
 
 .modalContent {
   overflow-y: auto;
-  max-width: 50%;
+  overflow-x: auto;
+  max-width: 80%;
   width: 1250px;
   height: 80%;
   background: #faffff;
@@ -93,7 +94,7 @@
 .title {
   margin-top: 15vh;
   font-size: calc(1em + 1vw);
-  white-space: nowrap;
+  word-wrap: break-word;
 }
 
 .subtitle {

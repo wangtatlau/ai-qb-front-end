@@ -77,3 +77,8 @@
   transform: translateX(100px); /* Adjust as needed */
   transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
 }
+
+.link {
+  cursor: pointer;
+  color: rgb(255, 76, 255);
+}
