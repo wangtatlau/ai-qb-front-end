@@ -19,22 +19,21 @@ const Toc = () => {
         <h2 className={styles.title}>Terms and Conditions</h2>
         <p className={styles.tocText}>
           1. I confirm that I have read and understood the information sheet
-          dated 13/01/2023 for the above project. I have had the opportunity to
-          consider the information and asked questions which have been answered
+          dated 10/04/2024 for the above project. I have had the opportunity to
+          consider the information and ask questions, which have been answered
           to my satisfaction.
         </p>
         <p className={styles.tocText}>
-          2. I consent voluntarily to be a participant in this project and
-          understand that I can refuse to take part and can withdraw from the
-          project at any time, without having to give a reason, up until
-          31/12/2024.
+          2. I consent voluntarily to participate in this project and understand
+          that I can refuse to take part and withdraw from the project at any
+          time without giving a reason up until 31/12/2024.
         </p>
         <p className={styles.tocText}>
           3. I understand my personal information will be processed for the
-          purposes explained to me in the Information Sheet. I understand that
-          such information will be handled under the terms of UK data protection
-          law, including the UK General Data Protection Regulation (UK GDPR) and
-          the Data Protection Act 2018.
+          purposes explained in the Information Sheet and that it will be
+          handled under the terms of UK data protection law, including the UK
+          General Data Protection Regulation (UK GDPR) and the Data Protection
+          Act 2018.
         </p>
         <p className={styles.tocText}>
           4. I understand that my information may be subject to review by
@@ -42,24 +41,27 @@ const Toc = () => {
           purposes.
         </p>
         <p className={styles.tocText}>
-          5. I agree to be identified in any research outputs, as explained in
+          5. I agree that my non-identifiable data collected may be used in
+          analysis and/ or published in any research outputs, as explained in
           the Information Sheet.
         </p>
         <p className={styles.tocText}>
-          6. I agree to my data being shared with a third-party transcriber who
-          will have signed a confidentiality agreement.
-        </p>
-        <p className={styles.tocText}>
-          7. I agree that the research team may use my data for future research
+          6. I agree that the research team may use my data for future research
           and understand that any such use of identifiable data would be
-          reviewed and approved by a research ethics committee. (In such cases,
-          as with this project, data would not be identifiable in any report and
-          pseudonyms will be used if needed).
+          reviewed and approved by a research ethics committee. &#40;In such
+          cases, as with this project, data would not be identifiable in any
+          report, and pseudonyms will be used if needed&#41;.
         </p>
         <p className={styles.tocText}>
-          8. If you are a KCL student, I agree that the research team may access
-          my KCL Student Profile (including full name, KCL ID and KCL email
-          address) for the purposes of this research project.
+          7. &#40;KCL students only&#41;, I agree that the research team may
+          access my KCL Student Profile &#40;including full name, KCL ID and KCL
+          email address&#41; for this research project.
+        </p>
+        <p className={styles.tocText}>
+          8. I understand that my contact details &#40;including name, KCL email
+          address&#41; will be stored until the end of the study
+          &#40;31/12/2028&#41; for continuous analysis throughout the
+          implementation of the web application.
         </p>
         <p className={styles.tocText}>
           9. I understand that the information I have submitted will be
@@ -79,8 +81,8 @@ const Toc = () => {
           similar nature.
         </p>
         <p className={styles.tocText}>
-          13. I consent to my identifiable data being stored at a third party
-          data storage provider, Google Cloud Services, as described in the
+          13. I consent to my identifiable data being stored at Google Cloud
+          Services, a third-party data storage provider, as described in the
           information sheet.
         </p>
       </div>
