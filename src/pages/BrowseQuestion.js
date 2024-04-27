@@ -187,6 +187,7 @@ function BrowseQuestion() {
       {modalOpen && <DeckDetails
         close={closeModal}
         itemId={selectedItem?.id}
+        useCount={selectedItem?.useCount}
       />}
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}>

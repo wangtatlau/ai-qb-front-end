@@ -2,7 +2,7 @@ import styles from "./DeckDetails.module.css"; // Assume you have CSS for the mo
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const DeckDetails = ({ close, itemId }) => {
+const DeckDetails = ({ close, itemId, useCount }) => {
   //   if (!isOpen) return null;
   const navigate = useNavigate();
   const [deckDetails, setDeckDetails] = useState({
@@ -83,7 +83,7 @@ const DeckDetails = ({ close, itemId }) => {
             </div>
             <div className={styles.verticalTwo}>
               <h4 className={styles.subtitle}>Used by</h4>
-              <h4 className={styles.subtitle}>{deckDetails.used} People</h4>
+              <h4 className={styles.subtitle}>{useCount} People</h4>
             </div>
             <div className={styles.verticalThree}>
               <h4 className={styles.subtitle}>Creator's University</h4>
