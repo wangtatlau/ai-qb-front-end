@@ -7,7 +7,7 @@ import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 import searchLogo from "../static/logos/browse.png";
 import DeckDetails from "../components/ui/DeckDetails";
 
-function BrowseQuestion() {
+function BrowseQuestion({recordTimeStampDeck, recordTimeStamp}) {
   useBodyClass(styles.browseQuestionBody);
   const dummyData = [
     {
@@ -188,6 +188,7 @@ function BrowseQuestion() {
         close={closeModal}
         itemId={selectedItem?.id}
         useCount={selectedItem?.useCount}
+        recordTimeStampDeck={recordTimeStampDeck}
       />}
       <div className={styles.mainContainer}>
         <div className={styles.leftContainer}>
@@ -279,7 +280,7 @@ function BrowseQuestion() {
               </span>
             </form>
           </div>
-          <BrowseTable data={decks} onRowClick={handleRowClick} />
+          <BrowseTable data={decks} onRowClick={handleRowClick} recordTimeStamp={recordTimeStamp} recordTimeStampDeck={recordTimeStampDeck} />
         </div>
       </div>
     </MainSidebarLayout>

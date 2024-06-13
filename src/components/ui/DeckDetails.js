@@ -2,7 +2,7 @@ import styles from "./DeckDetails.module.css"; // Assume you have CSS for the mo
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const DeckDetails = ({ close, itemId, useCount }) => {
+const DeckDetails = ({ close, itemId, useCount, recordTimeStampDeck }) => {
   //   if (!isOpen) return null;
   const navigate = useNavigate();
   const [deckDetails, setDeckDetails] = useState({
@@ -45,6 +45,7 @@ const DeckDetails = ({ close, itemId, useCount }) => {
   }, [itemId]);
 
   const startDeck = async () => {
+    recordTimeStampDeck(itemId, 'startdeck')
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(`http://3.217.124.119/start-deck/${itemId}`, {

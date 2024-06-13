@@ -3,7 +3,7 @@ import styles from "./BrowseTable.module.css";
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io';
 
 
-const BrowseTable = ({ data, onRowClick }) => {
+const BrowseTable = ({ data, onRowClick, recordTimeStamp, recordTimeStampDeck }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
   const sortedData = useMemo(() => {
@@ -45,19 +45,19 @@ const BrowseTable = ({ data, onRowClick }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={styles.th}onClick={() => requestSort('name')}>Name {sortConfig.key === 'name' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.th} onClick={() => requestSort('topic')}>Topic {sortConfig.key === 'topic' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.centerTh} onClick={() => requestSort('numberOfQuestions')}>No. of questions {sortConfig.key === 'numberOfQuestions' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.centerTh} onClick={() => requestSort('education')}>Education Level {sortConfig.key === 'education' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.th} onClick={() => requestSort('creator')}>Creator/University {sortConfig.key === 'creator' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.th} onClick={() => requestSort('verified')}>Verified {sortConfig.key === 'verified' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.centerTh} onClick={() => requestSort('useCount')}>Use Count {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.centerTh} onClick={() => requestSort('upvotes')}>Upvotes {sortConfig.key === 'upvotes' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th}onClick={() => {requestSort('name'); recordTimeStamp('sortname')}}>Name {sortConfig.key === 'name' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th} onClick={() => {requestSort('topic'); recordTimeStamp('sorttopic')}}>Topic {sortConfig.key === 'topic' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => {requestSort('numberOfQuestions'); recordTimeStamp('sortnumberofquestions')}}>No. of questions {sortConfig.key === 'numberOfQuestions' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => {requestSort('education'); recordTimeStamp('sorteducation')}}>Education Level {sortConfig.key === 'education' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th} onClick={() => {requestSort('creator'); recordTimeStamp('sortcreator')}}>Creator/University {sortConfig.key === 'creator' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.th} onClick={() => {requestSort('verified'); recordTimeStamp('sortverified')}}>Verified {sortConfig.key === 'verified' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => {requestSort('useCount'); recordTimeStamp('sortusecount')}}>Use Count {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => {requestSort('upvotes'); recordTimeStamp('sortupvotes')}}>Upvotes {sortConfig.key === 'upvotes' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
           </tr>
         </thead>
         <tbody>
           {sortedData.map((item, index) => (
-            <tr key={index} onClick={() => onRowClick(item)}>
+            <tr key={index} onClick={() => {onRowClick(item); recordTimeStampDeck(item.id, 'deckdetails')}}>
               <td>{item.name}</td>
               <td>{item.topic}</td>
               <td className={styles.centerTd}>{item.numberOfQuestions}</td>
