@@ -53,8 +53,8 @@ function App() {
         <Route path="/dashboard" element={<ProtectedRoute><DashboardPage recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
         <Route path="/question" element={<ProtectedRoute><QuestionPage /></ProtectedRoute>} />
         {/* <Route path="/create-question" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}
-        <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
-        <Route path="/personal-details" element={<ProtectedRoute><PersonalDetails /></ProtectedRoute>} />
+        <Route path="/change-password" element={<ProtectedRoute><ChangePassword recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
+        <Route path="/personal-details" element={<ProtectedRoute><PersonalDetails recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
         {/* <Route path="/performance" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
         <Route path="/leaderboard" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
         <Route path="/feedback" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}

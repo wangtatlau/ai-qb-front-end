@@ -4,7 +4,7 @@ import styles from "./PersonalDetails.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 
-function PersonalDetails() {
+function PersonalDetails({recordTimeStamp}) {
   useBodyClass(styles.ChangePasswordBody);
 
   const [email, setEmail] = useState("");
@@ -95,7 +95,7 @@ function PersonalDetails() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
-          <h3 className={styles.settings} onClick={() => navigate("/settings")}>
+          <h3 className={styles.settings} onClick={() => {navigate("/settings"); recordTimeStamp('settings')}}>
             &lt;Settings
           </h3>
           <h2 className={styles.title}>Personal Details</h2>

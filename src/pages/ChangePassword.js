@@ -4,7 +4,7 @@ import styles from "./ChangePassword.module.css";
 import useBodyClass from "./useBodyClass";
 import MainSidebarLayout from "../components/layout/MainSidebarLayout";
 
-function ChangePassword() {
+function ChangePassword({recordTimeStamp}) {
   useBodyClass(styles.ChangePasswordBody);
   // State to store the password inputs
   const [currentPassword, setCurrentPassword] = useState('');
@@ -91,7 +91,7 @@ function ChangePassword() {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <div className={styles.barConainer}>
-          <h3 className={styles.settings} onClick={() => navigate("/settings")}>&lt;Settings</h3>
+          <h3 className={styles.settings} onClick={() => {navigate("/settings"); recordTimeStamp('settings');}}>&lt;Settings</h3>
           <h2 className={styles.title}>Change Password</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.fieldContainer}>
