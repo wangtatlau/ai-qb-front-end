@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ScoreBoard.module.css";
 
-const ScoreBoard = ({ userAnswers, onScoreItemClick }) => {
+const ScoreBoard = ({ userAnswers, onScoreItemClick, recordTimeStamp }) => {
   const correctAnswersCount = userAnswers.filter(answer => answer.isCorrect).length;
   const correctPercentage = (correctAnswersCount / userAnswers.length * 100).toFixed(2);
 
@@ -12,7 +12,7 @@ const ScoreBoard = ({ userAnswers, onScoreItemClick }) => {
         {userAnswers.map((answer, index) => (
           <li
             key={index}
-            onClick={() => onScoreItemClick(index)}
+            onClick={() => {onScoreItemClick(index); recordTimeStamp(`scoreboard${index}`)}}
             className={answer.isCorrect ? styles.correct : styles.wrong}
           >
             {index + 1}

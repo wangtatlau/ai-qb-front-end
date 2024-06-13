@@ -21,9 +21,14 @@ const QuestionCard = ({
   handleSubmitTest,
   handleRightClick,
   strikedOptions,
+  recordTimeStamp,
 }) => {
-  const userAnswerForCurrentQuestion = userAnswers.find(answer => answer.questionId === question.id);
-  const bookmarkButtonClass = isBookmarked ? styles.bookmarkButtonBookmarked : styles.bookmarkButtonUnbookmarked;
+  const userAnswerForCurrentQuestion = userAnswers.find(
+    (answer) => answer.questionId === question.id
+  );
+  const bookmarkButtonClass = isBookmarked
+    ? styles.bookmarkButtonBookmarked
+    : styles.bookmarkButtonUnbookmarked;
 
   const [isWrongReasonVisible, setWrongReasonVisible] = useState(false);
   const [wrongReason, setWrongReason] = useState("");
@@ -39,50 +44,91 @@ const QuestionCard = ({
   const submitWrongReason = () => {
     if (wrongReason) {
       handleWrongReasonSubmit(wrongReason);
-      handleRating('wrong');
       setWrongReasonVisible(false);
       setWrongReason("");
     }
   };
-  
+
   const onOptionRightClick = (event, option) => {
     event.preventDefault(); // Prevents the default context menu from opening
     handleRightClick(option);
   };
 
   return (
-    <div className={`${styles.cardContainer} ${answered ? styles.answered : ""}`}>
+    <div
+      className={`${styles.cardContainer} ${answered ? styles.answered : ""}`}
+    >
       <div className={styles.questionHeader}>
         <div className={styles.fullQuestionContainer}>
-          <h2 className={styles.questionStem}>{question.id}. {question.questionStem}</h2>
+          <h2 className={styles.questionStem}>
+            {question.id}. {question.questionStem}
+          </h2>
           <h2 className={styles.questionLeadIn}>{question.questionLeadIn}</h2>
         </div>
         <div className={styles.bookmarkButtonContainer}>
-          <button onClick={toggleBookmark} className={`${styles.bookmarkButton} ${bookmarkButtonClass}`}>
-          {isBookmarked ? '♥️' : '♡'}
+          <button
+            onClick={() => {
+              if (isBookmarked) {
+                recordTimeStamp("unlike");
+              } else {
+                recordTimeStamp("like");
+              }
+              toggleBookmark();
+            }}
+            className={`${styles.bookmarkButton} ${bookmarkButtonClass}`}
+          >
+            {isBookmarked ? "♥️" : "♡"}
           </button>
         </div>
       </div>
       <ul className={`${styles.optionsList} ${styles.vertical}`}>
         {options.map((option, index) => (
-          <li key={index} onClick={() => handleAnswerClick(option, index)}
-          onContextMenu={(event) => onOptionRightClick(event, option)}
-          className={styles.optionItem}>
+          <li
+            key={index}
+            onClick={() => {
+              handleAnswerClick(option, index);
+              if (!answered) {
+                recordTimeStamp(`option${index}`);
+              }
+            }}
+            onContextMenu={(event) => {
+              onOptionRightClick(event, option);
+              if (strikedOptions.includes(option)) {
+                recordTimeStamp(`unstrike${index}`);
+              } else {
+                recordTimeStamp(`strike${index}`);
+              }
+            }}
+            className={styles.optionItem}
+          >
             <div className={styles.optionContent}>
               <button
                 disabled={answered}
                 className={`${styles.optionText} ${
-                  answered && option === correctAnswer ? styles.optionCorrect : 
-                  answered && userAnswerForCurrentQuestion && userAnswerForCurrentQuestion.selectedAnswer === option ? styles.optionIncorrect : ""
-                } ${strikedOptions.includes(option) ? styles.strikethrough : ""}`}
+                  answered && option === correctAnswer
+                    ? styles.optionCorrect
+                    : answered &&
+                      userAnswerForCurrentQuestion &&
+                      userAnswerForCurrentQuestion.selectedAnswer === option
+                    ? styles.optionIncorrect
+                    : ""
+                } ${
+                  strikedOptions.includes(option) ? styles.strikethrough : ""
+                }`}
               >
                 {option}
               </button>
               <div>
                 {answered && (
                   <span>
-                    {((userAnswerForCurrentQuestion && option === userAnswerForCurrentQuestion.selectedAnswer)) ? (
-                      <span style={{ color: (option === correctAnswer) ? "green" : "red", marginLeft: "10px" }}>
+                    {userAnswerForCurrentQuestion &&
+                    option === userAnswerForCurrentQuestion.selectedAnswer ? (
+                      <span
+                        style={{
+                          color: option === correctAnswer ? "green" : "red",
+                          marginLeft: "10px",
+                        }}
+                      >
                         {option === correctAnswer ? "✔" : "✘"}
                       </span>
                     ) : null}
@@ -129,20 +175,14 @@ const QuestionCard = ({
       )}
       {answered && hasBeenRated && !isLastQuestion && (
         <div className={styles.nextButtonContainer}>
-          <button
-            onClick={handleNextQuestion}
-            className={styles.nextButton}
-          >
+          <button onClick={() => {handleNextQuestion(); recordTimeStamp('next');}} className={styles.nextButton}>
             Next Question
           </button>
         </div>
       )}
       {answered && hasBeenRated && isLastQuestion && (
         <div className={styles.nextButtonContainer}>
-          <button
-            onClick={handleSubmitTest}
-            className={styles.nextButton}
-          >
+          <button onClick={() => {handleSubmitTest(); recordTimeStamp('submit');}} className={styles.nextButton}>
             Submit & Review
           </button>
         </div>
@@ -150,25 +190,35 @@ const QuestionCard = ({
       {answered && !hasBeenRated && (
         <div className={styles.ratingButtonsContainer}>
           {/* Rating buttons */}
-          <button 
+          <button
             onClick={() => {
-              handleRating('good');
+              handleRating("good");
               setWrongReasonVisible(false);
-            }} 
+              recordTimeStamp("good");
+            }}
             className={styles.rateButton}
           >
             👍
           </button>
-          <button 
+          <button
             onClick={() => {
-              handleRating('normal');
+              handleRating("normal");
               setWrongReasonVisible(false);
-            }} 
+              recordTimeStamp("normal");
+            }}
             className={styles.rateButton}
           >
             👌
           </button>
-          <button onClick={handleWrongRating} className={styles.rateButton}>⚠️</button>
+          <button
+            onClick={() => {
+              handleWrongRating();
+              recordTimeStamp("bad");
+            }}
+            className={styles.rateButton}
+          >
+            ⚠️
+          </button>
         </div>
       )}
       {isWrongReasonVisible && (
@@ -180,7 +230,10 @@ const QuestionCard = ({
             className={styles.reasonInput}
             placeholder="Enter reason for incorrect question"
           />
-          <button onClick={submitWrongReason} className={styles.submitReasonButton}>
+          <button
+            onClick={() => {submitWrongReason(); recordTimeStamp("submitReason");}}
+            className={styles.submitReasonButton}
+          >
             Submit
           </button>
         </div>

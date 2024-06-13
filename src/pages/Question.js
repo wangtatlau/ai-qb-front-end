@@ -151,19 +151,13 @@ const QuestionPage = () => {
   // Function to handle wrong reason submission
   const handleWrongReasonSubmit = (questionId, reason) => {
     const currentRating = ratings[questionId];
-
-    // Check if the question has a 'wrong' rating and no reason has been submitted yet
-    if (
-      currentRating &&
-      currentRating.rating === "wrong" &&
-      !currentRating.reason
-    ) {
       setRatings((prevRatings) => ({
         ...prevRatings,
-        [questionId]: { ...currentRating, reason },
+        [questionId]: { ...currentRating, rating: "wrong", reason },
       }));
-      handleNextQuestion();
-    }
+      if (!isLastQuestion) {
+        handleNextQuestion();
+      }
   };
 
   const toggleBookmark = (questionId) => {
@@ -175,6 +169,29 @@ const QuestionPage = () => {
 
   const currentQuestion = questionStack[currentQuestionIndex];
 
+  const recordTimeStamp = async (buttonId) => {
+    const timestamp = new Date().toISOString();
+    const data = { deckId, questionIndex: currentQuestionIndex, buttonId, timestamp };
+    const token = localStorage.getItem("token");
+    console.log(data);
+    try {
+      const response = await fetch("http://3.217.124.119/question-button", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      console.log("Success:");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <div className={styles.pageContainer}>
       <QuestionNavbar
@@ -183,6 +200,7 @@ const QuestionPage = () => {
         handleSubmitTest={handleSubmitTest}
         className={styles.navBar}
         allQuestionsRated={allQuestionsRated}
+        recordTimeStamp={recordTimeStamp}
       />
       <div className={styles.questionContent}>
         <QuestionCard
@@ -213,11 +231,13 @@ const QuestionPage = () => {
           handleRightClick={(option) =>
             handleRightClick(currentQuestion.id, option)
           }
+          recordTimeStamp={recordTimeStamp}
         />
         <div className={styles.scoreBoardContainer}>
           <ScoreBoard
             userAnswers={userAnswers}
             onScoreItemClick={handleScoreItemClick}
+            recordTimeStamp={recordTimeStamp}
           />
         </div>
       </div>
