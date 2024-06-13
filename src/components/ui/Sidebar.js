@@ -25,6 +25,7 @@ const Sidebar = () => {
   };
 
   const handleLogout = () => {
+    recordTimeStamp("logout");
     localStorage.removeItem("token");
     navigate("/");
   };
@@ -32,7 +33,30 @@ const Sidebar = () => {
   const openLenny = () => {
     // window.open("https://dev4458.d2fyh4r6skj06f.amplifyapp.com", "_blank", "noopener,noreferrer");
     //uncomment for it to work
-  }
+  };
+
+  const recordTimeStamp = async (buttonId) => {
+    const timestamp = new Date().toISOString();
+    const data = { buttonId, timestamp };
+    const token = localStorage.getItem("token");
+    console.log(data);
+    try {
+      const response = await fetch("http://3.217.124.119/general-button", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      console.log("Success:");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className={styles.sidebar}>
@@ -42,7 +66,10 @@ const Sidebar = () => {
             className={styles.logo}
             src={logo}
             alt="Logo"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => {
+              navigate("/dashboard");
+              recordTimeStamp("dashboard");
+            }}
           />
         </div>
         <p className={styles.space} />
@@ -50,20 +77,36 @@ const Sidebar = () => {
           <React.Fragment key={index}>
             <div
               className={styles.itemContainer}
-              onClick={link.name === "Browse" ? () => handleCardClick(link.path) : undefined}
+              onClick={
+                link.name === "Browse"
+                  ? () => {
+                      handleCardClick(link.path);
+                      recordTimeStamp(link.name.toLowerCase());
+                    }
+                  : undefined
+              }
             >
-              <p className={link.name !== "Browse" ? styles.lenny : styles.listItem}>{link.name}</p>
+              <p
+                className={
+                  link.name !== "Browse" ? styles.lenny : styles.listItem
+                }
+              >
+                {link.name}
+              </p>
             </div>
             {index !== upperLinks.length && <p className={styles.space} />}
           </React.Fragment>
         ))}
         <React.Fragment>
-        <div
-          className={styles.itemContainer}
-          onClick={() => openLenny()}
-        >
-          <p className={styles.lenny}>Lenny</p>
-        </div>
+          <div
+            className={styles.itemContainer}
+            onClick={() => {
+              openLenny();
+              recordTimeStamp("lenny");
+            }}
+          >
+            <p className={styles.lenny}>Lenny</p>
+          </div>
         </React.Fragment>
       </div>
       <div className={styles.lowerContainer}>
@@ -71,11 +114,14 @@ const Sidebar = () => {
           <React.Fragment key={index}>
             <div
               className={styles.itemContainer}
-              onClick={() =>
-                link.name === "Log out"
-                  ? handleLogout()
-                  : handleCardClick(link.path)
-              }
+              onClick={() => {
+                if (link.name === "Log out") {
+                  handleLogout();
+                } else {
+                  handleCardClick(link.path);
+                  recordTimeStamp(link.name.toLowerCase());
+                }
+              }}
             >
               <p className={styles.listItem}>{link.name}</p>
             </div>

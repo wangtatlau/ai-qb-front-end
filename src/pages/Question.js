@@ -186,7 +186,7 @@ const QuestionPage = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      console.log("Success:");
+      console.log("Success");
     } catch (error) {
       console.error("Error:", error);
     }

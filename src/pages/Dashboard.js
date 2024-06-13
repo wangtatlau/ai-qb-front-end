@@ -11,7 +11,7 @@ import leaderboard from "../static/logos/leaderboard.png";
 import review from "../static/logos/review.png";
 import useBodyClass from "./useBodyClass";
 
-const DashboardPage = () => {
+const DashboardPage = ( {recordTimeStamp} ) => {
   useBodyClass(styles.dashboardBody);
 
   const navigate = useNavigate();
@@ -38,32 +38,9 @@ const DashboardPage = () => {
     //uncomment for it to work
   }
 
-  const recordTimeStamp = async (buttonId) => {
-    const timestamp = new Date().toISOString();
-    const data = { buttonId, timestamp };
-    const token = localStorage.getItem("token");
-    console.log(data);
-    try {
-      const response = await fetch('http://3.217.124.119/normal-button', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      console.log('Success:');
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   const navDashboard = () => {
-    recordTimeStamp('logo')
-    navigate("/dashboard")
+    recordTimeStamp('dashboard');
+    navigate("/dashboard");
   }
 
   return (
@@ -78,19 +55,19 @@ const DashboardPage = () => {
           />
         </div>
         <div className={styles.rightContainer}>
-          <div className={styles.itemContainer} onClick={() => openLenny()}>
+          <div className={styles.itemContainer} onClick={() => {openLenny(); recordTimeStamp('lenny')}}>
             <p className={styles.lenny}>
               {" "}
               Lenny{" "}
             </p>
           </div>
-          <div className={styles.itemContainer} onClick={() => navigate("/settings")}>
+          <div className={styles.itemContainer} onClick={() => {navigate("/settings"); recordTimeStamp('settings')}}>
             <p className={styles.navLink}>
               {" "}
               Settings{" "}
             </p>
           </div>
-          <div className={styles.itemContainer} onClick={handleLogout}>
+          <div className={styles.itemContainer} onClick={() => {handleLogout(); recordTimeStamp('logout')}}>
             <p className={styles.navLink}>
               {" "}
               Log out{" "}
@@ -104,7 +81,7 @@ const DashboardPage = () => {
             key={index}
             name={card.name}
             icon={card.icon}
-            onClick={() => handleCardClick(card.path)}
+            onClick={() => {handleCardClick(card.path); recordTimeStamp(card.name.toLowerCase());}}
           />
         ))}
       </div>
