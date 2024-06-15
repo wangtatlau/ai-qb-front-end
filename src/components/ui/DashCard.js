@@ -3,13 +3,13 @@ import styles from './DashCard.module.css';
 
 const DashCard = ({ name, icon, onClick }) => {
   // Determine if the name is 'Browse'
-  const isBrowse = name === 'Browse';
+  const available = (name === 'Browse' || name === 'Feedback');
 
   // Apply the grey background class if the name is not 'browse' and add 'interactive' if it is
-  const cardClasses = isBrowse ? `${styles.card} ${styles.interactive}` : `${styles.card} ${styles.greycard}`;
+  const cardClasses = available ? `${styles.card} ${styles.interactive}` : `${styles.card} ${styles.greycard}`;
 
   // Handle click only if the name is 'browse'
-  const handleClick = isBrowse ? onClick : () => {};
+  const handleClick = available ? onClick : () => {};
 
   return (
     <div className={cardClasses} onClick={handleClick}>

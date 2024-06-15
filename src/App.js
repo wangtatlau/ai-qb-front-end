@@ -15,6 +15,7 @@ import LogInPage from "./pages/LogIn";
 import PersonalDetails from "./pages/PersonalDetails";
 import ProtectedRoute from "./ProtectedRoute";
 import EmptyPage from "./components/ui/EmptyPage";
+import Feedback from "./pages/Feedback";
 
 function App() {
   const recordTimeStampDeck = async (deckId, buttonId) => {
@@ -78,6 +79,7 @@ function App() {
         {/* <Route path="/create-question" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}
         <Route path="/change-password" element={<ProtectedRoute><ChangePassword recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
         <Route path="/personal-details" element={<ProtectedRoute><PersonalDetails recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
+        <Route path="/feedback" element={<ProtectedRoute><Feedback recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
         {/* <Route path="/performance" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
         <Route path="/leaderboard" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} />
         <Route path="/feedback" element={<ProtectedRoute><EmptyPage /></ProtectedRoute>} /> */}

@@ -78,7 +78,7 @@ const Sidebar = () => {
             <div
               className={styles.itemContainer}
               onClick={
-                link.name === "Browse"
+                link.name === "Browse" || link.name == "Feedback"
                   ? () => {
                       handleCardClick(link.path);
                       recordTimeStamp(link.name.toLowerCase());
@@ -88,7 +88,7 @@ const Sidebar = () => {
             >
               <p
                 className={
-                  link.name !== "Browse" ? styles.lenny : styles.listItem
+                  link.name !== "Browse" && link.name !== "Feedback" ? styles.lenny : styles.listItem
                 }
               >
                 {link.name}
