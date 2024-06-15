@@ -120,7 +120,7 @@ const SignUpPage = () => {
           />
         </div>
         <div className={styles.innerLeft}>
-          <h2 className={styles.header}>Create Your Account</h2>
+          <h2 className={styles.header}>Sign up</h2>
           <div className={styles.formContainer}>
             <form onSubmit={handleSignUp} className={styles.form}>
               <div className={styles.inputContainer}>

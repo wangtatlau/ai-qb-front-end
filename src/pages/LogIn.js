@@ -68,7 +68,7 @@ const LogInPage = () => {
             />
           </div>
           <div className={styles.innerLeft}>
-            <h2 className={styles.header}>Log In to Your Account</h2>
+            <h2 className={styles.header}>Log In</h2>
             <div className={styles.formContainer}>
               <form onSubmit={handleLogIn} className={styles.form}>
                 <div className={styles.inputContainer}>
