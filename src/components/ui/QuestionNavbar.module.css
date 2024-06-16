@@ -22,7 +22,7 @@
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle box shadow */
   font-size: 18px;
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .navLink {
@@ -73,7 +73,7 @@
   margin: 0 15px; /* Added margin for space between navigation items */
   background-color: transparent;
   font-size: 18px;
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
   cursor: pointer;
 }
 
@@ -104,4 +104,10 @@
   font-weight: bold;
   cursor: pointer;
   white-space: nowrap; /* Prevent text from wrapping */
+}
+
+@media (max-width: 730px) {
+  .submitContainer {
+    display: none;
+  }
 }

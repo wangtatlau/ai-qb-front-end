@@ -15,14 +15,14 @@
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle box shadow */
   font-size: 18px;
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .pageContainer {
   display: flex;
   flex-direction: row; /* Change to row to place elements side by side */
   margin: 20px; /* Add margin to all sides */
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .questionContent {

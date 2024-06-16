@@ -3,7 +3,7 @@
 }
 
 .container {
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

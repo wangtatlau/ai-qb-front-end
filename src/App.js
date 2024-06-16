@@ -14,6 +14,7 @@ import styles from "./index.css";
 import LogInPage from "./pages/LogIn";
 import PersonalDetails from "./pages/PersonalDetails";
 import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 import EmptyPage from "./components/ui/EmptyPage";
 import Feedback from "./pages/Feedback";
 
@@ -65,9 +66,9 @@ function App() {
   };
   return (
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LogInPage />} />
+        <Route path="/" element={<PublicRoute><HomePage /></PublicRoute>} />
+        <Route path="/signup" element={<PublicRoute><SignUpPage /></PublicRoute>} />
+        <Route path="/login" element={<PublicRoute><LogInPage /></PublicRoute>} />
         <Route path="/toc" element={<Toc />} />
         <Route path="/settings" element={<ProtectedRoute><Settings recordTimeStamp={recordTimeStamp} /></ProtectedRoute>} />
         {/* <Route path="/saved" element={<ProtectedRoute><SavedQuestion /></ProtectedRoute>} /> */}

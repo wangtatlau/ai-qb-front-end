@@ -101,9 +101,9 @@ const ReviewPage = () => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.buttonContainer}> */}
+      <div className={styles.buttonContainer}>
         {
-          <div className={styles.nextButtonContainer}>
+          <div className={styles.returnButtonContainer}>
             <button
               onClick={() => navigate("/dashboard")}
               className={styles.returnButton}
@@ -134,7 +134,7 @@ const ReviewPage = () => {
             </button>
           </div>
         )}
-      {/* </div> */}
+      </div>
     </div>
   );
 };

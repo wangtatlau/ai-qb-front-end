@@ -20,7 +20,7 @@
 .title {
   line-height: 1.66em;
   margin: 0;
-  font-family: 'Lato';
+  font-family: "Noto Sans", sans-serif;
   font-size: 1.25em; /* Adjusted for scalability */
   padding-bottom: 1%;
   text-align: center;

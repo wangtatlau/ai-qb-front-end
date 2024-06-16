@@ -9,7 +9,7 @@
   width: 17vw; 
   height: 13.4vw; 
   cursor: pointer;
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .greycard {
@@ -21,7 +21,7 @@
   max-height: 275;
   width: 17vw; 
   height: 13.4vw; 
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
   pointer-events: none; 
 }
 
@@ -60,7 +60,7 @@
   font-size: calc(0.9vh + 12px); /* Equivalent to text-lg */
   font-weight: 500; /* Equivalent to font-semibold */
   color: black; /* Equivalent to text-black */
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 }
 
 
@@ -76,7 +76,7 @@
   width: 17vw; 
   height: 13.4vw; 
   cursor: pointer;
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 }
 
 .card:hover {
@@ -113,5 +113,5 @@
   font-size: calc(0.9vh + 12px);
   font-weight: 500;
   color: black; 
-  font-family: "Lato";
+  font-family: "Noto Sans", sans-serif;
 } */

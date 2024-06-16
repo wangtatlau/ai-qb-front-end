@@ -39,7 +39,7 @@ const Feedback = ({ recordTimeStamp }) => {
     <MainSidebarLayout>
       <div className={styles.mainContainer}>
         <h1 className={styles.title}>Feedback</h1>
-        <p className={styles.info}>If you have any questions or feedback, please submit your feedback here or reach out to us at team@qvault.ai</p>
+        <p className={styles.info}>If you have any feedback, please submit here or email team@qvault.ai</p>
         <form onSubmit={handleSubmit} className={styles.feedbackForm}>
           <textarea
             value={feedback}
