@@ -57,7 +57,7 @@
 
 .text {
   margin-top: 1rem; /* Equivalent to mt-8 (8 * 0.25rem) */
-  font-size: calc(0.9vh + 12px); /* Equivalent to text-lg */
+  font-size: calc(1.1vh + 10px); /* Equivalent to text-lg */
   font-weight: 500; /* Equivalent to font-semibold */
   color: black; /* Equivalent to text-black */
   font-family: "Noto Sans", sans-serif;
