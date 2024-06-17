@@ -56,48 +56,39 @@ const ReviewPage = () => {
       <div className={styles.top}>
         <h2 className={styles.title}>Review</h2>
       </div>
-      <div className={styles.gridContainer}>
-        <div className={styles.topContainer}>
-          <div className={styles.topOne}>
-            <ResponsiveContainer>
-              <PieChart>
-                <Pie
-                  dataKey="value"
-                  isAnimationActive={true}
-                  data={data}
-                  cx="50%"
-                  cy="50%"
-                >
-                  {data.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <div className={styles.topTwo}>
+      <div className={styles.mainContainer}>
+        <div className={styles.topTwo}>
+          <div className={styles.rectangle}>
             <p className={styles.summaryText}>Correctness</p>
-            <p className={styles.correctness}>
+          </div>
+          <div className={styles.circle}>
+            <p className={styles.content}>
               {correctCount}/{wrongCount + correctCount}
             </p>
           </div>
         </div>
-        <div className={styles.bottomContainer}>
-          <div className={styles.bottomOne}>
+        <div className={styles.bottomOne}>
+          <div className={styles.rectangle}>
             <p className={styles.summaryText}>Facility</p>
-            <p className={styles.summaryText}>Coming Soon</p>
           </div>
-          <div className={styles.bottomTwo}>
-            <p className={styles.summaryText}>Discrimination</p>
-            <p className={styles.summaryText}>Coming Soon</p>
+          <div className={styles.circle}>
+            <p className={styles.content}>/</p>
           </div>
-          <div className={styles.bottomThree}>
+        </div>
+        <div className={styles.bottomTwo}>
+          <div className={styles.rectangle}>
             <p className={styles.summaryText}>Point biserial</p>
-            <p className={styles.summaryText}>Coming Soon</p>
+          </div>
+          <div className={styles.circle}>
+            <p className={styles.content}>/</p>
+          </div>
+        </div>
+        <div className={styles.bottomThree}>
+          <div className={styles.rectangle}>
+            <p className={styles.summaryText}>Discrimination</p>
+          </div>
+          <div className={styles.circle}>
+            <p className={styles.content}>/</p>
           </div>
         </div>
       </div>

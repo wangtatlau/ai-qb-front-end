@@ -220,8 +220,8 @@ const QuestionCard = ({
           >
             ⚠️
           </button>
-          {likeCount > 1 && (<p className={styles.likeCount}>{likeCount} likes</p>)}
-          { (<p className={styles.likeCount}>{likeCount} like</p>)}
+          {likeCount > 1 && (<p className={styles.likeCount}>Liked by {likeCount} people.</p>)}
+          {likeCount === 1 && (<p className={styles.likeCount}>Liked by {likeCount} person.</p>)}
         </div>
       )}
       {isWrongReasonVisible && (
