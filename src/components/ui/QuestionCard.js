@@ -22,6 +22,7 @@ const QuestionCard = ({
   handleRightClick,
   strikedOptions,
   recordTimeStamp,
+  likeCount,
 }) => {
   const userAnswerForCurrentQuestion = userAnswers.find(
     (answer) => answer.questionId === question.id
@@ -219,6 +220,8 @@ const QuestionCard = ({
           >
             ⚠️
           </button>
+          {likeCount > 1 && (<p className={styles.likeCount}>Liked by {likeCount} people.</p>)}
+          { (<p className={styles.likeCount}>Liked by {likeCount} person.</p>)}
         </div>
       )}
       {isWrongReasonVisible && (

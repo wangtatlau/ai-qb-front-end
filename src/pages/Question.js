@@ -205,6 +205,7 @@ const QuestionPage = () => {
       <div className={styles.questionContent}>
         <QuestionCard
           question={currentQuestion}
+          likeCount={currentQuestion.likeCount}
           options={currentQuestion.options}
           optionsPercentage={currentQuestion.optionsPercentage}
           explanation={currentQuestion.explanation}

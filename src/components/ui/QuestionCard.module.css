@@ -280,3 +280,7 @@
   transition-property: all;
   transition-timing-function: cubic-bezier(.4,0,.2,1);
 }
+
+.likeCount {
+  font-size: 17px;
+}
