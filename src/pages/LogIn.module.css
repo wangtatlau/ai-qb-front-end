@@ -188,10 +188,12 @@
 .signUpDescription {
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 }
 
 .signUpHeader {
   padding-top: 45px;
   font-size: 23px;
   font-weight: bold;
+  text-align: center;
 }

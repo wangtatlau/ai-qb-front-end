@@ -87,6 +87,8 @@
   align-items: center;
   top: 0; /* Align it to the top of the pageContainer */
   margin-right: 25%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .logoContainer {
@@ -188,12 +190,14 @@
 .signUpDescription {
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 }
 
 .signUpHeader {
   padding-top: 45px;
   font-size: 23px;
   font-weight: bold;
+  text-align: center;
 }
 
 .invalidPassword {
