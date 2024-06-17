@@ -51,7 +51,7 @@ const BrowseTable = ({ data, onRowClick, recordTimeStamp, recordTimeStampDeck })
             <th className={styles.centerTh} onClick={() => {requestSort('education'); recordTimeStamp('sorteducation')}}>Education Level {sortConfig.key === 'education' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
             <th className={styles.th} onClick={() => {requestSort('creator'); recordTimeStamp('sortcreator')}}>Creator/University {sortConfig.key === 'creator' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
             <th className={styles.th} onClick={() => {requestSort('verified'); recordTimeStamp('sortverified')}}>Verified {sortConfig.key === 'verified' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
-            <th className={styles.centerTh} onClick={() => {requestSort('useCount'); recordTimeStamp('sortusecount')}}>Use Count {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
+            <th className={styles.centerTh} onClick={() => {requestSort('useCount'); recordTimeStamp('sortusecount')}}>Traffic {sortConfig.key === 'useCount' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
             <th className={styles.centerTh} onClick={() => {requestSort('upvotes'); recordTimeStamp('sortupvotes')}}>Upvotes {sortConfig.key === 'upvotes' && (sortConfig.direction === 'ascending' ? <IoIosArrowDropdown /> : <IoIosArrowDropup />)}</th>
           </tr>
         </thead>
