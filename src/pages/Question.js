@@ -97,7 +97,7 @@ const QuestionPage = () => {
 
   const handleSubmitTest = async () => {
     const token = localStorage.getItem("token");
-    const endpoint = "http://3.217.124.119/submit-test";
+    const endpoint = "https://secure-backend-qvault.com/submit-test";
     const payload = {
       userAnswers,
       ratings,
@@ -175,9 +175,10 @@ const QuestionPage = () => {
     const token = localStorage.getItem("token");
     console.log(data);
     try {
-      const response = await fetch("http://3.217.124.119/question-button", {
+      const response = await fetch("https://secure-backend-qvault.com/question-button", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),

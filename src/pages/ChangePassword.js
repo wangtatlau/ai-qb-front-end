@@ -52,7 +52,7 @@ function ChangePassword({recordTimeStamp}) {
       newPassword,
     };
     const token = localStorage.getItem("token");
-    const changePasswordUrl = "http://3.217.124.119/change-password";
+    const changePasswordUrl = "https://secure-backend-qvault.com/change-password";
     try {
       const response = await fetch(changePasswordUrl, {
         method: "POST",

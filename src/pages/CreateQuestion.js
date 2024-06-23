@@ -85,7 +85,7 @@ function CreateQuestion() {
     // }
 
     // Modify this URL to your API endpoint
-    const uploadURL = "http://3.217.124.119/upload";
+    const uploadURL = "https://secure-backend-qvault.com/upload";
     // const uploadURL = "";
     const token = localStorage.getItem("token");
     fetch(uploadURL, {

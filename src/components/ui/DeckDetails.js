@@ -19,7 +19,7 @@ const DeckDetails = ({ close, itemId, useCount, recordTimeStampDeck }) => {
       const token = localStorage.getItem("token");
       try {
         const response = await fetch(
-          `http://3.217.124.119/deck-details/${itemId}`,
+          `https://secure-backend-qvault.com/deck-details/${itemId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const DeckDetails = ({ close, itemId, useCount, recordTimeStampDeck }) => {
     recordTimeStampDeck(itemId, 'startdeck')
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`http://3.217.124.119/start-deck/${itemId}`, {
+      const response = await fetch(`https://secure-backend-qvault.com/start-deck/${itemId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

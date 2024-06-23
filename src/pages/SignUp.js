@@ -72,7 +72,7 @@ const SignUpPage = () => {
     };
 
     // const signUpURL = "http://127.0.0.1:5000/signup";
-    const signUpURL = "http://3.217.124.119/signup";
+    const signUpURL = "https://secure-backend-qvault.com/signup";
     // const signUpURL = "";
 
     try {

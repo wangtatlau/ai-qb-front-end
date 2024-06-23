@@ -16,7 +16,7 @@ function PersonalDetails({recordTimeStamp}) {
   const navigate = useNavigate();
 
   const fetchDetails = async () => {
-    const detailsURL = "http://3.217.124.119/personal-details";
+    const detailsURL = "https://secure-backend-qvault.com/personal-details";
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(detailsURL, {
@@ -49,7 +49,7 @@ function PersonalDetails({recordTimeStamp}) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const updateURL = "http://3.217.124.119/update-details"; // Replace with your actual API endpoint
+    const updateURL = "https://secure-backend-qvault.com/update-details"; // Replace with your actual API endpoint
     const token = localStorage.getItem("token");
 
     const userDetails = {

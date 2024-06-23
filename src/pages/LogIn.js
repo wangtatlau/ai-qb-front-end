@@ -27,7 +27,7 @@ const LogInPage = () => {
       password,
     };
 
-    const logInURL = "http://3.217.124.119/login";
+    const logInURL = "https://secure-backend-qvault.com/login";
 
     try {
       const response = await fetch(logInURL, {

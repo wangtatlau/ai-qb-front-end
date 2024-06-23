@@ -41,9 +41,10 @@ const Sidebar = () => {
     const token = localStorage.getItem("token");
     console.log(data);
     try {
-      const response = await fetch("http://3.217.124.119/general-button", {
+      const response = await fetch("https://secure-backend-qvault.com/general-button", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),

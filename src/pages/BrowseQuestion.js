@@ -76,7 +76,7 @@ function BrowseQuestion({recordTimeStampDeck, recordTimeStamp}) {
   const fetchFilterOptions = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://3.217.124.119/filters", {
+      const response = await fetch("https://secure-backend-qvault.com/filters", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -95,7 +95,7 @@ function BrowseQuestion({recordTimeStampDeck, recordTimeStamp}) {
 
   const fetchDecks = async () => {
     const token = localStorage.getItem("token");
-    const url = new URL("http://3.217.124.119/decks");
+    const url = new URL("https://secure-backend-qvault.com/decks");
 
     const activeCreators = Object.keys(selectedCreators).filter(
       (key) => selectedCreators[key]

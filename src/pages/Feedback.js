@@ -15,11 +15,12 @@ const Feedback = ({ recordTimeStamp }) => {
     if (!feedback) {
         return;
     }
-    const feedbackURL = "http://3.217.124.119/feedback";
+    const feedbackURL = "https://secure-backend-qvault.com/feedback";
     const token = localStorage.getItem("token");
     try {
         const response = await fetch(feedbackURL, {
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         });

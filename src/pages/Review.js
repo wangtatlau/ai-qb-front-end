@@ -24,7 +24,7 @@ const ReviewPage = () => {
   ];
 
   const handleRating = async (rating) => {
-    const ratingURL = "http://3.217.124.119/deck-rating";
+    const ratingURL = "https://secure-backend-qvault.com/deck-rating";
     const token = localStorage.getItem("token");
 
     try {
