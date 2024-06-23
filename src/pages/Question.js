@@ -169,9 +169,9 @@ const QuestionPage = () => {
 
   const currentQuestion = questionStack[currentQuestionIndex];
 
-  const recordTimeStamp = async (buttonId) => {
+  const recordTimeStamp = async (buttonId, reason = "") => {
     const timestamp = new Date().toISOString();
-    const data = { deckId, questionIndex: currentQuestionIndex, buttonId, timestamp };
+    const data = { deckId, questionIndex: currentQuestionIndex, buttonId, reason, timestamp };
     const token = localStorage.getItem("token");
     console.log(data);
     try {

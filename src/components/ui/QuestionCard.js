@@ -47,6 +47,7 @@ const QuestionCard = ({
       handleWrongReasonSubmit(wrongReason);
       setWrongReasonVisible(false);
       setWrongReason("");
+      recordTimeStamp("submitReason", wrongReason);
     }
   };
 
@@ -234,7 +235,7 @@ const QuestionCard = ({
             placeholder="Enter reason for incorrect question"
           />
           <button
-            onClick={() => {submitWrongReason(); recordTimeStamp("submitReason");}}
+            onClick={() => {submitWrongReason();}}
             className={styles.submitReasonButton}
           >
             Submit
