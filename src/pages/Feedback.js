@@ -36,7 +36,6 @@ const Feedback = ({ recordTimeStamp }) => {
     alert("Thank you for your feedback!");
     setFeedback("");
   };
-
   useBodyClass(styles.feedbackBody);
 
   return (
