@@ -23,6 +23,7 @@ const Feedback = ({ recordTimeStamp }) => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          body: JSON.stringify(feedback),
         });
         if (!response.ok) throw new Error("Failed to fetch.");
         const data = await response.json();
