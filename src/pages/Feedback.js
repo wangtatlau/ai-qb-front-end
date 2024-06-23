@@ -19,11 +19,14 @@ const Feedback = ({ recordTimeStamp }) => {
     const token = localStorage.getItem("token");
     try {
         const response = await fetch(feedbackURL, {
+          method: 'POST',
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          body: JSON.stringify(feedback),
         });
+
         if (!response.ok) throw new Error("Failed to fetch.");
         const data = await response.json();
       } catch (error) {
