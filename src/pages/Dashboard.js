@@ -67,7 +67,7 @@ const DashboardPage = ( {recordTimeStamp} ) => {
               Settings{" "}
             </p>
           </div>
-          <div className={styles.itemContainer} onClick={() => {handleLogout(); recordTimeStamp('logout')}}>
+          <div className={styles.itemContainer} onClick={() => {recordTimeStamp('logout'); handleLogout();}}>
             <p className={styles.navLink}>
               {" "}
               Log out{" "}

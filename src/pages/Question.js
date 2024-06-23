@@ -103,7 +103,7 @@ const QuestionPage = () => {
       ratings,
       bookmarks,
       deckId,
-      choiceIndices
+      choiceIndices,
     };
     console.log(payload);
 
@@ -151,13 +151,13 @@ const QuestionPage = () => {
   // Function to handle wrong reason submission
   const handleWrongReasonSubmit = (questionId, reason) => {
     const currentRating = ratings[questionId];
-      setRatings((prevRatings) => ({
-        ...prevRatings,
-        [questionId]: { ...currentRating, rating: "wrong", reason },
-      }));
-      if (!isLastQuestion) {
-        handleNextQuestion();
-      }
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      [questionId]: { ...currentRating, rating: "wrong", reason },
+    }));
+    if (!isLastQuestion) {
+      handleNextQuestion();
+    }
   };
 
   const toggleBookmark = (questionId) => {
@@ -171,18 +171,31 @@ const QuestionPage = () => {
 
   const recordTimeStamp = async (buttonId, reason = "") => {
     const timestamp = new Date().toISOString();
-    const data = { deckId, questionIndex: currentQuestionIndex, buttonId, reason, timestamp };
+    let data = {
+      deckId,
+      questionIndex: currentQuestionIndex,
+      buttonId,
+      timestamp,
+    };
+
+    if (reason) {
+      data.reason = reason;
+    }
+
     const token = localStorage.getItem("token");
     console.log(data);
     try {
-      const response = await fetch("https://secure-backend-qvault.com/question-button", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://secure-backend-qvault.com/question-button",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
